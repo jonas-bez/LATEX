@@ -1,0 +1,2528 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{epsfig}
+\usepackage{multicol}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{fancyheadings}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\DeclareGraphicsExtensions{.png,.pdf}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{amssymb}
+% As margens
+\setlength{\textheight}{24.0cm}
+\setlength{\textwidth}{17.5cm}
+\setlength{\oddsidemargin}{2.0cm} % Margens reais desejadas
+\setlength{\evensidemargin}{2.0cm} % 2+17.5+1.5=21cm (largura A4)
+\setlength{\topmargin}{1.5cm} % 1.5+1.6+1.0+24.0+1.6=29.7cm
+\setlength{\headheight}{1.6cm} % (altura A4)
+\setlength{\headsep}{1.0cm}
+\setlength{\columnsep}{1.5cm} % Coluna = 8cm ((17.5-1.5)/2)
+\addtolength{\oddsidemargin}{-1in}
+\addtolength{\evensidemargin}{-1in}
+\addtolength{\topmargin}{-1in}
+\setlength{\footskip}{0.0cm}
+\usepackage{tasks}
+% Novos comandos
+\newcommand{\limite}{\displaystyle\lim}
+\newcommand{\integral}{\displaystyle\int}
+\newcommand{\somatorio}{\displaystyle\sum}
+\newcommand{\mat}[1]{\mbox{\boldmath{$#1$}}} 
+
+\pagestyle{fancy}
+
+\usepackage{lipsum}
+\lhead{
+\includegraphics[width=1cm]{brasao.png}
+}
+
+
+\rhead{ 
+\sc\textbf{U}niversidade \textbf{F}ederal do \textbf{C}eará\\
+Campus Quixadá\\}
+\begin{document}
+
+\begin{titlepage}
+\begin{center}
+{\large Universidade Federal do Ceara}\\[0.2cm] 
+{\large Engenharia de Computação}\\[0.2cm]
+{\large Cálculo Diferencial e Integral III}\\[5.1cm]
+{\bf \huge Resumos e exercícios}\\[6.1cm] % o comando \bf deixa o texto entre chaves em negrito. O comando \huge deixa o texto enorme
+\end{center} %término do comando centralizar
+{\large Alunos:Adan Buenos Silva Freitas, Gustavo Damasceno de Campos, Ian Mateus Torres Pompeu, Jonas Bezerra da Costa Máximo e José Ediberto do Nascimento Júnior}\\[0.7cm]
+{\large Matriculas:0402851, 0403407, 0399799 e 0403490 0404243}\\[0.7cm]
+{\large Professor:Antônio Joel Ramiro de Castro}\\[5.1cm]
+\begin{center}
+{\large Quixadá - CE}\\[0.2cm]
+{\large 2018}
+\end{center}
+\end{titlepage}
+
+\begin{center}
+		\Large Capítulo 9 - Área e Integral de Superfície.
+	\end{center}
+	
+	\begin{large}
+		9.1 - Superfícies:
+	\end{large}
+	
+    Com uma superfície parametrizada $\sigma$ entendemos uma transformação $\sigma$:A $\rightarrow$ $R^3$, sendo A um subconjunto do $R^2$. Vamos supor que as componentes de  $\sigma$ sejam dadas por: x=x(u,v), y=y(u,v), z=z(u,v), então  $\sigma$(u,v) = (x(u,v), y(u,v), z(u,v)). Dessa forma, escreveremos com frequência: \\
+    
+	\begin{figure}[h]	
+	\centering % para centralizarmos a figura	
+	\includegraphics[width=5cm]{Foto0_9.png} 
+	\end{figure}
+	Para indicar a superfície parametrizada $\sigma$ dada por $\sigma$(u,v) = (x(u,v), y(u,v), z(u,v)). O lugar geométrico descrito por $\sigma$(u,v), quando (u,v) percorre A, é a imagem de $\sigma$.
+	
+		\begin{center}
+		Im $\sigma = (\sigma \in R^3 \mid (U,V) \in A)$
+	    \end{center}
+	    
+	\begin{figure}[h]	
+	\centering % para centralizarmos a figura	
+	\includegraphics[width=18cm]{Foto1_91.jpg} 
+	\end{figure}
+	
+	Geralmente, adota-se, por conveniência a notação $\sigma$ tanto para indicar uma superfície parametrizada como sua imagem.\\
+	
+	
+	\begin{large}
+		9.2 - Plano Tangente:
+	\end{large}
+	
+	Seja $\sigma : \Omega \ \subset \mathbb{R}^2 \rightarrow R^3,\ \Omega$ aberto, uma superfície parametrizada de classe $C^1$ e seja $(u_0,v_0)$ um ponto de $\Omega$. Fixado $u_0,v \mapsto \sigma(u_0,v)$ é uma curva cuja imagem está contida na imagem de $\sigma$. Se $\delta\sigma / \delta v(u_0,v_0)\neq 0$, então  $\delta\sigma / \delta v(u_0,v_0)$ será um vetor tangente a está curva no ponto $\sigma(u_0,v_0)$. De modo análogo, fixado $v_0$, podemos considerar a curva u $\mapsto \sigma (u,v_0)$.\\
+	\begin{figure}[h]	
+	\centering % para centralizarmos a figura	
+	\includegraphics[width=5cm]{Foto2.png} 
+	\end{figure}
+	
+	Tal plano denomina-se plano tangente à superfície $\sigma$ no ponto $(x_0, y_0, z_0)$ = $\sigma(u_0, v_0)$ e tem por equação:\\
+	
+	\begin{center}
+		(x, y, z) = $\sigma(u_0,v_0) + s\dfrac{\partial\sigma}{\partial u}(u_0,v_0) + t\dfrac{\partial\sigma }{\partial v}(u_0,v_0) (s,t \int R)$.
+	\end{center}
+	
+	Seja $\sigma\ :\ \Omega \ \subset \ \mathbb{R}2 \rightarrow \mathbb{R}^3, \Omega$ aberto, de classe $C^1$. Diz que $\sigma$ é regular no ponto $(u_0, v_0) \in \Omega$ se $\delta\sigma / \delta u (u_0, v_0) \wedge \delta\sigma / \delta u (u_0, v_0) \neq 0$. Diz que $\sigma$ é regular em $\Omega$ se for regular em todo ponto de $\Omega$. Observa-se que $\sigma$ ser regular em $\Omega$ significa que $\sigma$ admite plano tangente em todo ponto $\sigma$(u,v), com (u,v) $\in$ $\Omega$.\\
+	
+	\begin{large}
+		9.3 - Área de Superfície:
+	\end{large}
+	
+	Seja $\sigma: K \subset R^3$, onde $K$ é um compacto com fronteira de conteúdo nulo e interior não vazio. Bem, para melhor explicação no livro do guidorizzi ele suponhei que $\sigma$ é de classe $C^1$ em $K$ e regular no interior de $K$. De modo geral, diz que $\sigma$ é de classe $C^1$ em $K$ significa que existe uma transformação $\varphi\ :\ \Omega \subset R^3$ de classe $C^1$ no aberto $\Omega$, tal que, para todo $(u,v)$ em $K$, $\sigma(u,v) = \varphi(u,v)$.\\
+	
+	\begin{figure}[h]	
+	\centering % para centralizarmos a figura	
+	\includegraphics[width=18cm]{foto4.jpg} 
+	\end{figure}	
+	
+	A área $\Delta$S de ABCD é aproximada pela área do paralelograma de lados $\sigma$/$\delta$u(u,v)$\Delta$u e $\sigma$/$\delta$v(u,v)$\Delta$v:\\
+	
+	\begin{center}
+		"área" $\Delta$S $\cong$ $\left \| \dfrac{\partial\sigma}{\partial u}(u,v) \wedge \dfrac{\partial\sigma}{\partial v}(u,v) \right \|$ $\Delta$u $\Delta$v
+	\end{center}
+	\newpage
+	
+	Com isso, pode-se concluir a área de $\sigma$ por:
+	
+	\begin{center}
+		área de $\sigma$ = $\iint_{k}^{}$ $\left \| \dfrac{\partial\sigma}{\partial u} \wedge \dfrac{\partial\sigma}{\partial v} \right \|$ du dv.\\
+	\end{center}
+	
+	Perceba que a integral acima exite, pois a norma é contínua em K e a fronteira de K tem conteúdo nulo.\\
+	
+	\begin{large}
+		9.4 - Integral\ de\ Superfície:
+	\end{large}
+	
+	Seja K um compacto de $R^2$, com fronteira de conteúdo nulo e interior não vazio; seja $\sigma\ :\ K \subset R^3$ de classe $C^1$ em $K$, regular e injetora no interior de $K$.
+	
+	Seja $w = f(x,y,z)$ uma função a valores reais definida e contínua na imagem de $\sigma$. Definimos a integral de superfície de f sobre $\sigma$ por\\ 
+    
+    \begin{center}
+        $\iint_{\sigma }^{}$ f(x,y,z) = $\iint_{k}^{}$ f($\sigma$(u,v)) $\left \| \frac{\partial \sigma }{\partial u} \wedge \frac{\partial \sigma}{\partial v}  \right \|$ du dv
+    \end{center}  
+	
+	onde dS é o elemento de área.\\
+	Observação: Na definição de integral de superfície a função f(x,y,z) não precisa estar definida em todos os pontos da imagem de $\sigma$, basta estar definida nos pontos X = $\sigma$(u,v), com (u,v) no interior de K.\\
+	
+	\begin{center}
+		\Large Capítulo\ 10\ -\ Fluxo\ de\ um\ campo\ vetorial.\ Teorema\ de\ Gauss
+	\end{center}
+	
+	\begin{large}
+		10.1 - Fluxo de um Campo Vetorial:
+	\end{large}
+	
+	Seja $\sigma$ : K \subset $R^2$ $\rightarrow$ $R^3$ de classe $C^1$, onde K é um compacto com fronteira de conteúdo nulo e interior não vazio. Suponha que $\sigma$ seja injetora e regular no interior de K. Pode-se então, considerar os campos vetoriais $\Vec{n_1}$ e $\Vec{n_2}$ dados por \\
+	\begin{center}
+	$\Vec{n_1}$ ($\sigma$(u,v)) = \dfrac{\frac{\partial \sigma }{\partial u}(u,v) \wedge \frac{\partial \sigma }{\partial v}(u,v)
+}{\left \| \frac{\partial \sigma }{\partial u}(u,v) \wedge \frac{\partial \sigma }{\partial v}(u,v) \right \|}, (u,v) \in $K^$\\
+    \end{center}
+    
+    \begin{center}
+    $\Vec{n_2}$ ($\sigma$(u,v)) = - $\Vec{n_1}$ ($\sigma$(u,v))\\
+    \end{center}
+    
+    O campo $\Vec{n_1}$ associa a cada ponto $\sigma$(u,v) da imagem de $\sigma$, com (u,v) $\in$ K, um vetor unitário e normal de $\sigma$, Observe que o domínio de $\Vec{n_1}$ é o conjunto\\
+    
+    \begin{center}
+        $\left \{ X \in Im\sigma \mid X = \sigma(u,v)  \in K  \right \}$\\
+    \end{center}
+    \newpage 
+    Como $\sigma$ é injetora de K, o campo $\Vec{n_1}$ está bem definido.
+    
+    \begin{figure}[h]	
+	\centering % para centralizarmos a figura	
+	\includegraphics[width=12cm]{Foto3.png} 
+	\end{figure}
+	
+	Seja $\Vec{F}$ : Im $\sigma$ $\rightarrow$ $R^3$ um campo vetorial contínuo e seja $\Vec{n_1}$ um dos campos $\Vec{n_1}$ ou $\Vec{n_2}$ da página acima. Seja $F_n$ = $\Vec{F}$ $\cdot$ $\Vec{n}$ a função a valores reais dada por\\
+
+    \begin{center}	
+	$\Vec{F_n}$($\sigma$(u,v)) = $\Vec{F}$($\sigma$(u,v)) $\cdot$ $\Vec{n}$($\sigma$(u,v)), (u,v) \in K.\\
+	\end{center}
+	
+	Observe que $\Vec{F_n}$($\sigma$(u,v)) é a componente escalar de $\Vec{F}$($\sigma$(u,v)) na direção do vetor $\Vec{n}$($\sigma$(u,v)). Pois bem a integral de superfície\\
+	
+	\begin{center}	
+        $\iint_{\sigma}^{}$ $\Vec{F}$ $\cdot$ $\Vec{n}$\\
+	\end{center}
+	
+	denomina-se fluxo de $\Vec{F}$ através de $\sigma$, na direção $\Vec{n}$. É frequente a notação  $\iint_{\sigma}^{}$ $\Vec{F}$ $\cdot$ $\Vec{n}$, onde $\Vec{dS}$ = $\Vec{n}$ dS, para indicar o fluxo de $\Vec{F}$ através de $\sigma$, na direção $\Vec{n}$. é comum referir-se a $\Vec{dS}$ como elemento de área orientado. Segue da integral de superfície que\\
+	
+	\begin{center}	
+        $\iint_{\sigma}^{}$ $\Vec{F}$ $\cdot$ $\Vec{n}$ dS = $\iint_{\k}^{}$ $\Vec{F}$($\sigma$(u,v)) $\cdot$ $\Vec{n}$($\sigma$(u,v)) ${\left \| \frac{\partial \sigma }{\partial u}(u,v) \wedge \frac{\partial \sigma }{\partial v}(u,v) \right \|}$
+	\end{center}
+	
+	Temos, então:\\
+	
+	\begin{center}	
+        $\iint_{\sigma}^{}$ $\Vec{F}$ $\cdot$ $\Vec{n}$ dS = - $\iint_{\k}^{}$ $\Vec{F}$($\sigma$(u,v)) $\cdot$ $\left [ \frac{\partial \sigma }{\partial u}(u,v) \wedge \frac{\partial \sigma }{\partial v}(u,v) \right ]$\\
+	\end{center}
+	
+	se
+	
+	\begin{center}	
+        $\Vec{n}$($\sigma$(u,v)) = - \dfrac{\frac{\partial \sigma }{\partial u}(u,v) \wedge \frac{\partial \sigma }{\partial v}(u,v)
+        }{\left \| \frac{\partial \sigma }{\partial u}(u,v) \wedge \frac{\partial \sigma }{\partial v}(u,v) \right \|}\\
+	\end{center}
+	
+	
+	Pelo fato de estarmos supondo $\Vec{F}$ contínua em Im $\sigma$, $\sigma$ de classe $C^1$ e K com fronteira de conteúdo nulo, a integral $\iint_{\sigma}^{}$ $\Vec{F}$ $\cdot$ $\Vec{n}$ dS existe.
+	
+	\newpage
+	
+	\begin{left}
+		$\Large$ 10.2 - Teorema\ de\ Gauss:
+	\end{left}
+	
+	Seja B \subset $R^3$ um compacto, com interior não vazio, cuja fronteira coincide com a imagem de uma cadeia $\sigma$ = ($\sigma_1$, $\sigma_2$, $\sigma_3$, ..., $\sigma_m$). Suponha-se que, para cada índice i, seja possível escolher uma normal unitária $\Vec{n_i}$ a ($\sigma_i$, com $\Vec{n_i}$ apontando para fora de B. Seja $\Vec{n}$ um campo vetorial definido na fronteira de B e que coincide com $\Vec{n_i}$ sobre $\sigma_i$($K_i$). Seja $\Vec{F}$ = P $\Vec{i}$ + Q $\Vec{j}$ + R $\Vec{k}$\\
+	
+	Um campo vetorial de classe $C^1$ num aberto contendo B. Pode ser provado que para uma classe bastante ampla de conjuntos B, nas condições acima. é válida a relação\\
+	
+	\begin{center}
+		$\int \int_{\sigma}^{}$ $\Vec{F}$ $\Vec{n}$ dS = $\int \int \int_{B}^{}$ div $\Vec{F}$ dx dy dz\\
+	\end{center}
+	
+	Conhecida como teorema da divergência ou de gauss.\\
+	
+	
+	\begin{center}
+		\Large Capítulo 11 - Teorema\ de\ Stoke\ no\ Espaço\\
+	\end{center}
+	
+	Seja $\sigma$ : K $\rightarrow$ $R^3$ uma porção de superfície regular; isto significa que K é um compacto com fronteiras $C^1$ por partes, $\sigma$ é injetora e de classe $C^1$ em K e, para todo (u,v) $\in$ K\\
+	
+	
+	\begin{center}
+		$\dfrac{\partial \sigma}{\partial u}(u,v) \wedge \dfrac{\partial \sigma}{\partial v}(u,v)$ $\neq$ $\Vec{0}$\\
+	\end{center}
+	
+	Seja $\gamma$ : [a,b] $\rightarrow$ $C^2$ uma curva simples, fechada, $C^1$ por partes, cuja a imagem é a fronteira de K. Consideremos, agora a curva $\Gamma$ : [a,b] $\rightarrow$ $R^3$ dada por\\
+	
+	
+	\begin{center}
+        $\Gamma$(t) = $\sigma$($\gamma$(t)), t $\in$ [a,b]~\\
+	\end{center}	
+	
+    Como é injetora e de classe $C^1$, resulta que $\Gamma$ é, também fechada, simple e $C^1$ por partes. Diz que $\Gamma$ é uma curva fronteira de $\sigma$. Se $\gamma$ estiver orientada no sentido anti horária e se $\Vec{n}$ for anormal $\dfrac{\frac{\partial \sigma }{\partial u} \wedge \frac{\partial \sigma }{\partial v}
+        }{\left \| \frac{\partial \sigma }{\partial u} \wedge \frac{\partial \sigma }{\partial v} \right \|}$, então vamos referir a $\Gamma$ como uma curva fronteira de $\sigma$ orientada positivamente em relação $\Vec{n}$\\
+        
+    
+    \begin{figure}[h]	
+	\centering % para centralizarmos a figura	
+	\includegraphics[width=12cm]{Foto5.png}
+	\end{figure}
+    
+    \newpage
+    
+    
+    Teorema de Stoke: Seja $\sigma$ : K $\rightarrow$ $R^3$ uma porção de superfície regular dada por $\sigma$(u,v) = (x(u,v), y(u,v), z(u,v)) onde x = x(u,v), y = y(u,v) e z(u,v) são supostas de classes $C^2$ num aberto que contendo K. Seja $\Vec{F}$ = P $\Vec{i}$ + Q $\Vec{j}$ + R $\Vec{k}$ um campo vetorial de classe $C^1$ num aberto que contém Im $\sigma$. Nestas condições, tem-se\\
+    
+    
+    \begin{center}
+        $\int_{\Gamma}^{}$ $\Vec{F}$ $\cdot$ $\Vec{dr}$ = $\iint_{\sigma}^{}$ (rot $\Vec{F}$) $\cdot$ $\Vec{n}$ dS\\
+	\end{center}
+	
+	Onde $\Gamma$ é uma curva fronteira de $\sigma$ orientada positivamente em relação à normal.\\
+	
+	\begin{center}
+       $\Vec{n}$ =  $\dfrac{\frac{\partial \sigma }{\partial u} \wedge \frac{\partial \sigma }{\partial v}
+        }{\left \| \frac{\partial \sigma }{\partial u} \wedge \frac{\partial \sigma }{\partial v} \right \|}$\\
+	\end{center}
+	%-------------------------- Começa as questões ----------------------------
+	\begin{enumerate}
+%CAPITULO 6
+
+	\begin{center}
+	    \begin{large}
+	        $\newpage$ Capítulo\ 6\ (Guidorizzi)- Integrais\ de\ Linha\\6.1 Integral de um Campo Vetorial sobre uma Curva 6.2 Outra notação para a Integral de Linha de um Campo Vetorial sobre uma Curva e 6.4 Integral de Linha relativa ao comprimento de arco
+	    \end{large}
+	\end{center}
+
+	        %Começo da parte do Cap 6.1
+	        % Questão 01 - a
+	        \item Calcule $\displaystyle\int_\gamma \vec{F} d\vec{r}$ sendo $\vec{F}(x,y,z) = x\vec{i} + y\vec{j} + z\vec{k}$ e $\gamma (t) = (\cos t \textrm{,}\ \sin t \textrm{,}\ t)$, $0 \leq t \leq 2\pi$ $\newline$
+	            % ---------- Resposta 01 - a ----------------------
+    	            $\Rightarrow \displaystyle\int_\gamma\ \vec{F} \cdot d\vec{r} \ = \ \displaystyle\int_{0}^{2\pi} \vec{F}(\gamma(t)) \cdot \gamma'(t)\ dt \ \Rightarrow \displaystyle\int_{0}^{2\pi}\ (\cos t\vec{i} + \sin t\vec{j} + t\vec{k}) \cdot (-\sin t, \cos t, 1)\ dt $ 
+    	            
+    		        $\Rightarrow \displaystyle\int_{0}^{2\pi}\ (-\sin t \cos t + \sin t \cos t + t)\ dt = \displaystyle\int_{0}^{2\pi}\ t\ dt $
+    		        $\Rightarrow \displaystyle\int_{0}^{2\pi}\ t\ dt = \Bigg[\dfrac{t^2}{2}\Bigg]_0^{2\pi} = 2\pi^2$
+	            % ---------- Resposta 01 - a ----------------------
+	            
+	        % Questão 01 - b
+	        \item Calcule $\displaystyle\int_\gamma \vec{F} d\vec{r}$ sendo $\vec{F}(x,y,z) = (x + y + z)\vec{k}$ e $\gamma (t) = ( t \textrm{,}\ t \textrm{,}\ 1 - t^2)$, $0 \leq t \leq 1$ $\newline$
+	            % ---------- Resposta 01 - b ----------------------
+    	            $\Rightarrow \displaystyle\int_\gamma\ \vec{F} \cdot d\vec{r} = \displaystyle\int_{0}^{1}\ \vec{F}(\gamma(t)) \cdot \gamma'(t)\ dt \Rightarrow \displaystyle\int_{0}^{1}\ (2t + 1 - t^2)\vec{k} \cdot (1,1,-2t)\ dt$ 
+    	            
+            		$\Rightarrow \displaystyle\int_{0}^{1}\ (-4t^2 - 2t + 2t^3)\ dt = \Bigg[\dfrac{-4t^3}{3} - t^2 + \dfrac{t^4}{2}\Bigg]_0^1 = \dfrac{-11}{6}$
+	            % ---------- Resposta 01 - b ----------------------
+	            
+	        % Questão 01 - c
+	        \item Calcule $\displaystyle\int_\gamma \vec{F} d\vec{r}$ sendo $\vec{F}(x,y) = x^2\vec{j}$ e $\gamma (t) = (t^2 \textrm{,}\ 3)$, $-1 \leq t \leq 1$ $\newline$
+	            % ---------- Resposta 01 - c ----------------------
+	                $\Rightarrow \displaystyle\int_\gamma\ \vec{F} \cdot d\vec{r} = \displaystyle\int_{-1}^{1}\ \vec{F}(\gamma(t)) \cdot \gamma'(t)\ dt \Rightarrow \displaystyle\int_{-1}^{1}\ (t^4)\vec{j} \cdot (2t,0)\ dt $ 
+		
+		            $\Rightarrow \displaystyle\int_{-1}^{1}\ 0\ dt = \Big[0\Big]_{-1}^1$ = 0
+	            % ---------- Resposta 01 - c ----------------------
+	        
+	        % Questão 01 - d
+	        \item Calcule $\displaystyle\int_\gamma \vec{F} d\vec{r}$ sendo $\vec{F}(x,y,z) = x^2\vec{i} + (x - y)\vec{j}$ e $\gamma (t) = (t \textrm{,}\ \sin t)$, $0 \leq t \leq \pi$ $\newline$
+	            % ---------- Resposta 01 - d ----------------------
+	                $\Rightarrow \displaystyle\int_\gamma\ \vec{F} \cdot d\vec{r} = \displaystyle\int_{0}^{\pi}\ \vec{F}(\gamma(t)) \cdot \gamma'(t)\ dt \Rightarrow \displaystyle\int_{0}^{\pi}\ (t^2\vec{i} + (t - \sin t)\vec{j}) \cdot (1, \cos t)\ dt $
+		
+            		$\Rightarrow \displaystyle\int_{0}^{\pi}\ (t^2 + t \cos t - \sin t \cos t)\ dt = \displaystyle\int_{0}^{\pi}\ t^2\ dt + \displaystyle\int_{0}^{\pi}\ t\cos t\ dt - \displaystyle\int_{0}^{\pi}\ \sin t\cos t\ dt $
+            		
+            		$\Rightarrow \displaystyle\int_{0}^{\pi}\ t^2\ dt + \displaystyle\int_{0}^{\pi}\ t\cos t\ dt - \displaystyle\int_{0}^{\pi}\ \sin t\cos t\ dt = \Bigg[\dfrac{t^3}{3} + t\sin t + \cos t - \dfrac{\sin^2 t}{2}\Bigg]_0^{\pi} = \dfrac{\pi^3}{3} - 2$
+	            % ---------- Resposta 01 - d ----------------------
+	            
+	        % Questão 01 - e
+	        \item Calcule $\displaystyle\int_\gamma \vec{F} d\vec{r}$ sendo $\vec{F}(x,y,z) = x^2\vec{i} + y^2\vec{j} + z^2\vec{k}$ e $\gamma (t) = (2 \cos t \textrm{,}\ 3 \sin t \textrm{,}\ t)$, $0 \leq t \leq 2\pi$ $\newline$
+	             % ---------- Resposta 01 - e ----------------------
+	                $\Rightarrow \displaystyle\int_\gamma\ \vec{F} \cdot d\vec{r} = \displaystyle\int_{0}^{2\pi}\ \vec{F}(\gamma(t)) \cdot \gamma'(t)\ dt \Rightarrow \displaystyle\int_{0}^{2\pi}\ (4\cos^2 t, 9\sin^2 t, t^2) \cdot (-2\sin t, 3\cos t,1)\ dt $
+		
+            		$\Rightarrow \displaystyle\int_{0}^{2\pi}\ (-8\cos^2 t\sin t + 27\sin^2 t \cos t + t^2) = \Bigg[\dfrac{-8\cos^3 t}{3} + 9\sin^3 t + \frac{t^3}{3}\Bigg]_0^{2\pi} = \frac{8\pi^3}{3}$
+	             % ---------- Resposta 01 - e ----------------------
+	        
+	        % Questão 02
+	        \item Seja $\vec{F}\textrm{:} \mathbb{R}^2 \rightarrow \mathbb{R}^2$ um campo vetorial contínuo tal que, para todo (x,y), $\vec{F}(x,y)$ é paralelo ao vetor $x\vec{i} + y\vec{j}$. Calcule $\displaystyle\int_\gamma \vec{F} d\vec{r}$, onde $\gamma \textrm{:} [a,b] \rightarrow R^2$ é uma curva de classe $C^1$, cuja imagem está contida na circunferência de centro na origem e raio r $>$ 0. Interprete geometricamente. $\newline$
+	             % ---------- Resposta 02 ----------------------
+	                $\Rightarrow$ Suponha que  $\gamma(t) = (x(t), y(t))$, $a \leq t \leq b$, seja uma curva de classe $C^1$ com sua imagem contida na circunferência de centro na origem e raio r. Sabe-se que $\gamma'(t)$ é tangente, no ponto $\gamma(t)$, à curva $\gamma(t)$ e, portanto, ortogonal ao vetor $x(t)\vec{i} + y(t)\vec{j}$
+            		
+            		$\Rightarrow$ Como $F(\gamma(t))$ é paralelo a $x(t)\vec{i} + y(t)\vec{j}$, temos que $F(\gamma(t))$ é, também ortogonal a $\gamma'(t)$. Então $\vec{F}(\gamma(t)) \cdot \gamma'(t) = 0$
+            		
+            		$\Rightarrow$ Logo $ \displaystyle\int_\gamma\ \vec{F} \cdot d\vec{r} = \displaystyle\int_{a}^{b}\ \vec{F}(\gamma(t)) \cdot \gamma'(t)\ dt = 0$
+	             % ---------- Resposta 02 ----------------------
+	        
+	        % Questão 03
+	        \item Uma partícula move-se no plano de modo que no instante $t$ sua posição é dada por $\gamma (t) = (t \textrm{,}\ t^2)$. Calcule o trabalho realizado pelo campo de forças $\vec{F}(x,y) = (x + y)\vec{i} + (x - y)\vec{j}$ no deslocamento da partícula de $\gamma (0)$ até $\gamma (1)$. $\newline$
+	            % ---------- Resposta 03 ----------------------
+	                $\Rightarrow \tau = \displaystyle\int_\gamma\ \vec{F} \cdot d\vec{r} = \displaystyle\int_{0}^{1}\ (t + t^2 , t - t^2) \cdot (1,2t)\ dt $
+            		
+            		$\Rightarrow \tau = \displaystyle\int_{0}^{1}\ t + 3t^2 - 2t^3\ dt = \Bigg[\dfrac{t^2}{2} + t^3 - \dfrac{t^4}{2}\Bigg]_0^1 = 1$
+	            % ---------- Resposta 03 ----------------------
+	        
+	        % Questão 04 - a
+	        \item Uma partícula desloca-se em um campo de forças dado por $\vec{F}(x,y,z) = -y\vec{i} + x\vec{j} + z\vec{k}$. Calcule o trabalho realizado por $\vec{F}$ no deslocamento da partícula de $\gamma (a)$ até $\gamma (b)$, sendo dado: $\gamma (t) = (\cos t \textrm{,}\ \sin t \textrm{,}\ t)$, $a = 0$ e $b = 2 \pi$. $\newline$
+	            % ---------- Resposta 04 - a ----------------------
+	                $\Rightarrow \tau = \displaystyle\int_\gamma\ \vec{F} \cdot d\vec{r} = \displaystyle\int_{a}^{b}\ \vec{F}(\gamma(t)) \cdot \gamma'(t)\ dt \Rightarrow \displaystyle\int_{0}^{2\pi}\ (-\sin t\vec{i} + \cos t\vec{j} + t\vec{k}) \cdot (-\sin t, \cos t, 1)\ dt  $
+                	
+                	$\Rightarrow \tau = \displaystyle\int_{0}^{2\pi}\ (\sin^2 t + \cos^2 t + t)\ dt = \displaystyle\int_{0}^{2\pi}\ (1 + t)\ dt $
+                	
+                	$\Rightarrow \tau = \displaystyle\int_{0}^{2\pi}\ (1 + t)\ dt = \Bigg[t +  \dfrac{t^2}{2}\Bigg]_0^{2\pi} = 2\pi(1 + \pi)$
+	            % ---------- Resposta 04 - a ----------------------
+	        
+	        % Questão 04 - b
+	        \item Uma partícula desloca-se em um campo de forças dado por $\vec{F}(x,y,z) = -y\vec{i} + x\vec{j} + z\vec{k}$. Calcule o trabalho realizado por $\vec{F}$ no deslocamento da partícula de $\gamma (a)$ até $\gamma (b)$, sendo dado: $\gamma (t) = (2t + 1 \textrm{,}\ t - 1 \textrm{,}\ t)$, $a = 1$ e $b = 2 $. $\newline$
+	            % ---------- Resposta 04 - b ----------------------
+	                $\Rightarrow \tau = \displaystyle\int_\gamma\ \vec{F} \cdot d\vec{r} = \displaystyle\int_{a}^{b}\ \vec{F}(\gamma(t)) \cdot \gamma'(t)\ dt \Rightarrow \tau = \displaystyle\int_{1}^{2}\ ((1-t)\vec{i} + (2t + 1)\vec{j} + t\vec{k}) \cdot (2,1,1)\ dt$
+            		
+            		$\Rightarrow \tau = \displaystyle\int_{1}^{2}\ (2 - 2t + 2t + 1 + t)\ dt = \displaystyle\int_{1}^{2}\ (3 + t)\ dt $
+            		
+            		$\Rightarrow \tau = \displaystyle\int_{1}^{2}\ (3 + t)\ dt = \Bigg[3t + \dfrac{t^2}{2}\Bigg]_1^2 = \dfrac{9}{2}$
+            		
+	            % ---------- Resposta 04 - b ----------------------
+	        
+	        % Questão 04 - c
+	        \item Uma partícula desloca-se em um campo de forças dado por $\vec{F}(x,y,z) = -y\vec{i} + x\vec{j} + z\vec{k}$. Calcule o trabalho realizado por $\vec{F}$ no deslocamento da partícula de $\gamma (a)$ até $\gamma (b)$, sendo dado: $\gamma (t) = (\cos t \textrm{,}\ 0 \textrm{,}\ \sin t)$, $a = 0$ e $b = 2 \pi$. $\newline$
+	            % ---------- Resposta 04 - c ----------------------
+	                $\Rightarrow \tau = \displaystyle\int_\gamma\ \vec{F} \cdot d\vec{r} = \displaystyle\int_{a}^{b}\ \vec{F}(\gamma(t)) \cdot \gamma'(t)\ dt \Rightarrow \tau = \displaystyle\int_{0}^{2\pi}\ (\cos t\vec{j} + \sin t\vec{k}) \cdot (-\sin t, 0, \cos t)\ dt$
+            		
+            		$\Rightarrow \tau = \displaystyle\int_{0}^{2\pi}\ \sin t \cos t\ dt = \Bigg[\dfrac{\sin^2 t}{2} t\Bigg]_0^{2\pi} = 0$
+	            % ---------- Resposta 04 - c ----------------------
+	        
+	        % Questão 05
+	        \item Calcule $\displaystyle\int_\gamma \vec{E} \cdot d\vec{l}$ onde $\vec{E}(x,y) = \dfrac{1}{x^2 + y^2} \dfrac{x \vec{i} + y \vec{j}}{\sqrt{x^2 + y^2}}$ e $\gamma (t) = (t \textrm{,}\ 1)$, $-1 \leq t \leq 1$. (O $\vec{l}$ desempenha aqui o mesmo papel que o $\vec{r}:\vec{l}(t) = \gamma (t)$). $\newline$
+	            % ---------- Resposta 05 ----------------------
+	                $\Rightarrow \displaystyle\int_\gamma\ \vec{E} \cdot d\vec{l} = \displaystyle\int_{-1}^{1}\ \vec{E}(\gamma(t)) \cdot \gamma'(t)\ dt \Rightarrow \displaystyle\int_{-1}^{1}\ \Bigg(\dfrac{1}{t^2 + 1} \cdot \dfrac{t\vec{i} + y\vec{j}}{\sqrt{t^2 + 1}} \Bigg) \cdot (1,0)\ dt$
+		
+            		$\Rightarrow \displaystyle\int_{-1}^{1}\ \dfrac{t}{(t^2 + 1)^{\frac{3}{2}}}\ dt = \Bigg[\dfrac{-2}{2\sqrt{t^2 + 1}}\Bigg]_{-1}^1 = 0$
+	            % ---------- Resposta 05 ----------------------
+	        
+	        % Questão 06 - a
+	        \item Seja $\vec{E}$ o campo do exercício anterior e seja $\gamma$ a curva dada por $x = t$ e $y = 1 - t^4$,  $-1 \leq t \leq 1$. Qual o valor é razoável esperar para $\displaystyle\int_\gamma \vec{E} \cdot d\vec{l}$ ? Por quê? $\newline$
+	            % ---------- Resposta 06 - a ----------------------
+	                $\Rightarrow$ Bem, a curva de $\gamma(t)$ é uma parábola com concavidade voltada para baixo, é simétrica com eixo Y. Podemos escrever o campo vetorial como $\vec{E} (x,y)$ como :
+                    
+                    $\Rightarrow$ $\vec{E}(x,y) = \frac{1}{(x^2+y^2)^\frac{3}{2}}(x,y)$
+                    
+                    $\Rightarrow$ Dessa forma, é fácil ver que é simétrico em relação ao eixo y, pois:
+                    
+                    $\Rightarrow$ $\vec{E} (-x,y) = \frac{1}{(x^2+y^2)^\frac{3}{2}}(-x,y)$
+                    
+                    $\Rightarrow$ Isto quer dizer que o trajeto $\gamma(t)$ no intervalo [-1,0] é justamente o contrário do trajeto em [0,1], portanto o trabalho realizado em cada intervalo possui mesma magnitude, mas são opostos, logo podemos esperar que:
+                    
+                     $\Rightarrow$ $\displaystyle\int_\gamma\vec{E}\cdot d\vec{l} = 0 $
+	            % ---------- Resposta 06 - a ----------------------
+	        
+	        % Questão 06 - b
+	        \item Seja $\vec{E}$ o campo do exercício anterior e seja $\gamma$ a curva dada por $x = t$ e $y = 1 - t^4$,  $-1 \leq t \leq 1$. Calcule $\displaystyle\int_\gamma \vec{E} \cdot d\vec{l}$ . $\newline$
+	            % ---------- Resposta 06 - b ----------------------
+	                $\Rightarrow \displaystyle\int_\gamma \vec{E} \cdot d\vec{l} = \displaystyle\int_a^b\vec{E}(\gamma(t))\gamma'(t) \ dt \Rightarrow \displaystyle\int_{-1}^1 \left[\frac{1}{t^2+(1-t^4)^2} \cdot \frac{t\vec{j} + (1 - t^4)\vec{j}}{\sqrt{t^2+(1-t^4)^2}}\right](1,-4t^3) \ dt$
+	                
+	                $\Rightarrow \displaystyle\int_{-1}^1 \frac{t + (1 - t^4) \cdot (-4t^3)}{\sqrt({t^2+(1-t^4)^2)^3}} \ dt$
+	                
+                    $\Rightarrow$ É facil ver que a equação é impar logo: $\newline$
+                    $\Rightarrow \displaystyle\int_{-1}^1 \frac{t + (1 - t^4) \cdot (-4t^3)}{\sqrt({t^2+(1-t^4)^2)^3}} \ dt = 0$
+                    
+	            % ---------- Resposta 06 - b ----------------------
+	        
+	        % Questão 07
+	        \item Calcule $\displaystyle\int_\gamma \vec{E} \cdot d\vec{l}$ onde $\vec{E}$ é o campo dado no exercício 11 e $\gamma$ a curva dada por $x = 2\cos t$, $y = \sin t$ com $0 \leq t \leq \frac{\pi}{2}$. $\newline$
+	            % ---------- Resposta 07 ----------------------
+	                $\Rightarrow \displaystyle\int_\gamma\ \vec{E} \cdot d\vec{l} = \displaystyle\int_{-1}^{1}\ \vec{E}(\gamma(t)) \cdot \gamma'(t)\ dt \Rightarrow \displaystyle\int_{0}^{\frac{\pi}{2}}\ \Bigg(\dfrac{2\cos t\vec{i} + \sin t\vec{j}}{(4\cos^2 t + \sin^2 t)^{\frac{3}{2}}} \Bigg) \cdot (1,0)\ dt$
+		
+            		$\Rightarrow \displaystyle\int_{0}^{\frac{\pi}{2}}\ \dfrac{-4\sin t \cos t + \sin t \cos t}{(4\cos^2 t + \sin^2 t)^{\frac{3}{2}}}\ dt = \displaystyle\int_{0}^{\frac{\pi}{2}}\ \dfrac{-3\sin}{(4\cos^2 t +  \sin^2 t)^{\frac{3}{2}}}\ dt $
+            		
+            		$\Rightarrow \displaystyle\int_{0}^{\frac{\pi}{2}}\ \dfrac{-3\sin}{(4\cos^2 t +  \sin^2 t)^{\frac{3}{2}}}\ dt = \begin{cases}
+            		u = 4 \cos^2 t + \sin^2 t \\
+            		du -6\sin t \cos t\ dt \\
+            		t = 0; u = 4 \\
+            		t = \dfrac{\pi}{2}; u = 1
+            		\end{cases}$
+            		
+            		$\Rightarrow \displaystyle\int_{4}^{1}\ \Bigg(\dfrac{1}{2}\Bigg) \cdot \frac{1}{\sqrt{u^3}} \ du = \frac{1}{2} \Bigg[\frac{u^{\frac{-1}{2}}}{\frac{-1}{2}}\Bigg]_4^1 = (-1) \Big[1 - \frac{1}{2}\Big] = \dfrac{-1}{2}$
+            		$\newline$
+            		$\newline$
+	            % ---------- Resposta 07 ----------------------
+	        
+	        %Encerramento da parte do Cap 6.1
+	        
+	        %Começo da parte do Cap 6.2
+	        % Questão 01
+	        \item Calcule $\displaystyle\int_\gamma x \ dx + y \ dy$, sendo $\gamma$ dada por $x = t^2$ e $y = \sin t$, $0 \leq t \leq \frac{\pi}{2}$. $\newline$
+	            % ---------- Resposta 01 ----------------------
+	                $\Rightarrow \displaystyle\int_\gamma \left[P(x(t),y(t)) \dfrac{dx}{dt} \ + \ Q(x(t),y(t))\dfrac{dy}{dt} \right] \ dt \Rightarrow \displaystyle\int_0^{\frac{\pi}{2}} (t^2 \cdot 2t \ + \ \sin{t} \cdot \cos{t}) \ dt$
+	                
+	                $\Rightarrow \displaystyle\int_0^{\frac{\pi}{2}} (2t^3 \ + \ \sin{t} \cdot \cos{t}) \ dt = \left[\frac{1}{2} t^3 \right]_0^{\frac{\pi}{2}} \ + \ \frac{1}{2} \cdot \displaystyle\int_0^{\frac{\pi}{2}} \sin{2t} \ dt$
+	                
+	                $\Rightarrow \frac{1}{2} \cdot \left(((\frac{\pi}{2})^4 - 0) \right) \ + \ \frac{1}{2} \cdot \left(-\frac{\cos{\frac{\pi}{2}}}{2} \ + \ \frac{\cos{0}}{2} \right) \Rightarrow \frac{4\pi^4 + 32}{128}$
+	            % ---------- Resposta 01 ----------------------
+	            
+	        % Questão 02
+	        \item Calcule $\displaystyle\int_\gamma x \ dx - y \ dy$, onde $\gamma$ é o segmento de extremidades $(1 \textrm{,}\ 1)$ e $(2 \textrm{,}\ 3)$, percorrido no sentido de $(1 \textrm{,}\ 1)$ para $(2 \textrm{,}\ 3)$. $\newline$
+	            % ---------- Resposta 02 ----------------------
+	            $\begin{cases}
+	            (x,y) = (1,1) \ + \ t \cdot ((2,3) \ - \ (1,1)) \\
+	            (x,y) = (1 + t,1 + 2t) \\
+	            \gamma(t) = (1 + t,1 + 2t) \\
+	            \gamma'(t) = (1,2) \\
+	            -1 \leq t \leq 0
+	            \end{cases} \Longrightarrow \displaystyle\int_0^1 ((1 + t) \cdot (1) - (1 + 2t) \cdot (2)) \ dt = \ -\frac{5}{2}$
+	            % ---------- Resposta 02 ----------------------
+	            
+	        % Questão 03
+	        \item Calcule $\displaystyle\int_\gamma x \ dx + y \ dy + z \ dz$, onde $\gamma$ é o segmento de extremidades $(0 \textrm{,}\ 0 \textrm{,}\ 0)$ e $(1 \textrm{,}\ 2 \textrm{,}\ 1)$, percorrido no sentido de $(1 \textrm{,}\ 2 \textrm{,}\ 1)$ para $(0 \textrm{,}\ 0 \textrm{,}\ 0)$. $\newline$
+	            % ---------- Resposta 03 ----------------------
+	            $\begin{cases}
+	            (x,y,z) = (1,2,1) + t \cdot ((0,0,0) - (1,2,1)) \\
+	            (x,y,z) = (1 - t,2 - 2t,1 -t) \\ 
+	            \gamma(t) = (1 - t,2 - 2t,1 -t) \\
+	            \gamma'(t) = (-1,-2,-1) \\
+	            0 \leq t \leq 1
+	            \end{cases} \newline \Rightarrow \displaystyle\int_0^1 \left[(1 - t) \cdot (-1) + (2 -2t) \cdot (-2) + (1 - t) \cdot (-1) \right] \ dt = -3$
+	            % ---------- Resposta 03 ----------------------
+	        
+	        % Questão 04
+	        \item Calcule $\displaystyle\int_\gamma x \ dx + dy + 2 \ dz$ onde $\gamma$ é a interseção do parabolóide $z = x^2 + y^2$ com o plano $z = 2x + 2y - 1$; o sentido de percurso deve ser escolhido de modo que a projeção de $\gamma (t)$, no plano $xy$, caminhe no sentido anti-horário. $\newline$
+	            % ---------- Resposta 04 ----------------------
+	            $x^2 + y^2 = 2x + 2y - 1 \Rightarrow (x - 1)^2 + (y - 1)^2 = 1 \newline \Rightarrow$ Parametrizando: $\newline \begin{cases} 
+	            x - 1 = \cos{t} \Rightarrow x(t) = \cos{t} + 1 \Rightarrow \dfrac{dx}{dt} = -\sin{t} \\
+	            y - 1 = \sin{t} \Rightarrow y(t) = \sin{t} + 1 \Rightarrow \dfrac{dy}{dt} - \cot{t} \\
+	            z = 2\cos{t} + 2 + 2\sin{t} + 2 - 1 \Rightarrow \dfrac{dz}{dt} = -2s\sin{t} + 2\cos{t} \\
+	            0 \leq t \leq 2\pi
+	            \end{cases} \newline$
+	            $\Rightarrow \displaystyle\int_0^{2\pi} ((\cos{t} + 1) \cdot (-\sin{t}) + \cos{t} + (-2\sin{t} + 2\cos{t}) \cdot (2)) \ dt = 0$
+	            % ---------- Resposta 04 ----------------------
+	            
+	        % Questão 05
+	        \item Calcule $\displaystyle\int_\gamma \ dx + xy \ dy + z \ dz$, onde $\gamma$ é a interseção de $x^2 + y^2 + z^2 = 2$, $x \geq 0$, $y \geq 0$ e $z \geq 0$, com o plano $y = x$; o sentido de percurso é do ponto $(0 \textrm{,}\ 0 \textrm{,}\ \sqrt{2})$ para $(1 \textrm{,}\ 1 \textrm{,}\ 0)$. $\newline$
+    	        % ---------- Resposta 05 ----------------------
+	            $\begin{cases} 
+	            x^2 + y^2 + z^2 = 2 \\
+	            y = x \\
+	            \end{cases} \Longrightarrow 2x^2 + z^2 = 2 \newline
+	            \Rightarrow \textrm{Parametrização:} \\
+	            \begin{cases} 
+	            x = \rho \cdot \sin{\varphi} \cdot \cos{\theta} \\
+	            y = \rho \cdot \sin{\varphi} \cdot \sin{\theta} \\
+	            z = \rho \cdot \cos{\varphi}
+	            \end{cases} \Longrightarrow 2(\rho \cdot \sin{\varphi} \cdot \cos{\theta})^2 + (\rho \cdot \cos{\varphi})^2 = 2 \Rightarrow \rho = \sqrt{2} \ \textrm{e} \ \theta = \frac{\pi}{4} \newline$ 
+	            $\Rightarrow$ Igualando $\sin{\varphi} = t \textrm{ temos} \ 0 \leq \varphi \leq \frac{\pi}{2} \textrm{,} \ 0 \leq t \leq 1$. Logo: $\newline$
+	            $\begin{cases} 
+	            x(t) = t \Rightarrow x'(t) = 1 \\
+	            y(t) = t \Rightarrow y'(t) = 1 \\
+	            z(t) = \sqrt{2} \cdot \sqrt{1 - t^2} \Rightarrow z'(t) = -\frac{\sqrt{2} \cdot t}{\sqrt{1 - t^2}}
+	            \end{cases} \Longrightarrow \displaystyle \int_0^1 \left[1 + t^2 + \sqrt{2} \cdot \left(-\frac{\sqrt{2} \cdot t}{\sqrt{1 - t^2}}\right) \right] \ dt = \frac{1}{3}$
+	            % ---------- Resposta 05 ----------------------
+	        
+	        % Questão 06
+	        \item Calcule $\displaystyle\int_\gamma 2 \ dx - dy$, onde $\gamma$ tem por imagem $x^2 + y^2 = 4$, $x \geq 0$ e $y \geq 0$; o sentido de percurso é de $(2 \textrm{,}\ 0)$ para $(0 \textrm{,}\ 2)$. $\newline$
+	            % ---------- Resposta 06 ----------------------
+	            $\Rightarrow$ Descobrindo os intervalos: 
+	            $\newline \begin{cases}
+	            (x,y) = (2,0) + t \cdot ((0,2) - (2,0)) \\
+	            (x,y) = (2 - 2t, 2t) \\
+	            0 \leq t \leq 1
+	            \end{cases} \newline$
+	            $\Rightarrow$ Parametrizando com $\rho = 2$: 
+	            $\newline \begin{cases} 
+	            x = 2 \cos{t}  \Rightarrow x'(t) = -2 \cdot \sin{t} \\
+	            y = 2 \sin{t}  \Rightarrow y'(t) = 2 \cdot \cos{t} \\
+	            0 \leq t \leq \frac{\pi}{2}
+	            \end{cases} \Rightarrow \displaystyle \int_0^{\frac{\pi}{2}} (-4 \sin{t} - 2 \cos{t}) \ dt = -6$
+	            % ---------- Resposta 06 ----------------------
+	            
+	        % Questão 07
+	        \item Calcule $\displaystyle\int_\gamma \dfrac{-y}{4x^2 + y^2} \ dx + \dfrac{x}{4x^2 + y^2} \ dy$, onde $\gamma$ tem por imagem a elipse $4x^2 + y^2 = 9$ e o sentido de percurso é o anti-horário. $\newline$
+	            % ---------- Resposta 07 ----------------------
+	                $\Rightarrow$ Parametrizando com $\rho$ = 3
+	                $\newline \begin{cases}
+	                x(t) = \frac{3}{2} \cos{t} \Rightarrow x'(t) = -\frac{3}{2} \sin{t} \\
+	                y(t) = 3 \sin{t} \Rightarrow y'(t) = 3 \cos{t} \\
+	                0 \leq t \leq 2 \pi
+	                \end{cases} \Longrightarrow \displaystyle \int_0^{2 \pi} \left[\frac{-3\sin{t} \cdot \left(-\frac{3}{2} \cdot \sin{t} \right)}{9} + \frac{\left(\frac{3}{2} \cdot \cos{t} \right) \cdot (3 \cos{t})}{9} \right] \ dt = \pi$
+	            % ---------- Resposta 07 ----------------------
+	        
+	        % Questão 08
+	        \item Seja $\gamma(t) = (R\cos t \textrm{,}\ R\sin t)$, $0 \leq t \leq 2\pi$ com $(R > 0)$. Mostre que $\displaystyle\int_\gamma \dfrac{-y}{4x^2 + y^2} \ dx + \dfrac{x}{4x^2 + y^2} \ dy$ não depende de $R$. $\newline$
+	            % ---------- Resposta 08 ----------------------
+    	            $\Rightarrow \displaystyle \int_\gamma \left[P(x(t),y(t)) \dfrac{dx}{dt} + Q(x(t),y(t))\dfrac{dy}{dt} \right]dt 
+    	            \newline \Rightarrow \displaystyle \int_0^{2 \pi} \left[\frac{-R\sin{t}}{R^2} \cdot (-R \sin{t}) + \frac{R \cos{t}}{R^2} \cdot (R \cos{t}) \right] dt = 2 \pi$
+	            % ---------- Resposta 08 ----------------------
+	            
+	        % Questão 09
+	        \item Calcule $\displaystyle\int_\gamma dx + y \ dy + dz$ onde $\gamma$ é a interseção do plano $y = x$ com a superfície $z = x^2 + y^2$, $z \leq 2$, sendo o sentido de percurso do ponto $(-1 \textrm{,}\ -1 \textrm{,}\ 2)$ para o ponto $(0 \textrm{,}\ 0 \textrm{,}\ 2)$. $\newline$
+	            % ---------- Resposta 09 ----------------------
+    	            $\Rightarrow$ Parametrizando: 
+    	            $\newline \begin{cases}
+    	            x(t) = t \Rightarrow x'(t) = 1 \\
+    	            y(t) = t \Rightarrow y'(t) = 1 \\ 
+    	            z(t) = 2t^2 \Rightarrow z'(t) = 4t
+    	            -1 \leq t \leq 1
+    	            \end{cases} \Longrightarrow \displaystyle \int_{-1}^1 \left[1 + t + 4t \right] \ dt \Rightarrow \left[t + \frac{5t^2}{2} \right]_{-1}^1 = 2$
+	            % ---------- Resposta 09 ----------------------
+	        
+	        % Questão 10
+	        \item Calcule $\displaystyle\int_\gamma dx +  dy + dz$ onde $\gamma$ é a interseção entre as superfícies $y = x^2$ e $z = 2 - x^2 - y^2$, $x \geq 0$, $y \geq 0$ e $z \geq 0$, sendo o sentido de percurso do ponto $(1 \textrm{,}\ 1 \textrm{,}\ 0)$ para o ponto $(0 \textrm{,}\ 0 \textrm{,}\ 2)$. $\newline$
+	            % ---------- Resposta 10 ----------------------
+	                $\begin{cases}
+	                x(t) = t \Rightarrow x'(t) = 1 \\
+    	            y(t) = t^2 \Rightarrow y'(t) = 2t \\ 
+    	            z(t) = 2 - t^2 - t^4 \Rightarrow z'(t) = -2t - 4t^3 \\
+    	            0 \leq t \leq 1
+	                \end{cases} \Rightarrow \displaystyle -\int_0^1 \left[1 + 2t + (-2t - 4t^3) \right] \ dt = 0$
+	            % ---------- Resposta 10 ----------------------
+	        
+	        % Questão 11
+	        \item Calcule $\displaystyle\int_\gamma 2y \ dx +  z \ dy + x \ dz$ onde $\gamma$ é a interseção das superfícies $x^2 + 4y^2 = 1$ e $x^2 + z^2 = 1$, $y \geq 0$ e $z \geq 0$ sendo o sentido de percurso do ponto $(1 \textrm{,}\ 0 \textrm{,}\ 0)$ para o ponto $(-1 \textrm{,}\ 0 \textrm{,}\ 0)$. $\newline$
+	            % ---------- Resposta 11 ----------------------
+                    $\Rightarrow$ Parametrizando com $\rho = 1$ 
+                    $\newline \begin{cases}
+                    x(t) = \cos{t} \Rightarrow x'(t) = -\sin{t} \\
+                    y(t) = \frac{1}{2} \sin{t} \Rightarrow y'(t) = \frac{\cot{t}}{2} \\
+                    z(t) = \sqrt{1 - \cos{t}^2} \Rightarrow z(t) = \sin{t} \Rightarrow z'(t) = \cot{t} \\
+                    0 \leq t \leq 2 \pi
+                    \end{cases} \newline \Rightarrow \displaystyle \int_0^{2\pi} \left[\frac{2}{2} \cdot \sin{t} \cdot (-\sin{t}) + \sin{t} \cdot \frac{\cos{t}}{2} + \cos{t} \cdot \cos{t} \right] \ dt = 0$  
+	            % ---------- Resposta 11 ----------------------
+	        
+	        %Encerramento da parte do Cap 6.2
+	        
+	        %Começo da parte do Cap 6.3
+	        % Questão 01 - a
+	        \item Seja $\vec{F}$ um campo vetorial contínuo em $\mathbb{R}^2$. Justifique a igualdade de $\displaystyle\int_{\gamma_1} \vec{F} \ d\gamma_1 \ = \ \displaystyle\int_{\gamma_2} \vec{F} \ d\gamma_2$, onde $\gamma_1\textrm{,} \ (t) = (t,t^2)\textrm{,} \ 0 \leq t \leq 1$, e $\gamma_2(u) = (\frac{u}{2}\textrm{,}\frac{u^2}{4})$, $0 \leq u \leq 2$. $\newline$
+	            % ---------- Resposta 01 - a ----------------------
+	                $\Rightarrow$ $\gamma_2 (u) = \gamma_1(g(u))$, onde g(u) = $\frac{u}{2}$, $0 \leq u \leq 2 \pi$, g'(u) = $\frac{1}{2}$ > 0 e a imagem de g é o intervalo [0,1], segue que $\gamma_2$ é obtida de $\gamma_1$ por mudança de parâmetro que conserva a orietação, logo, as integrais sobre $\gamma_1$ e sobre $\gamma_2$ são iguais. $\newline$
+	            % ---------- Resposta 01 - a ----------------------
+	        
+	        % Questão 01 - b
+	        \item Seja $\vec{F}$ um campo vetorial contínuo em $\mathbb{R}^2$. Justifique a igualdade de $\displaystyle\int_{\gamma_1} \vec{F} \ d\gamma_1 \ = \ \displaystyle\int_{\gamma_2} \vec{F} \ d\gamma_2$, onde $\gamma_1(t) = (\cos{t} \textrm{,} \sin{t})$, $0 \leq t \leq 2\pi$, e $\gamma_2(u) = (\cos{2u} \textrm{,} \sin{2u}) \textrm{,} \ 0 \leq u \leq \pi$. $\newline$
+	            % ---------- Resposta 01 - b ----------------------
+	                $\Rightarrow$ $\gamma_2 (u) = \gamma_1(g(u))$, onde g(u) = 2u, $0 \leq u \leq 2 \pi$, g'(u) > 0 e a imagem de g é o intervalo [0,$2\pi$], segue que $\gamma_2$ é obtida de $\gamma_1$ por mudança de parâmetro que conserva a orietação, logo, as integrais sobre $\gamma_1$ e sobre $\gamma_2$ são iguais. $\newline$
+	            % ---------- Resposta 01 - b ----------------------
+	        
+	        % Questão 01 - c
+	        \item Seja $\vec{F}$ um campo vetorial contínuo em $\mathbb{R}^2$. Justifique a igualdade de $\displaystyle\int_{\gamma_1} \vec{F} \ d\gamma_1 \ = \ -\displaystyle\int_{\gamma_2} \vec{F} \ d\gamma_2$, onde $\gamma_1(t) = (\cos{t} \textrm{,} \sin{t}) \textrm{,} \ 0 \leq t \leq 2\pi$ e $\gamma_2(u) = (\cos{(2\pi - u)} \textrm{,} \sin{(2\pi - u)}) \textrm{,} \ 0 \leq u \leq 2\pi$. $\newline$
+	            % ---------- Resposta 01 - c ----------------------
+	                $\Rightarrow$ $\gamma_2 (u) = \gamma_1(g(u))$, onde g(u) = $2\pi - u$, $0 \leq u \leq 2 \pi$, g'(u) < 0 e a imagem de g é o intervalo [$2\pi$,0], segue que $\gamma_2$ é obtida de $\gamma_1$ por mudança de parâmetro que reverte a orietação, logo, as integrais sobre $\gamma_1$ e sobre $\gamma_2$ têm valores opostos. $\newline$
+	            % ---------- Resposta 01 - c ----------------------
+	        
+	        % Questão 01 - d
+	        \item Seja $\vec{F}$ um campo vetorial contínuo em $\mathbb{R}^2$. Justifique a igualdade de $\displaystyle\int_{\gamma_1} \vec{F} \ d\gamma_1 \ = \ -\displaystyle\int_{\gamma_2} \vec{F} \ d\gamma_2$, onde $\gamma_1(t) = (t \textrm{,} t^3) \textrm{,} \ -1 \leq t \leq 1$ e $\gamma_2(u) = (1 - u \textrm{,} (1 - u)^3) \textrm{,} \ 0 \leq u \leq 2$. $\newline$
+	            % ---------- Resposta 01 - d ----------------------
+	                $\Rightarrow$ $\gamma_2 (u) = \gamma_1(g(u))$, onde g(u) = $1 - u$, $0 \leq u \leq 2$, g'(u) < 0 e a imagem de g é o intervalo [-1,1], segue que $\gamma_2$ é obtida de $\gamma_1$ por mudança de parâmetro que reverte a orietação, logo, as integrais sobre $\gamma_1$ e sobre $\gamma_2$ têm valores opostos. $\newline$
+	            % ---------- Resposta 01 - d ----------------------
+	        
+	        % Questão 02
+	        \item Seja $\vec{F}$ um campo vetorial contínuo em $\Omega$ e sejam $\gamma_1\textrm{:} [a,b] \rightarrow \Omega$ e $\gamma_2\textrm{,} [c,d] \rightarrow \Omega$ duas curvas quaisquer de classe $C^1$, tais que Im $\gamma_1$ = Im $\gamma_2$. A afirmação \newline
+	        $\displaystyle\int_{\gamma_1} \vec{F} \ d\gamma_1 \ = \ \displaystyle\int_{\gamma_2} \vec{F} \ d\gamma_2$ ou $\displaystyle\int_{\gamma_1} \vec{F} \ d\gamma_1 \ = \ -\displaystyle\int_{\gamma_2} \vec{F} \ d\gamma_2$ é falsa ou verdadeira? Justifique. $\newline$
+	            % ---------- Resposta 02 ----------------------
+	                $\Rightarrow$ É falsa, para $\gamma_1(t) = (\cos{t}, \sin{t}) \ 0 \leq t \leq 2\pi \textrm{, } \gamma_2(t) = (\cos{t}, \sin{t}) \ 0 \leq t \leq 4 \pi$ e seja $\vec{F}(x,y) = -y\vec{i} + x\vec{j}$. As imagens são iguais mais as integrais são diferentes. $\newline$
+	            % ---------- Resposta 02 ----------------------
+	        
+	        %Encerramento da parte do Cap 6.3
+	        
+	        %Começo da parte do Cap 6.5
+	        % Questão 01 - a
+	        \item Calcule $\displaystyle\int_\gamma\ (x^2 + y^2)\ ds $, onde $\gamma(t) = (t,t)$, $-1 \leq t \leq 1$ $\newline$
+                % ---------- Resposta 01 - a ----------------------
+	                $\Rightarrow \displaystyle\int_\gamma\ (x^2 + y^2)\ ds = \displaystyle\int_{-1}^{1}\ t^2 + t^2 ||(1,1)||\ dt = \displaystyle\int_{-1}^{1}\ 2t^2(\sqrt{2})\ dt $
+		
+            		$\Rightarrow 2\sqrt{2}\displaystyle\int_{-1}^{1}\ t^2\ dt  = 2\sqrt{2}\Bigg[\dfrac{t^3}{3}\Bigg]_{-1}^{1} = \dfrac{4\sqrt{2}}{3}$
+	            % ---------- Resposta 01 - a ----------------------
+            
+            % Questão 01 - b
+            \item Calcule $\displaystyle\int_\gamma\ (2xy + y^2)\ ds $, onde $\gamma(t) = (t + 1,t - 1)$, $0 \leq t \leq 1$ $\newline$
+                % ---------- Resposta 01 - b ----------------------
+	                $\Rightarrow \displaystyle\int_\gamma\ (2xy + y^2)\ ds = \displaystyle\int_{0}^{1}\ \big(2(t^2 - 1) + (t - 1)^2\big) ||(1,1)||\ dt$
+		
+            		$\Rightarrow \displaystyle\int_{0}^{1}\ \big(2(t^2 - 1) + (t - 1)^2\big) \sqrt{2}\ dt = \sqrt{2}\displaystyle\int_{0}^{1}\ 3t^2 - 2t -1\ dt$
+            		
+            		$\Rightarrow \sqrt{2}\displaystyle\int_{0}^{1}\ 3t^2 - 2t -1\ dt = \sqrt{2}\Big[t^3 -t^2 - t\Big]_0^1 = -\sqrt{2}$
+	            % ---------- Resposta 01 - b ----------------------
+            
+            % Questão 01 - c
+            \item Calcule $\displaystyle\int_\gamma\ xyz \ ds$, onde $\gamma(t) = (\cos t, \sin t, t)$, $0 \leq t \leq 2\pi$ $\newline$
+                % ---------- Resposta 01 - c ----------------------
+	                $\Rightarrow \displaystyle\int_\gamma\ xyz\ ds = \displaystyle\int_{0}^{2\pi}\ t\sin t \cos t ||(-\sin t, \cos t, 1)||\ dt$
+		
+                	$\Rightarrow \displaystyle\int_{0}^{2\pi}\ t\sin t \cos t (\sqrt{2})\ dt = \sqrt{2}\displaystyle\int_{0}^{2\pi}\ t\sin t \cos t\ dt$
+                	
+                	$\Rightarrow \dfrac{\sqrt{2}}{2}\displaystyle\int_{0}^{2\pi}\ t\sin 2t \ dt$
+                	
+                	$\Rightarrow \dfrac{\sqrt{2}}{2}\displaystyle\int_{0}^{2\pi}\ t\sin 2t \ dt = dfrac{\sqrt{2}}{2}\Bigg[\dfrac{-t}{2}\cos 2t + \dfrac{1}{4}\sin 2t\Bigg]_0^{2\pi} = -\pi\dfrac{\sqrt{2}}{2}$
+	            % ---------- Resposta 01 - c ----------------------
+            
+            % Questão 02
+            \item Calcule a massa do fio $\gamma(t) = (t, 2t, 3t)$, $0 \leq t \leq 1$, cuja densidade linear é $\delta(x,y,z) = x + y + z$ $\newline$
+                % ---------- Resposta 02 ----------------------
+	                $\Rightarrow M = \displaystyle\int_\gamma\ \delta(x,y,z)\ ds$
+		
+            		$\Rightarrow \displaystyle\int_\gamma\ \delta(x,y,z)\ ds = \displaystyle\int_{0}^{1}\ (x + y + z)||(1,2,3)||\ dt = \displaystyle\int_{0}^{1}\ (x + y + z)(\sqrt{14})\ dt $
+            		
+            		$\Rightarrow \displaystyle\int_{0}^{1}\ (x + y + z)(\sqrt{14})\ dt = \sqrt{14}\displaystyle\int_{0}^{1}\ 6t\ dt$
+            		
+            		$\Rightarrow \sqrt{14}\displaystyle\int_{0}^{1}\ 6t\ dt = 6\sqrt{14}\Bigg[\dfrac{t^2}{2}\Bigg]_0^1 = 3\sqrt{14}$
+	            % ---------- Resposta 02 ----------------------
+            
+            % Questão 03
+            \item Calcule a massa do fio $\gamma(t) = (\cos t, \sin t, t)$, $0 \leq t \leq \pi$, com densidade linear $\delta(x,y,z) = x^2 + y^2 + z^2$ $\newline$
+                % ---------- Resposta 03 ----------------------
+	                $\Rightarrow M = \displaystyle\int_\gamma\ \delta(x,y,z)\ ds$
+		
+            		$\Rightarrow \displaystyle\int_\gamma\ \delta(x,y,z)\ ds = \displaystyle\int_{0}^{\pi}\ (\sin^2 t  + \cos^2 t + t^2)||(-\sin t,\cos t,1)||\ dt $
+            		
+            		$\Rightarrow  \displaystyle\int_\gamma\ \delta(x,y,z)\ ds = \displaystyle\int_{0}^{\pi}\ (\sin^2 t  + \cos^2 t + t^2)(\sqrt{2})\ dt$
+            		
+            		$\Rightarrow \displaystyle\int_{0}^{\pi}\ (\sin^2 t  + \cos^2 t + t^2)(\sqrt{2})\ dt = (\sqrt{2})\displaystyle\int_{0}^{\pi}\ (1  + t^2)\ dt$
+            		
+            		$\Rightarrow (\sqrt{2})\displaystyle\int_{0}^{\pi}\ (1  + t^2)\ dt = \sqrt{2}\Bigg[\dfrac{t^3}{3} + t \Bigg]_0^{\pi} = \pi\sqrt{2}\Bigg(1 + \dfrac{\pi^2}{3}\Bigg)$ 
+	            % ---------- Resposta 03 ----------------------
+
+	\begin{center}
+	    \begin{large}
+	        Capítulo 7(Guidorizzi)- Campo Conservativo
+	    \end{large}
+	\end{center}
+
+\item Para que $ \vec{F} $ seja conservativo, basta encontrar um campo escalar diferenci\'{a}vel $ \Phi $ que satisfa\c{c}a: $ \nabla \Phi = \vec{F} $. No mesmo dom\'{i}nio de $ \vec{F} \cdot (\nabla \Phi $ \'{e} o gradiente de $ \Phi ) $. Basta tomar: $$ \Phi (x,y,z,w) = \frac{x^2}{2} + \frac{y^2}{2} + \frac{z^2}{2} + \frac{w^2}{2} \Rightarrow \nabla \Phi = (x,y,z,w) $$. Portanto, $ \vec{F} $ \'{e} conservativo.
+
+
+\item Para que $ \vec{F} $ seja conservativo, basta encontrar um campo escalar diferenci\'{a}vel $ \Phi $ que satisfa\c{c}a: $ \nabla \Phi = \vec{F} $. No mesmo dom\'{i}nio de $ \vec{F} \cdot (\nabla \Phi $ \'{e} o gradiente de $ \Phi ) $. Basta tomar: $$ \Phi (x,y) = xy \Rightarrow \nabla \Phi = (y,x) $$. Portanto, $ \vec{F} $ \'{e} conservativo.
+
+
+\item Para que $ \vec{F} $ n\~{a}o seja conservativo, basta que $ \textbf{rot} \vec{F} \ne \vec{0} $, em que: $$ \textbf{rot} \vec{F} = \left(\frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z}, \frac{\partial P}{\partial z} - \frac{\partial R}{\partial x}, \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right) $$. O c\'{a}lculo fica: $$ \textbf{rot} \vec{F} = \left(\frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z}, \frac{\partial P}{\partial z} - \frac{\partial R}{\partial x}, \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right) = (0-1, 0-0, 1+1) = (-1,0,2) $$. Portanto, $ \vec{F} $ n\~{a}o \'{e} conservativo.
+
+
+\item Para que $ \vec{F} $ seja conservativo, basta encontrar um campo escalar diferenci\'{a}vel $ \Phi $ que satisfa\c{c}a: $ \nabla \Phi = \vec{F} $. No mesmo dom\'{i}nio de $ \vec{F} \cdot (	\nabla \Phi $ \'{e} o gradiente de $ \Phi ) $. Basta tomar: $$ \Phi (x,y,z) = - \frac{1}{2(x^2 + y^2 + z^2)} \Rightarrow \nabla \Phi = \left(\frac{x}{\left(x^2 + y^2 + z^2 \right)^2}, \frac{y}{\left(x^2 + y^2 + z^2 \right)^2}, \frac{z}{\left(x^2 + y^2 + z^2 \right)^2} \right) $$ Portanto, $ \vec{F} $ \'{e} conservativo.
+
+\item Para que $ \vec{F} $ seja conservativo, basta encontrar um campo escalar diferenci\'{a}vel $ \Phi $ que satisfa\c{c}a: $ \nabla \Phi = \vec{F} $. No mesmo dom\'{i}nio de $ \vec{F} \cdot (\nabla \Phi $ \'{e} o gradiente de $ \Phi ) $. Basta tomar: $$ \Phi (x,y,z) = \frac{x^2}{2} + \frac{y^2}{2} + \frac{z^2}{2} \Rightarrow \nabla \Phi = (x,y,z) $$ Portanto, $ \vec{F} $ \'{e} conservativo.
+
+\item Para que $ \vec{F} $ seja conservativo, basta encontrar um campo escalar diferenci\'{a}vel $ \varphi $ que satisfa\c{c}a: $$ \nabla \varphi = \vec{F} $$ No mesmo dom\'{i}nio de $ \vec{F} \cdot ( \nabla \varphi $ \'{e} o gradiente de $ \varphi ) $. Temos que: $$ \vec{F} (x,y,z) = \left(\frac{xf(r)}{r}, \frac{yf(r)}{r}, \frac{zf(r)}{r} \right) $$ Em que: $$ r = \vec{r} = \sqrt{x^2 + y^2 + z^2} $$ Seja ent\~{a}o, $ \varphi (x,y,z) = g(r) $, em que $ g $ \'{e} uma primitiva de $ f $. Desta forma, pela regra da cadeia, temos: $$ \nabla \varphi = \left(\frac{\partial \varphi}{\partial x}, \frac{\partial \varphi}{\partial y}, \frac{\partial \varphi}{\partial z} \right) = \left(\frac{\partial \varphi}{\partial r} \frac{\partial r}{\partial x}, \frac{\partial varphi}{\partial r} \frac{\partial r}{\partial y}, \frac{\partial \varphi}{\partial r} \frac{\partial r}{\partial z} \right) = \left(\frac{xf(r)}{r}, \frac{yf(r)}{r}, \frac{zf(r)}{r} \right) = \vec{F} (x,y,z) $$ Portanto, $ \vec{F} $ \'{e} conservativo.
+
+\item Se tomarmos: $$ \Phi (x,y,z) = \frac{x^2}{2} + \frac{y^2}{2} + \frac{z^2}{2} $$ Temos que: $$ d \Phi = d \left(\frac{x^2}{2} + \frac{y^2}{2} + \frac{z^2}{2} \right) = xdx + ydy + zdz $$ Portanto, a forma diferenci\'{a}vel \'{e} exata.
+
+\item Dada a express\~{a}o da forma $ P(x,y,z)dx + Q(x,y,z)dy $, diremos que esta \'{e} uma forma diferencial exata se encontrarmos uma fun\c{c}\~{a}o diferenci\'{a}vel $ \Phi : \Omega \longrightarrow I\!R $, que satisfa\c{c}a: $$ \frac{\partial \Phi}{\partial x} = P  e  \frac{\partial \Omega}{\partial y} = Q $$ Devemos, ent\~{a}o, encontrar uma fun\c{c}\~{a}o que satisfa\c{c}a estas condi\c{c}\~{o}es. Se tomarmos: $$ \Phi (x,y) = x^2 y $$ temos que: $$ d \Phi = d (x^2 y) = 2xydx + x^2dy $$ Portanto, a forma diferenci\'{a}vel \'{e} exata.
+
+\item Dada a express\~{a}o da forma $ P(x,y,z)dx + Q(x,y,z)dy + R(x,y,z)dz $, dizemos que esta \'{e} uma forma diferencial exata se encontrarmos uma fun\c{c}\~{a}o diferenci\'{a}vel $ \Phi : \Omega \longrightarrow I\!R $, que satisfa\c{c}a: $$ \frac{\partial \Phi}{\partial x} = P, \frac{\partial \Phi}{\partial y} = Q e \frac{\partial \Phi}{\partial z} = R $$ Devemos, ent\~{a}o, encontrar uma fun\c{c}c\~{a}o que satisfa\c{c}a estas condi\c{c}\~{o}es. Se tomarmos: $$ \Phi (x,y,z) = xyz $$ Temos que: $$ d \Phi = d (xyz) = yzdx + xzdy + xydz $$ Portanto, a forma diferenci\'{a}vel \'{e} exata.
+
+\item Dada a express\~{a}o da forma $ P(x,y,z)dx + Q(x,y,z)dy $, diremos que esta \'{e} uma forma diferencial exata se encontrarmos uma fun\c{c}\~{a}o diferenci\'{a}vel $ \Phi : \Omega \longrightarrow I\!R $, que satisfa\c{c}a: $$ \frac{\partial \Phi}{\partial x} = P  e  \frac{\partial \Omega}{\partial y} = Q $$ Devemos, ent\~{a}o, encontrar uma fun\c{c}\~{a}o que satisfa\c{c}a estas condi\c{c}\~{o}es. Se tomarmos: $$ \Phi (x,y) = \frac{x^2}{2} + xy - \frac{y^2}{2} $$ temos que: $$ d \Phi = d \left(\frac{x^2}{2} + xy - \frac{y^2}{2}\right) = (x+y)dx + (x-y)dy $$ Portanto, a forma diferenci\'{a}vel \'{e} exata.
+
+\item Uma condi\c{c}\~{a}o necess\'{a}ria para que uma forma diferencial seja exata \'{e}: $$ \frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x} $$ Portanto, qualquer express\~{a}o que satisfa\c{c}a a condi\c{c}\~{a}o anterior n\~{a}o pode ser exata. Note que $$ \frac{\partial P}{\partial y} = 1 e \frac{\partial Q}{\partial x} = -1 $$ Portanto, esta forma n\~{a}o pode ser exata.
+
+\item Dada a express\~{a}o da forma $ P(x,y,z)dx + Q(x,y,z)dy $, diremos que esta \'{e} uma forma diferencial exata se encontrarmos uma fun\c{c}\~{a}o diferenci\'{a}vel $ \Phi : \Omega \longrightarrow I\!R $, que satisfa\c{c}a: $$ \frac{\partial \Phi}{\partial x} = P e \frac{\partial \Phi}{\partial y} = Q $$ Devemos ent\~{a}o encontrar uma fun\c{c}\~{a}o que satisfa\c{c}a estas condi\c{c}\~{o}es. Se tormamos: $$ \Phi \left(x,y\right) = \frac{e^{x^2 + y^2}}{2} $$ Temos que: $$ d\Phi = d\left(\frac{e^{x^2 + y^2}}{2} \right) = xe^{x^2 + y^2} dx + ye^{x^2 + y^2} dy $$ Portanto a forma diferencial \'{e} exata.
+
+\item Uma condi\c{c}\~{a}o necess\'{a}ria para que uma forma diferencial seja exata \'{e}: $$ \frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x} $$ Portanto, qualquer express\~{a}o que n\~{a}o satisfa\c{c}a a condi\c{c}\~{a}o anterior n\~{a}o pode ser exata. Note que: $$ \frac{\partial P}{\partial y} = x e \frac{\partial Q}{\partial x} = 0 $$ Portanto, esta forma n\~{a}o pode ser exata.
+
+\item Dada express\~{a}o da forma $ P(x,y,z)dx + Q(x,y,z)dy $, diremos que esta \'{e} uma forma diferencial exata se encontrarmos uma fun\c{c}\~{a}o diferenci\'{a}vel $ \Phi : \Omega \longrightarrow I\!R $, que satisfa\c{c}a: $$ \frac{\partial \Phi}{\partial x} = P e \frac{\partial \Phi}{\partial y} = Q $$ Devemos ent\~{a}o, encontrar uma fun\c{c}\~{a}o que satisfa\c{c}a estas condi\c{c}\~{o}es. Sabendo que: $$ (\arctan x) = \frac{1}{x^2 + 1} $$ Se tomarmos: $$ \Phi (x,y) = -\arctan \frac{x}{y} $$ Temos que: $$ d\Phi = d\left(-\arctan \frac{x}{y} \right) = - \frac{y}{x^2 + y^2} dx + \frac{x}{x^2 + y^2}dy $$ Como $ y > 0 $ a derivada existe em todos os pontos. Portanto, a forma diferencial \'{e} exata.
+
+\item Dada a express\~{a}o da forma $ P(x,y,z)dx + Q(x,y,z)dy $, diremos que esta \'{e} uma forma diferencial exata se encontrarmos uma fun\c{c}\~{a}o diferenci\'{a}vel $ \Phi : \Omega \longrightarrow I\!R $, que satisfa\c{c}a: $$ \frac{\partial \Phi}{\partial x} = P e \frac{\partial \Phi}{\partial y} = Q $$ Devemos ent\~{a}o, encontrar uma fun\c{c}\~{a}o que satisfa\c{c}a estas condi\c{c}\~{o}es. J\'{a} sabemos que: $$ \Phi (x,y) = -\arctan \frac{x}{y} $$ \'{E} uma primitiva da forma diferencial do enunciado para $ y > 0 $, mas note que: $$ \Phi_1 (x,y) = \frac{\pi}{2} - \arctan \frac{x}{y} $$ Tamb\'{e}m \'{e} uma primitiva para a forma diferencial $ y > 0 $ (vamos utilizar esta fun\c{c}\~{a}o posteriormente). Veja agora que: $$ d \left(\arctan \frac{x}{y} \right) = \left(-\frac{y}{x^2 + y^2} \right) dx + \left(\frac{x}{x^2 + y^2} \right) dy $$ E, portanto, \'{e} uma primitiva para a forma diferencial para $ x > 0 $, porém, o argumento est\'{a} invertido, note que: $$ \arctan \frac{x}{y} + \arctan \frac{y}{x} = \frac{\pi}{2} $$ E vale tamb\'{e}m a seguinte propriedade: $$ \arctan \frac{y}{x} = \pi + \arctan \frac{y}{x} = \pi + \left(\frac{\pi}{2} - \arctan \frac{x}{y} \right) = \frac{3 \pi}{2} - \arctan \frac{x}{y} $$ E esta \'{e} uma primitiva da forma para $ x < 0 $, por\'{e}m, note que agora h\'{a} um ponto de descontinuidades, que \'{e} $ (x,0) $, mas para estes casos sabemos que o valor \'{e}: $$ \pi + \tan 0 = \pi $$ Portanto: $$ \phi = \left\{\begin{array}{rc} \frac{\pi}{2} - \arctan \frac{x}{y}, \hspace{\fill} y > 0 \\ \noalign{\smallskip} \pi,\hspace{\fill} x > 0 \hspace{1mm} e \hspace{1mm} y > 0 \\ \noalign{\smallskip} \frac{3\pi}{2} - \arctan \frac{x}{y}, \hspace{\fill} y < 0 \end{array} \right. $$
+
+\item Dada a express\~{a}o da forma $ P(x,y)dx + Q(x,y)dy $, diremos que essa \'{e} uma forma diferencial exata se encontrarmos uma fun\c{c}\~{a}o diferenci\'{a}vel, que satisfa\c{c}a: $$ \frac{\partial \varphi}{\partial x} = P e \frac{\partial \varphi}{\partial y} = Q $$ Devemos ent\~{a}o encontrar uma fun\c{c}\~{a}o que satisfa\c{c}a essas condi\c{c}\~{o}es. Estamos supondo que $ m $ e $ n $ s\~{a}o naturais, ent\~{a}o podemos calcular as primitivas das duas parcelas. $$ 3 \int x^{m+1} y^{n+1} dx = \left[\frac{3x^{n+2} y^{n+1}}{m+2} \right] $$ $$ 2 \int x^{m+2} y^{n} = \left[\frac{2x^{m+2} y^{n+1}}{n+1} \right] $$ Note que, em suas primitivas, os expoentes das derivadas s\~{a}o compat\'{i}veis, desejamos encontrar uma \'{u}nica fun\c{c}\~{a}o que satisfa\c{c}a ambos os casos simultaneamente, ent\~{a}o for\c{c}amos que os coeficientes sejam iguais tamb\'{e}m. $$ \frac{3}{m+2} = \frac{2}{n+1} \Leftrightarrow 3n = 2m+1 $$ Atrav\'{e}s dessa igualdade acima, podemos encontrar uma infinidade de n\'{u}meros naturais que tornem a forma diferencial exata.
+
+\item Uma condi\c{c}\~{a}o necess\'{a}ria para que uma forma diferencial $ P(x,y)dx + Q(x,y)dy $ seja exata \'{e}: $$ \frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x} $$ A partir desta condi\c{c}\~{a}o vamos mostrar que a condi\c{c}\~{a}o do enunciado vale. Analogamente \`{a} condi\c{c}\~{a}o anterior, temos que uma condi\c{c}\~{a}o necess\'{a}ria para que a forma diferencial $ (u(x,y) P(x,y))dx + (u(x,y) Q(x,y))dy $ seja exata \'{e}: $$ \frac{\partial}{\partial y} (u(x,y) P(x,y)) = \frac{\partial}{\partial x} (u(x,y) Q(x,y)) $$ Usando a regra de deriva\c{c}\~{a}o do produto de duas fun\c{c}\~{o}es, $ (fg)' = f'g + fg') $ temos: $$ \frac{\partial}{\partial y}(u(x,y)P(x,y)) = \frac{\partial}{\partial x}(u(x,y)Q(x,y)) $$ $$ \Leftrightarrow \frac{\partial u}{\partial y}P + u\frac{\partial P}{\partial y} = \frac{\partial u}{\partial x}P + u\frac{\partial Q}{\partial x} $$ $$ \Leftrightarrow \frac{\partial u}{\partial y}P - \frac{\partial u}{\partial x}Q = u \frac{\partial Q}{\partial x} - u \frac{\partial P}{\partial y} $$ $$ \Leftrightarrow \frac{\partial u}{\partial y}P - \frac{\partial u}{\partial x}Q = u \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \right) $$ 
+
+\item Dada express\~{a}o da forma $ u(x,y)P(x,y)dx + u(x,y)Q(x,y)dy $, uma condi\c{c}\~{a}o necess\'{a}ria para que essa forma seja exata \'{e}: $$ \frac{\partial u}{\partial y}P - \frac{\partial u}{\partial x}Q = u \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \right) $$ Vamos utilizar isso para resolver o exerc\'{i}cio. Segundo o resultado acima, temos: $$ \frac{\partial u}{\partial y} (x^3 + x + y) - \frac{\partial u}{\partial x} (-x) = u(-1-1) $$ $$ \frac{\partial u}{\partial y} (x^3 + x + y) + \frac{\partial u}{\partial x} (x) = -2u $$ Sabemos, por hip\'{o}tese, que $ u(x,y) $ depende somente de $ x $, logo: $$ \frac{\partial u}{\partial x} (x) = -2u \Leftrightarrow \frac{du}{u} = - \frac{2dx}{x} $$ $$ \Leftrightarrow \int \frac{du}{u} = -2 \int \frac{dx}{x} \Leftrightarrow \ln u = -2 \ln x \Leftrightarrow u = \frac{1}{x^2} $$
+
+\item Dada express\~{a}o da forma $ u(x,y)P(x,y)dx + u(x,y)Q(x,y)dy $, uma condi\c{c}\~{a}o necess\'{a}ria para que essa forma seja exata \'{e} $$ \frac{\partial u}{\partial y}P - \frac{\partial u}{\partial x}Q = u \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \right) $$ Vamos utilizar isso para resolver o exerc\'{i}cio. Segundo o resultado acima, temos: $$ \frac{\partial u}{\partial y} (y^2 + 1) - \frac{\partial u}{\partial x} (x + y^2 -1) = u(1-2y) $$ Sabemos, por hipótese, que $ u(x,y) $ depende somente de $ y $, logo: $$ \frac{\partial u}{\partial y} (y^2 + 1) = u(1-2y) \Leftrightarrow \frac{du}{u} = \frac{1-2y}{y^2 + 1}dy \Leftrightarrow \ln u = \int \frac{1-2y}{y^2 + 1}dy $$ Para resolver a segunda integral, basta usar $ y = \tan u $ e, portanto $ dy = \sec^2 udu $, dessa forma: $$ \int \frac{1-2y}{1+2y} = \int 1-2 \tan udu = [u+2 \ln (\cos u)] = \arctan y + 2 \ln \left(\frac{1}{\sqrt{y^2 + 1}} \right) = \arctan y - \ln (y^2 + 1) $$ Sendo assim: $$ \ln u = \int \frac{1-2y}{y^2 + 1}dy = \arctan y - \ln (y^2 + 1) $$ $$ u = e^{\arctan y - \ln (y^2 + 1)} $$ $$ u = \frac{e^{\arctan y}}{y^2 + 1} $$
+
+\item Sendo $ \vec{F} : \Omega \subset I\!R^n \longrightarrow I\!R^n $ um campo vetorial cont\'{i}nuo e conservativo, $ \phi : \Omega \longrightarrow I\!R $ uma fun\c{c}\~{a}o pontencial para $ \vec{F} $ e $ \gamma : [a,b] \longrightarrow \Omega $ de classe $ C^1 $, podemos concluir que: $$ \int_\gamma \vec{F} \cdot d \gamma = \int_\gamma \nabla \phi \cdot d \gamma = \phi (B) - \phi (A) $$ Onde $ B = \gamma (b) $ e $ A = \gamma (a) $. Sendo $ \vec{F} = ydx + xdy $ temos que uma fun\c{c}\~{a}o potencial para $ \vec{F} $ \'{e}: $$ \phi = xy $$ Dessa forma: $$ \int_{(1,1)}^{(2,2)} ydx + xdy = \phi (B) - \phi (A) = 4 - 1 = 3 $$
+
+\item A forma diferencial n\~{a}o \'{e} exata, logo n\~{a}o h\'{a} uma fun\c{c}\~{a}o pontencial, iremos ent\~{a}o calcular essa integral atrav\'{e}s de: $$ \int_\gamma P dx + Q dy = \int_a^b \left[P \frac{dx}{dt} + Q \frac{dy}{dy} \right] dt $$ Onde $ \vec{F} = P dx + Q dy $. Como $ \gamma $ \'{e} um segmento que liga os pontos $ (1,1) $ e $ (2,2) $, temos: $$ \gamma (t) = (t,t) $$ Com $ 1 \le t \le 2 $. Logo $$ \int_a^b \left[P \frac{dx}{dt} + Q \frac{dy}{dy} \right] dt = \int_1^2 t + t^2 dt = \left[\frac{t^2}{2} + \frac{t^3}{3} \right]_1^2 = \frac{23}{6} $$ 
+
+
+%END CAPITULO 7
+	
+%Jonas Capítulo 9%
+	\begin{center}
+	    \begin{large}
+	        Capítulo 9(Guidorizzi)- Área e integral de superfície\\9.1 Superfície 
+	    \end{large}
+	\end{center}
+
+	
+	\item 
+	
+	podemos parametrizar este conjunto por $\sigma(u,v)=(0,2+\cos v,\sin v)$ utilizando o sinstema uv.
+	
+	$\sigma_2 (u,v)=(r\cos u, r\sin u,0)$\newline
+	
+	Dando a volta completa em torno de z,temos $0\leq u\leq 2\pi$ podemos analizar externamente o vaor de r igualando as coordenadas x e y de $\sigma_1$ e $\sigma_2$
+	
+	$r\cos{u}=0 \biggu=\frac{\pi}{2}$
+	
+	$r\sin{\frac{\pi}{2}}=2+\cos v \biggarrow r=2+\cos v$\newline
+	
+	Com essas inforrmaçoes podemos afirmar que uma parametrização para o conjunto B será:
+	
+	$\figma(u,v)=((2+\cos{v})\cos{u}, (2+\cos{v})\sin{u},\sin{v}), 0\lequ\leq 2\pi, 0\leq v\leq 2\pi$\newline
+	
+	
+	\item A padronização para uma esfera de raio 1\newline
+	$\sigma (\theta,\phi)=(\cos\phi \cos\theta, \cos\phi \sin \theta, \sin \phi)$\newline
+
+	a únca diferença e que devemos "esticar" a esfera para forma do elipsoide note que ao fazer y=z=0, devemos obter $x^{2}=a^{2}$ e analogamente as outras coordenadas terão resultados similares com isso, observamos que a parametrização que satisfaz essa condição é \newline
+	$\sigma(\Theta,\phi)=(a\cos\phi \cos\theta, b\cos\phi \sin\theta, c\sin\phi)$ \newline
+
+	\item $(x,y,z)\in R^{3}\mid x^{2}+4y^{2}=1$ 
+	
+	$\sigma(u,v)=(a\cos u, b\sin u, v)$\newline
+
+	para  y=0 temos $x^{2} =1$ então: 
+	
+	$b\sin u =0 \biggarrow u=0$ 
+	
+	$(a\cos0)^{2}=1$ \biggarrow a=1\newline
+	
+	para $x=0$ temos $y^{2}=\frac{1}{4}$ então:
+	
+	$a\cos u=0 \biggarrow u=\frac{\pi}{2}$ 
+	
+	$(b\sin \frac{\pi}{2})^{2} \biggarrow b=\frac{1}{2}$ \newline
+
+	por tanto:\newline
+	$\sigma(u,v)=(\cos u, \frac{1}{2}\sin u, v); 0\lequ\leq2\pi $\newline
+	
+	\item $(x,y,z)\in R^{3}\mid 2x+y+4z=5$ 
+	
+	Ao conciderar u=x e v=z, temos; \newline
+	$ 2x+y+4z \biggarrow y=5-2u-4v$\newline
+	
+	Logo, a parametrização será:\newline
+	$\sigma(u,v)=(u, 5-2u-4v, v)$\newline
+	
+	
+	\item Conjunto obtido pela rotação em torno do eixo z da curva y =0 e $z=e^{x}, x\geq 0 $\newline
+	
+	Subistituindo os valores, assim: \newline
+	$z=$e^{x}=$e^{v\cos u}$ \newline
+	
+	logo: \newline
+	$\sigma$(u,v)=$(v\cos u, v\sin u ,e^{v})$ \newline
+	Podemos notar que sobre o ixo x temos $zcos u=1$, e como estamos rotando a curva em torno de z, o valor da coordenada z depende apenas de v.\newline
+	
+	
+	\item $(x,y,z)\in R^{3}\mid x^{2}+y^{2}=2x$
+	
+	Por ser uma circunferencia no plano xy, podemos esperar uma parametrização através de coordenadas polares a única diferença será o centro deslocado, o qual podemos facilmente consertar incrementando a coordenada x em uma unidade. Logo: \newline 
+	
+	$\sigma (u,v)=(1+\cos u, \ssin u, v)$\newline
+	
+	\item Conjunto obtido pela rotação em torno do eixo z da curva y =0 e $z= \frac{1}{x}, x > 0$
+	
+	temos no plano xz a curva:\newline
+	$z=\frac{1}{x}$, y=0\newline 
+	
+	Logo: \newline
+	$v\sin u=0 \biggarrow u=0$ \newline
+	
+	também:\newline
+	$z= \frac{1}{c\cos 0} \biggarrow z=\frac{1}{v}$\newline 
+	
+	portanto: \newline
+	$\sigma$(u,v)=$(v\cos u, v\sin u, \frac{1}{v})$\newline
+	
+	\item Conjunto obtido pela rotação em torno do eixo z da curva y =0 $z+x-x^{2},0 \leq x \leq 1 $
+	
+	temos no plano xz a curva:\newline
+    $z=x-x^{2}, y=0$\newline
+	
+	Logo: \newline
+	$v\sin u=0 \biggarrow u=0$\newline 
+	
+	também:\newline
+	$z= v\cos 0 -(v\cos o)^{2} \biggarrow z=v-v{2}$ \newline
+	
+	portanto: \newline
+	$\sigma(u,v)=(v\cos u, v\sin u,v-v^{2})$\newline
+
+	
+	
+	
+	\begin{center}
+	\large 9.2 Plano tangente 
+	\end{center}
+	
+	
+	
+	
+	\item $ \sigma(u, v)=(u, v, u^{2}+v^{2})$, no ponto $\sigma(1,1)$.
+	
+	temos: \newline
+	$\dfrac {\partial \sigma} {\partial u}(u, v)=(1, 0, 2u) \biggarrow \dfrac{\partial \sigma}{\partial u}(1, 1) =(1, 0, 2)$ \newline
+	
+	Também: \newline
+	$\dfrac{\partial \sigma}{\partial v}(u, v)=(0, 1, 2v) \biggarrow \dfrac{\partial \sigma}{\partial v}(1, 1)=(0, 1, 2)$\newline
+	
+	Portanto, o plano tangente é dado por: \newline
+	$(x,y,z)=(1, 1, 2)+s(1, 0, 2)+ t(0, 1, 2), (s, t, \in R)$\newline 
+	
+	\item $ \sigma (u, v)=(\cos u, \sin u, v)$, no ponto $ \sigma(\frac{\pi}{2},1). $ 
+	
+	Temos: \newline
+	$\dfrac{\partial \sigma}{\partial u}(u, v) = (-\sin u, \cos u, 0)\displaystyle \dfrac{\partial \sigma}{\partial v} (\frac{\pi}{2}, 1)=(-1, 0, 0) $\newline
+	
+	também: \newline
+	$\dfrac{\partial \sigma}{\partial v}=(0, 0, 1) \displaystyle (\dfrac{\pi}{2}, 1)=(0, 0, 1)$\newline
+	
+	Portanto, o plano tangente é dado por: \newline
+    $(x, y, z) = (0, 1, 1)+s(-1, 0, 0)+t(0, 0, 1), (s, t, \in R)$ \newline
+    
+    \textbf{1.c} $\sigma(u, v)= (2u+v, u-v, 3u+3v)$ no ponto $\sigma (0, 0)$\newline
+    $\dfrac{\partial \sigma}{\partial u}(u, v) =(2,1,3) \biggarrow \dfrac{\partial \sigma}{\partial u}(0,0) =(2,1,3)$\newline	
+	
+	Também: \newline
+	$\dfrac{\partial \sigma}{\partial v}(u, v) =(1,-1,2) \biggarrow \dfrac{\partial \sigma}{\partial v}(0,0)$ =(1,-1,2)\newline
+	
+	Portanto, o plano tangente é dado por: \newline
+	$(x,y,x)=(0,0,0)+s(2,1,3)+t(1,-1,2),(s,t\in R)$\newline
+
+	\item $\sigma (u,v)= (u-v,u^{2}+v^{2},uv),$ no ponto $\sigma (1,-1)$
+	
+	Temos: \newline
+    $\dfrac{\partial \sigma}{\partial u}(u, v) =(1,2u,v) \biggarrow \dfrac{\partial \sigma}{\partial u}(1,1) =(1,2,1)$\newline	
+    
+    também: \newline
+    $\dfrac{\partial \sigma}{\partial v}(u, v) =(-1,2,u) \biggarrow \dfrac{\partial \sigma}{\partial v}(1,1) =(-1,2-1)$\newline	
+    
+    portanto, o plano tangente é dado por:\newline
+    $(x,y,z)=(0,2,1)+s(1,2,1)+t(-1,2,1),(s,t\in R)$\newline
+	
+	
+	\item $\sigma (u,v)=(\arctan uv,e^{u^{2}+v^{2}}, u-v),$ no ponto $\sigma (1,-1)$\newline
+    $\dfrac{\partial \sigma}{\partial u}(u, v) =(\dfrac{v}{u^{2}v^{2}+!}, 2ve^{u^{2}-v^{2} }, 1) \biggarrow \dfrac{\partial \sigma}{\partial u}(1, -1) =(\frac{-1}{2}, 2, 1)$\newline	
+   
+   	Também:\newline
+	$\dfrac{\partial \sigma}{\partial v}(u, v) =(\dfrac{u}{u^{2}v^{2}+1}, -2ve^{u^{2}-v^{2} },-1) \biggarrow \dfrac{\partial \sigma}{\partial u}(1,-1) =(\frac{1}{2},2,-1)$\newline
+	$(x,y,z)=(\dfrac{-\pi}{4},1,2)+s(\frac{-1}{2},2,1)+t(\frac{1}{2},2,-1),(s,t\in R)$\newline
+	
+	
+	\item Seja $\sigma :\Omega \biggarrow R^{3}, \Omega$ aberto em $R^{2}$, uma superfície de classe $c^1$ e seja $\gamma:I\biggarrow\Omega$ uma curva de calssse $c^1$, com $\gamma(t)=(u(t),v(t))$.(observe que $\gamma(t)$ é um ponto de $\Omega$, para todo t $\in I$).\newline
+	Seja $\Gamma :I \biggarrow Im \sigma$ a curva dada por $\Gamma(t)=\sigma(\gamma(t))$. Prove que $\dfrac{\partial \sigma}{\partial u}(\gamma(t))\wedge \dfrac{\partial \sigma}{\partial v}(\gamma(t))$ e ortogona a $\Gamma^'$ (t). Interprete\newline
+
+	podemos interpretar $\Gamma^'$ (t) como uma tangente $\sigma$ no ponto $\gamma(t)$ e o vetor $\dfrac{\partial \sigma}{\partial u}(\gamma(t))\wedge \dfrac{\partial \sigma}{\partial v}(\gamma(t))$ como um vetor normal a $\sigma$ no mesmo ponto,portanto, devem ser ortogonais.\newline
+	
+	
+	\item Seja $\sigma \in R^{2} \biggarrow R^{3}, \Omega$ aberto, uma superfície de classe $C^1$ dada por $\sigma$(u,v)= (x(u,v),y(u,v),z(u,v)). Verifique que.$\dfrac{\partial \sigma}{\partial u}\wedge \dfrac{\partial \sigma}{\partial v}$= $\dfrac{\partial (y,z)}{\partial (u,v)}\vec{i}+ \dfrac{\partial (z,x)}{\partial (u,v)}\vec{j}+ $\dfrac{\partial (x,y)}{\partial (u,v)}\vec{k}.$\newline
+	
+	$\dfrac{\partial \sigma}{\partial u}\wedge \dfrac{\partial \sigma}{\partial v}=
+	\bigg|\begin{array}{crl}
+	     \Vec{i} & \vec{j}&  \Vec{k}\\
+	     \dfrac{\partial x}{\partial u} &  \dfrac{\partial y}{\partial u} &  \dfrac{\partial z}{\partial u}\\
+	     \dfrac{\partial x}{\partial v} &  \dfrac{\partial y}{\partial v} &  \dfrac{\partial z}{\partial v}
+	\end{array}\bigg|$
+	 $= \bigg( \dfrac{\partial y}{\partial u}\dfrac{\partial z}{\partial v}- \dfrac{\partial z}{\partial u}\dfrac{\partial y}{\partial v},
+	 \dfrac{\partial z}{\partial u}\dfrac{\partial x}{\partial v}- \dfrac{\partial x}{\partial u}\dfrac{\partial z}{\partial v},
+	  \dfrac{\partial x}{\partial u}\dfrac{\partial y}{\partial v}- \dfrac{\partial y}{\partial u}\dfrac{\partial x}{\partial v} \bigg)$\newline
+	  
+	  Sabendo que:\newline
+	  $\dfrac{\partial (y,z)}{\partial (u,v)}=\bigg|
+	     \begin{array}{crl}
+	     \dfrac{\partial y}{\partial u} &  \dfrac{\partial y}{\partial v} \\
+	     \dfrac{\partial z}{\partial u} &  \dfrac{\partial z}{\partial v}
+	\end{array}\bigg|$ \newline
+	
+	Analogamente para as outras parcelas, comcluímos que:\newline
+	 $\bigg( \dfrac{\partial y}{\partial u}\dfrac{\partial z}{\partial v}- \dfrac{\partial z}{\partial u}\dfrac{\partial y}{\partial v},
+	 \dfrac{\partial z}{\partial u}\dfrac{\partial x}{\partial v}- \dfrac{\partial x}{\partial u}\dfrac{\partial z}{\partial v},
+	  \dfrac{\partial x}{\partial u}\dfrac{\partial y}{\partial v}- \dfrac{\partial y}{\partial u}\dfrac{\partial x}{\partial v }\bigg)$
+    $=\dfrac{\partial (y,z)}{\partial (u,v)}, \dfrac{\partial (z,x)}{\partial (u,v)}, \dfrac{\partial (x,y)}{\partial (u,v)} $\newline
+    
+    E poratanto:\newline
+    $\dfrac{\partial \sigma}{\partial u} \wedge \dfrac{\partial \sigma}{\partial v  }= 
+	\dfrac{\partial (y,z)}{\partial (u,v)}\vec{i}+ \dfrac{\partial (z,x)}{\partial (u,v)}\vec{j}+ \dfrac{\partial (x,y)}{\partial (u,v)}\vec{k} $
+	\newline
+	
+	
+	
+	\begin{center}
+	\large 9.3 Área de superfície 
+	\end{center}
+	
+	
+	
+	
+	\item $\sigma (u,v)=(u,v,1-u-v),u \geq0, v\geq0$ e $u+v+v \leq 1.$
+	
+	Temos que:\newline
+	$\dfrac{\partial \sigma}{\partial u}=(1,0,-1)$\newline
+	
+	Também:\newline
+	$\dfrac{\partial \sigma}{\partial v}=(0,1,-1)$\newline
+	O produto vetorial fica: \newline
+	$\dfrac{\partial \sigma}{\partial u} \wedge\dfrac{\partial \sigma}{\partial v}= \bigg|\begin{array}{crl}
+	     \Vec{i} & \vec{j}&  \Vec{k}\\
+	     1 & 0 & -1\\
+	     0 & 1 & -1
+	\end{array}\bigg| $ \newline
+	
+	Logo: \newline
+	$\bigg|\begin{array}{c}
+	     $\dfrac{\partial \sigma}{\partial u}\wedge\dfrac{\partial \sigma}{\partial v} $ 
+	\end{array}\bigg|
+	=\sqrt{3}\newline$
+	
+	basta calcular a Integral:\newline
+	$\iint_k
+	\bigg|\begin{array}{crl}
+	     \Vec{i} & \vec{j}&  \Vec{k}\\
+	     1 & 0 & -1\\
+	     0 & 1 & -1
+	\end{array}\bigg|
+	dudv \integral_0^1\integral_0^{1-v}\sqrt{3}dudv$\newline
+	
+	= $\sqrt{3}\integral_0^1 1-vdv$\newline
+	
+	=$\sqrt{3}
+	\begin{array}{c}\bigg|
+	v-\frac{v^{2}}{2}
+	\end{array}\bigg{|}
+	=\frac{\sqrt{3}}{2}$\newline
+
+	\item $\sigma (u,v)=(u,v,2-u-v),u^{2}+v^{2}\leq 1$
+	
+	Temos que:\newline
+	$\dfrac{\partial \sigma}{\partial u}=(1,0,-1)$\newline
+	
+	Também:\newline
+	$\dfrac{\partial \sigma}{\partial v}=(0,1,-1)$\newline
+	O produto vetorial fica: \newline
+	$\dfrac{\partial \sigma}{\partial u} \wedge\dfrac{\partial \sigma}{\partial v}= \bigg|\begin{array}{crl}
+	     \Vec{i} & \vec{j}&  \Vec{k}\\
+	     1 & 0 & -1\\
+	     0 & 1 & -1
+	\end{array}$ \bigg|$ \newline
+	
+	Logo: \newline
+	$\bigg|\begin{array}{c}
+	     $\dfrac{\partial \sigma}{\partial u}\wedge\dfrac{\partial \sigma}{\partial v} $ 
+	\end{array}\bigg|
+	=\sqrt{3}\newline$
+	
+	basta calcular a Integral:\newline
+	$\iint_k
+	\bigg|\begin{array}{crl}
+	     \Vec{i} & \vec{j}&  \Vec{k}\\
+	     1 & 0 & -1\\
+	     0 & 1 & -1
+	\end{array}\bigg|
+	dudv \integral_0^1\integral_0^{1-v}\sqrt{3}dudv$\newline
+	
+	= $\sqrt{3}\integral_0^1 1-vdv$\newline
+	
+	=$\sqrt{3}
+	\begin{array}{c}\bigg|
+	v-\frac{v^{2}}{2}
+	\end{array}\bigg{|}
+	=\frac{\sqrt{3}}{2}$ \newline
+	
+	
+	\item $\sigma (u,v)=(u,v,u^{2}+v^{2}),u^{2}+v^{2}\leq 4$
+	
+	Temos que:\newline
+	$\dfrac{\partial \sigma}{\partial u}=(1,0,2u)$\newline
+	
+	Também:\newline
+	$\dfrac{\partial \sigma}{\partial v}=(0,1,2v)$\newline
+
+	O produto vetorial fica: \newline
+	$\dfrac{\partial \sigma}{\partial u} \wedge\dfrac{\partial \sigma}{\partial v}=$ $\bigg|\begin{array}{crl}
+	     \Vec{i} & \vec{j}&  \Vec{k}\\
+	     1 & 0 & 2u\\
+	     0 & 1 & 2v
+	\end{array}$ \bigg|$ \newline
+	
+	Logo: \newline
+	$\bigg|\begin{array}{c}
+	     $\dfrac{\partial \sigma}{\partial u}\wedge\dfrac{\partial \sigma}{\partial v} $ 
+	\end{array}\bigg|
+	=\sqrt{4u^{2}+4v^{2}+1}\newline$
+	
+	Assim, calculamos a integral usando coordenadas polares para sinplificar os cálculos:\newline
+	$\iint_k
+	\bigg|\begin{array}{c}
+	     $\dfrac{\partial \sigma}{\partial u}\wedge\dfrac{\partial \sigma}{\partial v} $ 
+	\end{array}\bigg|
+	dudv =
+	$\int_0^{2\pi}\int_0^2\sqrt{4\rho^{2} \cos^{2}\theta+4\rho^{2}\sin\theta+1}\rho d\rho d\theta  $\newline
+	=$\int_0^{2\pi}\int_0^2\sqrt{4\rho^{2}+1}\rho d\rho d\theta$ \newline
+	=$\frac{1}{12}\int_0^{2\pi}
+	$\bigg[\sqrt{(4\rho^{2}+1)^{3}}$\bigg]\bigg_0^2 d\Theta $\newline
+	=\dfrac{1}{12}\int_0^{2\pi}17\sqrt{17}-1d\theta=\frac{\pi}{6}(17\sqrt{17}-1)$\newline
+	
+	
+	\item $\sigma (u,v)=(u,v,\frac{1}{2}u^{2}),0\leq v \leq u$ e $u \leq 2$ 
+	
+	Temos que:\newline
+	$\dfrac{\partial \sigma}{\partial u}=(1,0,u)$\newline
+	
+	Também:\newline
+	$\dfrac{\partial \sigma}{\partial v}=(0,1,0)$\newline
+	O produto vetorial fica: \newline
+	$\dfrac{\partial \sigma}{\partial u} \wedge\dfrac{\partial \sigma}{\partial v}= \bigg|\begin{array}{crl}
+	     \Vec{i} & \vec{j}&  \Vec{k}\\
+	     1 & 0 & u\\
+	     0 & 1 & 0
+	\end{array} \bigg| 
+	=(-u,0,1) $ \newline
+	
+	Logo: \newline
+	$\bigg|\begin{array}{c}
+	     \dfrac{\partial \sigma}{\partial u}\wedge\dfrac{\partial \sigma}{\partial v} 
+	\end{array}\bigg|
+	=\sqrt{u^{2}+1}$ \newline
+	
+	assim calculamos a Integral:\newline
+	$\iint_k
+	\bigg|\begin{array}{c}
+	    $\dfrac{\partial \sigma}{\partial u}\wedge\dfrac{\partial \sigma}{\partial v}$ 
+	\end{array}\bigg|$
+	$dudv \integral_0^1\integral_0^u\sqrt{u^{2}+1}dudv$\newline
+	
+	$=\integral_0^2 u\sqrt{u^{2}+1}du\newline$
+	$=\bigg| \dfrac{\sqrt{u^{2}+1}^{3}}{3} \bigg|$
+	$=\dfrac{5\sqrt{5}-1}{3}$ \newline
+
+	
+	
+	\item $\sigma (u,v)=(\cos u,v,\sin u),u^{2}+4v^{2} \leq 1$ 
+	
+	Temos que:\newline
+	$\dfrac{\partial \sigma}{\partial u}=(-\sin u, 0, \cos u)$
+	
+	Também:\newline
+	$\dfrac{\partial \sigma}{\partial v}=(0,1,0)$
+	
+	O produto vetorial fica: \newline
+	$\dfrac{\partial \sigma}{\partial u} \wedge\dfrac{\partial \sigma}{\partial v}= \bigg|\begin{array}{crl}
+	     \Vec{i}  &  \vec{j}  &  \Vec{k}\\
+	     -\sin u  &  0        &  \cos u\\
+	     0        &  1        &  0
+	\end{array} \bigg|$ 
+	$=(-\cos u,0,-\sin u) $ 
+	
+	Logo: \newline
+	$\bigg|\begin{array}{c}$
+	$\dfrac{\partial \sigma}{\partial u}\wedge\dfrac{\partial \sigma}{\partial v}
+    \end{array}\bigg|=1$ \newline
+	
+	Assim, calculamos a integral usando coordenadas polares para sinplificar os cálculos:\newline
+	$\iint_k$
+	
+	$\bigg|\begin{array}{c}$
+    $\dfrac{\partial \sigma}{\partial u}\wedge\dfrac{\partial \sigma}{\partial v} \end{array}\bigg|dudv $
+	
+	$=\integral_0^{2\pi}\integral_0^1 \frac{\rho}{2} d\rho d\theta$ 
+	
+	$=\frac{1}{2} \int_0^{2\pi} \bigg| \frac{\rho^{2}}{2} \bigg|_0^1 d\theta$
+	
+	$=\integral_0^{2\pi} d\theta = \frac{\pi}{2}$ \newline\\
+    
+    
+    \item Seja $A={(0,y,z)\in R^{3}|z^{2}+(y-2)^{2}=1}$; ache a área da superfície gerada pela rotação em torno do eixo Ozdo conjunto A.\newline
+    
+    Temos que:\newline
+    $\dfrac{\partial \sigma}{\partial u}=((2+\cos{v})(- \sin{u}),(2+\cos{v})\cos{u},0) \newline$
+    
+    Também:\newline
+    $\dfrac{\partial \sigma}{\partial v}=((-\sin{v})\cos{u}, (-\sin{v})\sin{u},\cos{v})\newline$
+    
+    O produto vetorial fica:\newline
+    $\dfrac{\partial \sigma}{\partial u} \wedge\dfrac{\partial \sigma}{\partial v}= \bigg|\begin{array}{ccc}
+	     \Vec{i}  &  \vec{j}  &  \Vec{k}\\
+	     (2+\cos{v})(- \sin{u})  &  (2+\cos{v})\cos{u}        &  0\\
+	     (-\sin{v})\cos{u}        &  (-\sin{v})\sin{u}        &  \cos{v}
+	\end{array} \bigg|$ 
+	
+	$=((2+\cos{v})\cos{u}\cos{v}, (2+\cos{v})(-\sin{u})\cos{v}, 2+(\cos{v})\sin{v}) \newline$
+	
+	logo:\newline
+	$\bigg|\bigg| \dfrac{\partial \sigma}{\partial u} \wedge\dfrac{\partial \sigma}{\partial v} \bigg|\bigg|=$
+	$\sqrt{(2+\cos{v})^{2}\cos^{2}+{u}\cos^{2}{v} (2+\cos{v})^{2}(-\sin{u})^{2}\cos^{2}{v}( 2+\cos{v})^{2}\sin^{2}{v}$
+	
+    $\hspace{43} =\sqrt{(2+\cos{v})^{2}\cos^{2}{v}+(2+\cos{v})^{2} \sin^{2}{v}} = 2+\cos{v}$\newline
+    
+    Assim calculamos a integral usando coordenadas polares:\newline
+    $\iint_k \bigg|\bigg| \dfrac{\partial \sigma}{\partial u} \wedge\dfrac{\partial \sigma}{\partial v} \bigg|\bigg|dudv= $
+    $\integral_0^{2\pi}\integral_0^{2\pi} (2+\cos{v} )dudv$
+    
+    $=\integral_0^{2\pi}(2+cos{v}) \bigg [ u \bigg]_0^{2\pi}dv$
+    
+	$=2\pi\integral_0^{2\pi}(2+cos{v})dv$
+	
+	$=2\pi \bigg[2v+\sin{v} \bigg]_0^{2\pi} = 8\pi^2$\newline\\
+    
+
+    \item Calcula a área da parte da superfície inclínada $z^{2} + x^{2}=4$ que se encontra dentro do ciclo $x^{2} + y^{2} \leq4$ a cima do plano xy. \newline
+        
+    Podemos expressar a superfície cilíndrica por :\newline
+    $\sigma(x,y,z) = (x,y,\sqrt{4-x^{4}})$\newline
+    
+    Logo:\newline
+    $\dfrac{\partial f}{\partial x} = -\dfrac{x}{\sqrt{4-x^{2}}}$\newline
+        
+    Também:\newline
+    $\dfrac{\partial f}{\partial y} =0$\newline
+        
+    logo:\newline
+    $\iint_k \sqrt{1+ \bigg(\dfrac{\partial f}{\partial x} \bigg)^{2} + \bigg(\dfrac{\partial f}{\partial y}\bigg)^{2}}dxdy$
+    $=\iint_k \sqrt{\frac{4}{4-x^{2}}}dxdy$
+        
+    $\hspace{155} =2\iint_k \frac{1}{4-x^{2}}$ \newline
+        
+    Aregião K é a circunferência de raio 2, com centro na origem, logo:
+        
+    $\iint_k \frac{4}{4-x^{2}}dxdy$
+    $=2\integral_{-2}^{2} \integral_{-\sqrt{4-x^{2}}}^{\sqrt{4-x^{2}}} \dfrac{1}{{\sqrt{4-x^{2}}}}dxdy$
+        
+    $\hspace{72}=2\integral_{-2}^{2}\frac{1}{{\sqrt{4-x^{2}}}}\bigg[ y \bigg]_{-\sqrt{4-x^{2}}}^{\sqrt{4-x^{2}}} dx$
+    
+    $\hspace{72}=4\integral_{-2}^{2} dx =16$\newpage
+    
+    
+    
+    \item Calcule a área da parte da fuperfície esférica $x^{2}+ y^{2}+ z^{2} =1$ que se encontra dentro do cone $z \geq \sqrt{x^{2}+y^{2}}$.  
+    $\sigma(x,y,z)=(x,y,\sqrt{1-x^{2}-y^{2}})$\newline
+    
+    $\dfrac{\partial f}{\partial x} = \dfrac{-y}{\sqrt{1-x^{2}-y^{2}}}$\newline\\
+    
+    também:\newline
+    $\dfrac{\partial f}{\partial y} = \dfrac{-y}{\sqrt{1-x^{2}-y^{2}}}$ \newline\\
+    
+    Logo: \newline
+    $\iint_k \sqrt{1+ \Bigg(\dfrac{\partial f}{\partial x}\Bigg) + \Bigg(\dfrac{\partial f}{\partial y}\Bigg)}dxdy = 
+    \iint_k\sqrt{1 + \dfrac{x^{2} + y^{2}}{1-x^{2}-y^{2}}dxdy$\newline
+    
+    $=\iint_k 1 + \dfrac{x^{2} + y^{2}} {\sqrt{ 1-x^{2}-y^{2}} }dxdy $ \newline\\
+    
+    Note que o cone possui uma angulação de $\frac{\pi}{4}$, logo, podemos apresentar K utilizando cooredenadas polares:\newline
+    
+    $\Bigg\integral\integral_k \dfrac{1}{\sqrt{1-x^{2}-y^{2}}} dxdy =
+    \integral_0^{2\pi} \integral_0^{\frac{\sqrt{2}}{2}}\frac{\rho}{\sqrt{1-\rho^{2}}} d\rho d\theta$\newline
+    
+    $=\integral_0^{2\pi} \Bigg[ -\sqrt{1-\rho^{2}} \Bigg]_0^\frac{\sqrt{2}}{2} d\theta$
+    
+    $=\integral_0^{2\pi} \Bigg( 1- \frac{\sqrt{2}}{2} \Bigg) d\theta = 2\pi \Bigg(1- \frac{\sqrt{2}}{2} \Bigg) = \pi(2- \sqrt{2}) $\newline
+   
+    \item Calcule a área da fuperfície esférica $z =\sqrt{x^{2} + y^{2}}, (x - 2)^{2} + 4y^{2} \leq 1$.  
+    
+    $\sigma(x,y,z)=(x,y,\sqrt{x^{2}+y^{2}})$\newline\\
+    
+    Logo: \newline
+    $\dfrac{\partial f}{\partial x} = \dfrac{x}{\sqrt{x^{2}+y^{2}}}$\newline\\
+    
+    Também: \newline
+    $\dfrac{\partial f}{\partial y} = \dfrac{y}{\sqrt{x^{2}+y^{2}}}$\newline\\
+    
+    Logo: \newline
+    $\iint_k \sqrt{1+ \Bigg(\dfrac{\partial f}{\partial x}\Bigg)^{2} + \Bigg(\dfrac{\partial f}{\partial y}\Bigg)^{2}}dxdy = 
+    \integral\integral_k\sqrt{1 + \dfrac{x^{2} + y^{2}}{x^{2}+y^{2}}dxdy$\newline
+    
+    $\hspace{150}=\sqrt{2}\integral\integral_k dxdy $ \newline\\
+    
+    Ao tomar $x-2=\rho\cos{\theta}$ e $2y = \rho\sin{\theta}$, temos:\newline
+    $=\sqrt{2}\integral\integral_k dxdy =
+    \sqrt{2}\integral_0^{2\pi}\integral_0^1 \frac{\rho}{2} d\rho d\theta $ 
+    
+    $\hspace{70}= \frac{\sqrt{2}}{2} \integral_0^{2\pi} \Bigg[ \frac{\rho^2}{2} \Bigg]_0^1 d\theta$
+    
+    $\hspace{70}= \frac{\sqrt{2}}{2} \integral_0^{2\pi} d\theta = \frac{\pi \sqrt{2}}{2}$ \newline\\
+    
+    \item Calcule a área da parte da superfície esférica $z =x^{2} + y^{2}} + z^{2} = 2$ que se encontra dentro do parabolóide $z=x^{2} + y^{2}$ .\newline\\  
+    
+    Podemos expressar a superfície esférica por:\newline
+    $\sigma(x,y,z)=(x,y,\sqrt{2-x^{2}-y^{2}})$\newline\\
+    
+    Logo: \newline
+    $\dfrac{\partial f}{\partial x} = \dfrac{-x}{\sqrt{2-x^{2}-y^{2}}}$\newline\\
+    
+    Também: \newline
+    $\dfrac{\partial f}{\partial y} = \dfrac{-y}{\sqrt{2-x^{2}-y^{2}}}$\newline\\
+    
+    Logo: \newline
+    $\integral\integral_k \sqrt{1+ \Bigg(\dfrac{\partial f}{\partial x}\Bigg)^{2} + \Bigg(\dfrac{\partial f}{\partial y}\Bigg)^{2}}dxdy = 
+    \integral\integral_k\sqrt{1 + \dfrac{x^{2} + y^{2}}{2-x^{2}-y^{2}}}dxdy$\newline\\
+    
+     $\hspace{150}=\sqrt{2}\integral\integral_k \dfrac{1}{\sqrt{2-x^{2}-y^{2}}}dxdy$\newline\\
+     
+     Vamos definir a região K subistituindo $z=x^{2}+y^{2}$ em $x^{2}+y^{2}+z^{2}=2$.\newline
+     
+     $z^{2}+z =2 \rightarrow z^{'}=-2, z^{''}=1$\newline\\
+    
+    Como Z é positivo, temos $x^{2}+y^{2}=1$ usando coordenadas polares , temos:\newline
+    
+    $\sqrt{2}\integral\integral_k \dfrac{1}{\sqrt{2-x^{2}-y^{2}}} dxdy =\sqrt{2}
+    \integral_0^{2\pi} \integral_0^{1}\frac{\rho}{\sqrt{2-\rho^{2}}} d\rho d\theta$\newline
+    
+    $\hspace{140}=\sqrt{2}\integral_0^{2\pi} \Bigg[ -\sqrt{1-\rho^{2}} \Bigg]_0^1 d\theta$
+    
+    $\hspace{140}=\sqrt{2}\integral_0^{2\pi} \Bigg(\sqrt{2} -1 \Bigg) d\theta =2\pi(2- \sqrt{2}) $\newline\\
+    
+    \item Calcule a área da parte da superfície z= xy que se encontra dentro do cilindro $x^{2}+y^{2}\leq 4$ e fora do cilindro $x^{2} + y^{2}\leq1$\newline\\
+    
+    
+    Temos a superfície:\newline
+    $\sigma(x,y)=(x,y,xy)$\newline\\
+    
+    Assim:\newline
+    $\dfrac{\partial \sigma}{\partial u} \wedge\dfrac{\partial \sigma}{\partial v}= \Bigg|\begin{array}{crl}
+	     \Vec{i} & \vec{j}&  \Vec{k}\\
+	     1 & 0 & y\\
+	     0 & 1 & x
+	\end{array} \Bigg| 
+	=(\vec{k}-y\vec{i}-x\vec{j}) = (-y,-x,1) $ \newline\\
+	
+	portanto:\newline
+	área de $\theta = \integral\integral_k \sqrt{1+x^{2}+y^{2}} dxdy$\newline\\
+	
+	Onde K é a região $1 \leq x^{2}+ y^{2}\leq 4$\newline\\
+	
+	Em coordenadas polares $x=\rho\cos{\theta}$ e $\rho\sin{\theta}, temos:$\newline\\
+	
+	área de $\theta = \integral_0^{2\pi} \integral_1^2 \sqrt{1+p^{2}}\rho d\rho d\theta$\newline\\
+	
+	fazendo $u=1+\rho^{2}, du=2\rho d\rho e \Bigg[_{\rho=2 \Rightarrow u=5}^{\rho=1 \Rightarrow u=2}$ \newline\\
+	
+	área de $\sigma=\integral_0^{2\pi}\integral_2^5 \sqrt{u}\frac{du}{2}d\theta$
+	
+	$\hspace{50}=\pi \frac{u^{\frac{3}{2}}}{\frac{3}{2}} \Bigg|_2^5$
+    
+    $\hspace{50}=\frac{2\pi}{3}\bigg( 5\sqrt{5}-2 \sqrt{2}\bigg).$
+    
+    \newpage
+    %CAPITULO 8
+    
+    	\begin{center}
+	    \begin{large}Capítulo 8(Guidorizzi) - Teorema de Green\\8.2 Teorema de Green para conjunto com Fronteira $C_{}^{1}$ por partes
+	    \end{large}
+	\end{center}	
+		
+		%##################################################q#############################################################################################
+		% Capítulo 08 - Teorema de Green - Exercícios 8.2 - Questão 01 
+		\item Sejam $\gamma$ e $K$ como no teorema de Green. Prove que área de $K = \oint_\gamma\ x\ dy$
+		
+		$\Rightarrow \displaystyle\oint\ Pdx\ Qdy = \displaystyle\iint_K\ \Bigg(\dfrac{\partial Q}{\partial x} - \dfrac{\partial P}{\partial y}\Bigg)\ dx\ dy$
+		
+		$\Rightarrow P(x,y) = 0$ e $Q(x,y) = x$
+		
+		$\Rightarrow \displaystyle\oint_\gamma\ x\ dx = \displaystyle\iint_K\ \Bigg(\dfrac{\partial Q}{\partial x}(x) - \dfrac{\partial P}{\partial y}(0)\Bigg)\ dx\ dy $
+		
+		$\Rightarrow \displaystyle\iint_K\ \Bigg(\dfrac{\partial Q}{\partial x}(x) - \dfrac{\partial P}{\partial y}(0)\Bigg)\ dx\ dy = \displaystyle\iint_K\ dx\ dy$
+		
+		$\Rightarrow \displaystyle\iint_K\ dx\ dy$ é a área de $K$
+		
+		$\Rightarrow$ Logo, está provado que área de $K = \oint_\gamma\ x\ dy$
+		
+		%###############################################################################################################################################
+		% Capítulo 08 - Teorema de Green - Exercícios 8.2 - Questão 02
+		\item Calcule a área da região limitada pela curva $x = t - \sin t$, $y = 1 - \cos t$, $0 \leq t \leq 2\pi$, e pelo eixo $0x$
+		
+		$\Rightarrow \gamma_1\begin{cases}
+		x(t) = t - \sin t, 0 \leq t \leq 2\pi \\
+		y(t) = 1 - \cos t (dy = \sin t\ dt)
+		\end{cases}$
+		
+		$\Rightarrow \gamma_2\begin{cases}
+		x(t) = t. 0 \leq t \leq 2\pi \\
+		y(t) = 0 (dy = 0)
+		\end{cases}$
+		
+		$\Rightarrow$ Área $= -\displaystyle\int_{\gamma_1}\ x\ dy  + \displaystyle\int_{\gamma_2}\ x\ dy$
+		
+		$\Rightarrow -\displaystyle\int_{\gamma_1}\ x\ dy  + \displaystyle\int_{\gamma_2}\ x\ dy = - \displaystyle\int_{0}^{2\pi}\ (t - \sin t)\sin t\ dt + \displaystyle\int_{0}^{2\pi}\ t \cdot 0$
+		
+		$\Rightarrow - \displaystyle\int_{0}^{2\pi}\ (t - \sin t)\sin t\ dt + \displaystyle\int_{0}^{2\pi}\ t \cdot 0 = \displaystyle\int_{0}^{2\pi}\ (\sin^2 t - t\sin t)\ dt$
+		
+		$\Rightarrow \displaystyle\int_{0}^{2\pi}\ (\sin^2 t - t\sin t)\ dt = \Bigg[\dfrac{(t)(- \cos t + 2 )\sin t  }{2} + x\cos x \Bigg]_0^{2\pi} = 3\pi$
+		
+		$\Rightarrow$ Logo, a área da região limitada pela curva é $3\pi$ 
+		
+		%###############################################################################################################################################
+		% Capítulo 08 - Teorema de Green - Exercícios 8.2 - Questão 03
+		\item Calcule a área da região limitada pela elipse $x = a \cos t$, $y, b \sin t$, $0 \leq t \leq 2\pi$, onde $\ > 0$
+		
+		$\Rightarrow$ Área $= \oint_\gamma\ x\ dy = \displaystyle\int_{0}^{2\pi}\ (a\cos t)\cdot(b\cos t)\ dt $
+		
+		$\Rightarrow \displaystyle\int_{0}^{2\pi}\ (a\cos t)\cdot(b\cos t)\ dt = ab\displaystyle\int_{0}^{2\pi}\ cos^2t\ dt$
+		
+		$\Rightarrow ab\displaystyle\int_{0}^{2\pi}\ cos^2t\ dt = ab\displaystyle\int_{0}^{2\pi}\ \Bigg(\dfrac{1 + \cos 2t}{2}\Bigg)\ dt$
+		
+		$\Rightarrow ab\displaystyle\int_{0}^{2\pi}\ \Bigg(\dfrac{1 + \cos 2t}{2}\Bigg)\ dt = ab\Bigg[ t + \dfrac{\sin 2t}{2}\Bigg]_0^{2\pi} = ab\pi$
+		
+		$\Rightarrow$ Logo, a área da região limitada pela elipse é $ab\pi$
+		
+		%###############################################################################################################################################
+		% Capítulo 08 - Teorema de Green - Exercícios 8.2 - Questão 04
+		\item Calcule $\oint_\gamma\ \vec{F} \cdot d\gamma$, onde $\gamma$ é uma curva fechada, simples, $C^1$ por partes, cuja imagem é a fronteira de um compacto $B$ e $\vec{F}(x,y) = (2x + y)\vec{i} + (3x - y)\vec{j}$ 
+		
+		$\Rightarrow \displaystyle\oint_\gamma\ \vec{F} \cdot d\gamma = \displaystyle\oint_\gamma\ Pdx + Qdy$
+		
+		$\Rightarrow \displaystyle\oint_\gamma\ Pdx + Qdy = \displaystyle\iint_B\ \Bigg(\dfrac{\partial Q}{\partial x} - \dfrac{\partial P}{\partial y}\Bigg)\ dx\ dy$
+		
+		$\Rightarrow \displaystyle\iint_B\ \Bigg(\dfrac{\partial Q}{\partial x}(3x - y) - \dfrac{\partial P}{\partial y}(2x + y)\Bigg)\ dx\ dy = 2\displaystyle\iint_B\ dx\ dy $
+		
+		$\Rightarrow 2\displaystyle\iint_B\ dx\ dy = 2 \cdot$ área de b 
+		
+		$\Rightarrow$ $2 \cdot$ área de b $ = 2\alpha$
+		
+		$\Rightarrow$ Logo, $\oint_\gamma\ \vec{F} \cdot d\gamma = 2\alpha$
+		
+		
+		%###############################################################################################################################################
+		% Capítulo 08 - Teorema de Green - Exercícios 8.2 - Questão 05
+		\item Calcule $\oint_\gamma\ \vec{F} \cdot d\gamma$, onde $\vec{F}(x,y) = 4x^3y^3\vec{i} + (3x^4y^2 + 5x)\vec{j}$ e $\gamma$ a fronteira do quadrado de vértices $(-1,0),(0,-1),(1,0), (0,1)$
+		
+		$\Rightarrow \displaystyle\oint_\gamma\ \vec{F} \cdot d\gamma = \displaystyle\oint_\gamma\ Pdx + Qdy$
+		
+		$\Rightarrow \displaystyle\oint_\gamma\ Pdx + Qdy = \displaystyle\iint_B\ \Bigg(\dfrac{\partial Q}{\partial x} - \dfrac{\partial P}{\partial y}\Bigg)\ dx\ dy$
+		
+		$\Rightarrow \displaystyle\iint_B\ \Bigg(\dfrac{\partial Q}{\partial x}(3x^4y^2 + 5x) - \dfrac{\partial P}{\partial y}(4x^3y^3)\Bigg)\ dx\ dy = \displaystyle\iint_B\ 12x^3y^2 + 5 - 12x^3y^5\ dx\ dy$
+		
+		$\Rightarrow \displaystyle\iint_B\ 12x^3y^2 + 5 - 12x^3y^5\ dx\ dy = \displaystyle\iint_B\ 5\ dx\ dy$
+		
+		$\Rightarrow \displaystyle\iint_B\ 5\ dx\ dy = 5 \cdot$ área de $K$ = $10$
+		
+		$\Rightarrow$ Logo, $\oint_\gamma\ \vec{F} \cdot d\gamma = 10$
+		
+	\begin{center}
+	    \begin{large}Capítulo 8(Guidorizzi) - Teorema de Green\\8.4 O Teorema da Divergencia no Plano
+	    \end{large}
+	\end{center}
+		
+		%###############################################################################################################################################
+		% Capítulo 08 - Teorema de Green - Exercícios 8.4 - Questão 01, item a
+		\item Calcule $\displaystyle\int_\gamma\ \vec{F} \cdot \vec{n}\ ds$ sendo dados: $\vec{F}(x,y) = x\vec{i} + \vec{j}$, $\gamma(t) = (\cos t), \sin t$, $0 \leq t \leq 2\pi$ e $\vec{n}$ a normal exterior.
+		
+		$\Rightarrow \displaystyle\int_\gamma\ \vec{F}\cdot \vec{n}ds = \displaystyle\int_{a}^{b}\ \vec{F}(\gamma(t)) \cdot \vec{n}(\gamma(t)) ||(\gamma'(t))||$, onde $\vec{n}$ é o vetor normal a $\gamma'(t)$
+		
+		$\Rightarrow \begin{cases}
+		||\gamma'(t)|| = \sqrt{(-\sin^2 t) + \cos^2 t} = 1 \\
+		\vec{n} = \dfrac{1}{||\gamma'(t)||} = (y'(t)\vec{i} - x'(t)\vec{j}) = (\cos t, \sin t)
+		\end{cases}$
+		
+		$\Rightarrow \displaystyle\int_\gamma\ \vec{F}\cdot \vec{n}ds = \displaystyle\int_{0}^{2\pi}\ (\cos t, \sin t)\cdot (\cos t, \sin t)\ dt$
+		
+		$\Rightarrow \displaystyle\int_{0}^{2\pi}\ (\cos t, \sin t)\cdot (\cos t, \sin t)\ dt = \displaystyle\int_{0}^{2\pi}\ \cos^2 t + \sin^2 t\ dt $
+		
+		$\Rightarrow \displaystyle\int_{0}^{2\pi}\ \cos^2 t + \sin^2 t\ dt = \displaystyle\int_{0}^{2\pi}\ dt$
+		
+		$\Rightarrow \displaystyle\int_{0}^{2\pi}\ dt = \Big[t]_0^{2\pi} = 2\pi$
+		
+		$\Rightarrow$ Logo, $\displaystyle\int_\gamma\ \vec{F} \cdot \vec{n}\ ds = 2\pi$
+		
+		%###############################################################################################################################################
+		% Capítulo 08 - Teorema de Green - Exercícios 8.4 - Questão 01, item b
+		\item Calcule $\displaystyle\int_\gamma\ \vec{F} \cdot \vec{n}\ ds$ sendo dados: $\vec{F}(x,y) = x\vec{j}$, $\gamma$ a fronteira do quadrado de vértices $(0,0),(1,0),(1,1),(0,1)$ e $\vec{n}$ a normal que aponta para fora do quadrado, sendo $\gamma$ orientada no sentido anti-horário.
+		
+		$\Rightarrow \displaystyle\oint_\gamma\ \vec{F}\cdot \vec{n}ds = \displaystyle\iint_K\ div\vec{F}\ dx\ dy$
+		
+		$\Rightarrow div \vec{F} = \dfrac{\partial P}{\partial x} + \dfrac{\partial P}{\partial y} = 1$
+		
+		$\Rightarrow \displaystyle\int_\gamma\ \vec{F} \cdot \vec{n}\ ds = \displaystyle\iint_K\ dx\ dy$
+		
+		$\Rightarrow \displaystyle\iint_K\ dx\ dy = 1$
+		
+		$\Rightarrow$ Logo, $\displaystyle\int_\gamma\ \vec{F} \cdot \vec{n}\ ds = 1$
+		
+		%###############################################################################################################################################
+		% Capítulo 08 - Teorema de Green - Exercícios 8.4 - Questão 01, item c
+		\item Calcule $\displaystyle\int_\gamma\ \vec{F} \cdot \vec{n}\ ds$ sendo dados:$\vec{F}(x,y) = x^2\vec{i}$, $\gamma(t) = (2\cos t, \sin t)$, $0 \leq t \leq 2\pi$ e $\vec{n}$ a normal que aponta para fora da região $\dfrac{x^2}{4} + y^2 \leq 1$
+		
+		$\Rightarrow \displaystyle\oint_\gamma\ \vec{F}\cdot \vec{n}ds = \displaystyle\iint_K\ div\vec{F}\ dx\ dy$
+		
+		$\Rightarrow div \vec{F} = \dfrac{\partial P}{\partial x} + \dfrac{\partial P}{\partial y} = 2x$
+		
+		$\Rightarrow \displaystyle\int_\gamma\ \vec{F} \cdot \vec{n}\ ds = \displaystyle\iint_K\ 2x\ dx\ dy$ 
+		
+		$\Rightarrow \begin{cases}
+		\gamma(t) = (2\cos t, \sin t) \\
+		dx\ dy = \rho d\ \rho d\theta
+		\end{cases}$
+		
+		$\Rightarrow \displaystyle\iint_K\ 2x\ dx\ dy = \displaystyle\int_{0}^{2\pi}\ \displaystyle\int_{0}^{1}\ 2(2\cos \theta)\rho d\ \rho d\theta$
+		
+		$\Rightarrow \displaystyle\int_{0}^{2\pi}\ \displaystyle\int_{0}^{1}\ 2(2\cos \theta)\rho d\ \rho d\theta = \displaystyle\int_{0}^{2\pi}\ 4\cos\theta\Bigg[\dfrac{\rho^2}{2}\Bigg]_0^1\ d\rho$
+		
+		$\Rightarrow \displaystyle\int_{0}^{2\pi}\ 4\cos\theta\Bigg[\dfrac{\rho^2}{2}\Bigg]_0^1\ d\rho = \displaystyle\int_{0}^{2\pi}\ 2\cos\theta\ d\theta$
+		
+		$\Rightarrow \displaystyle\int_{0}^{2\pi}\ 2\cos\theta\ d\theta = 2\Big[\sin\theta\Big]_0^{2\pi} = 0  $
+		
+		$\Rightarrow$ Logo, $\displaystyle\int_\gamma\ \vec{F} \cdot \vec{n}\ ds = 0$	
+		%###############################################################################################################################################
+		% Capítulo 08 - Teorema de Green - Exercícios 8.4 - Questão 01, item d
+		\item Calcule $\displaystyle\int_\gamma\ \vec{F} \cdot \vec{n}\ ds$ sendo dados: $\vec{F}(x,y) = x^2\vec{i}$, $\gamma(t) = (2\cos t, \sin t)$, $0 \leq t \leq \pi$, e $\vec{n}$ a normal com componente $y \geq 0$
+		
+		$\Rightarrow \displaystyle\int_\gamma\ \vec{F}\cdot \vec{n}ds = \displaystyle\int_{a}^{b}\ \vec{F}(\gamma(t)) \cdot \vec{n}(\gamma(t)) ||(\gamma'(t))||$, onde $\vec{n}$ é o vetor normal a $\gamma'(t)$
+		
+		$\Rightarrow \begin{cases}
+		||\gamma'(t)|| = \sqrt{(2\cos t)^2 +\sin^2 t}\\
+		\vec{n} = \dfrac{1}{||\gamma'(t)||} = (y'(t)\vec{i} - x'(t)\vec{j}) = \dfrac{(\cos t\vec{i} + 2\sin t\vec{j})}{\sqrt{(2\cos t)^2 + \sin^2 t}}
+		\end{cases}$
+		
+		$\Rightarrow \Rightarrow \displaystyle\int_\gamma\ \vec{F}\cdot \vec{n}ds = \displaystyle\int_{0}^{pi}\ ((2\cos t)^2,0) \cdot (\cos t, 2\sin t)\ dt dt$
+		
+		$\Rightarrow \displaystyle\int_{0}^{pi}\ ((2\cos t)^2,0) \cdot (\cos t, 2\sin t)\ dt = \displaystyle\int_{0}^{\pi}\ 4\cos^3 t\ dt$
+		
+		$\Rightarrow \displaystyle\int_{0}^{\pi}\ 4\cos^3 t\ dt = \Bigg[4\sin x - \dfrac{4\sin^3 x}{3}\Bigg]_0^{\pi} = 0$
+		
+		$\Rightarrow$ Logo, $\displaystyle\int_\gamma\ \vec{F} \cdot \vec{n}\ ds = 0$
+		
+		%###############################################################################################################################################
+		% Capítulo 08 - Teorema de Green - Exercícios 8.4 - Questão 01, item e
+		\item Calcule $\displaystyle\int_\gamma\ \vec{F} \cdot \vec{n}\ ds$ sendo dados: $\vec{F}(x,y) = x\vec{i} + y\vec{j}$, $\gamma(t) = (t,t^2)$, $0 \leq t \leq$, e $\vec{n}$ a normal com componente $y < 0$
+		
+		$\Rightarrow \displaystyle\int_\gamma\ \vec{F}\cdot \vec{n}ds = \displaystyle\int_{a}^{b}\ \vec{F}(\gamma(t)) \cdot \vec{n}(\gamma(t)) ||(\gamma'(t))||$, onde $\vec{n}$ é o vetor normal a $\gamma'(t)$
+		
+		$\Rightarrow \begin{cases}
+		||\gamma'(t)|| = \sqrt{1^2 + (2t)^2} \\
+		\vec{n} = \dfrac{1}{||\gamma'(t)||} = \dfrac{(2t\vec{i} - \vec{j})}{\sqrt{1^2 + (2t)^2}}
+		\end{cases}$
+		
+		$\Rightarrow \displaystyle\int_\gamma\ \vec{F} \cdot \vec{n}\ ds = \displaystyle\int_{0}^{1}\ (t,t^2)\cdot (2t, -1)\ dt$
+		
+		$\Rightarrow \displaystyle\int_{0}^{1}\ (t,t^2)\cdot (2t, -1)\ dt = \displaystyle\int_{0}^{1}\ t^2\ dt$
+		
+		$\Rightarrow \displaystyle\int_{0}^{1}\ t^2\ dt = \Bigg[\dfrac{t^3}{3}\Bigg]_0^1 = \dfrac{1}{3}$
+		
+		$\Rightarrow$ Logo, $\displaystyle\int_\gamma\ \vec{F} \cdot \vec{n}\ ds = \dfrac{1}{3}$
+
+    %CAPITULO 8 FINAL
+    
+    \begin{center}
+	\large 9.4 Integral de superfície 
+	\end{center}
+
+	\item f(x,y,z)=xy e $\sigma (u,v)=(u-v,u+v,2u+v+1),0\leq1\leq1$ e $0\leq v\leq u$
+
+	note que: \newline
+	$\dfrac{\partial \sigma}{\partial u} \wedge\dfrac{\partial \sigma}{\partial v}= 
+	\bigg|\begin{array}{crl}
+	     \Vec{i}  &  \vec{j}  &  \Vec{k}\\
+	     1        &  1        &  2\\
+	     -1       &  1        &  1
+	\end{array} \bigg| 
+	=(\vec{i}-2\vec{j}+\vec{k}+\vec{k}-2\vec{i}-\vec{j})=(-1,-3-,2) $ \newline
+	$\iint_\theta f(x,y,z)ds=\integral_0^1 \integral_0^u f(\theta(u,v))
+	\bigg|\dfrac{\partial \sigma}{\partial u} \wedge\dfrac{\partial \sigma}{\partial v}\bigg| dudv$ 
+	
+	$=\integral_0^1 \integral_0^u(u-v)(u+v).\sqrt{14}dvdu$
+	
+	$=\integral_0^1 \integral_0^u(u^{2}+uv-uv+v^{2})\sqrt{14})dvdu$
+	
+	$=\integral_0^1 \integral_0^u (u^{2}-v^{2}.\sqrt{14})dvdu$
+	
+    $=\sqrt{14}\integral_0^1u^{2}v-\frac{-v^{3}}{3}\bigg |_0^u$
+    
+	$=\sqrt{14}\bigg( \frac{u^{4}}{4}-\frac{u^{4}}{12}\bigg) \bigg|_0^1$
+	
+	$=\sqrt{14} \bigg( \frac{u^{4}}{4}-\frac{1}{12} \bigg)$
+	
+	$=\frac{\sqrt{14}}{6}.$\newline
+    	    
+	\item f(x,y,z)=$x^{2}+y^{2}$ e $\sigma(u,v)=(u,v,u^{2}+v^{2}),u^{2}+v^{2}\leq1$
+	
+	$\dfrac{\partial \sigma}{\partial u} \wedge\dfrac{\partial \sigma}{\partial v}= 
+	\bigg|\begin{array}{crl}
+	     \Vec{i}  &  \vec{j}  &  \Vec{k}\\
+	     1        &  0        &  2u\\
+	     0        &  1        &  2v
+	\end{array} \bigg| 
+	=(\vec{k}-2u\vec{i}+2v\vec{j})=(-2u,-2v,-1) $ \newline
+	
+	Logo: \newline
+	$\iint_\theta f(x,y,z)ds=\integral_0^1 \integral_0^u f(\theta(u,v))
+	\bigg|\dfrac{\partial \sigma}{\partial u} \wedge\dfrac{\partial \sigma}{\partial v}\bigg| dudv$ 
+	
+	$=\iint_k(u^{2}+v^{2})\sqrt{4u^{2}+4v^{2}+1}dudv$\newline
+	
+	fazendo $u=\rho \cos{\theta}$ e $v=\rho \sin{\theta}$, 
+	
+	temos:\newline
+	$\iint_\theta f(x,y,z)ds=\integral_0^1 \integral_0^{2\pi} \rho^{2}\sqrt{4\rho^{2}+1}\rho d\theta d\rho$ 
+	
+	$=2\pi \integral_0^1$\rho^{2}\sqrt{4\rho^{2}+1}\rho d\rho$\newline
+	
+	Fazendo a mudança $w=4\rho^{2}+1,dw=\rho d\rho$ e \newline
+	$\rho=0 \biggarrow w=1$ \newline $\rho=1 \biggarrow w=5$\newline
+	
+	$\iint_\theta f(x,y,z)ds=2\pi \integral_0^5 \bigg(\frac{w-1}{4}\bigg) \sqrt{w} \frac{dw}{8}$
+	
+	$=\frac{\pi}{16}\bigg(\frac{2w^{\frac{5}{2}}}{5}-\frac{2w^{\frac{3}{2}}}{3}\bigg)|\bigg_ 1^5$
+	
+	$=\frac{\pi}{16}\bigg( 10\sqrt{5}-\frac{10\sqrt{5}}{3}\bigg- (\frac{2}{5}-\frac{2}{3}))$
+	
+	$=\frac{\pi}{16}\bigg(\frac{20\sqrt{5}}{3}+\frac{4}{15})$
+	
+	$=\frac{\pi}{4} \bigg(\frac{5\sqrt{5}}{3}+\frac{1}{15} \bigg)$
+	\newline
+	
+	
+	
+	\item f(x,y,z)=x e $\sigma$ é a parte da superície $z^{2}=x^{2}+ y^{2}$ situada entre os planos z=1 e z=3. 
+	
+	
+	a superfície $\sigma$ é parametrizada como \newline
+	
+	$\sigma(x,y)=(x,y,\sqrt{x^{2}+y^{2})$ \newline
+	
+	com: \newline
+	
+	$1 \leq \sqrt{x^2 + y^2}\leq 3 \biggarrow 1 \leq x^2 + y^2 \leq 9$\newline
+	
+    Em coordenadas polares, temos $\sigma(\rho,\theta)=(\rho\cos\theta,\rho\sin\theta,\rho)$ com $1\leq \rho\leq 3 $ e $0 \leq \theta \leq 2\pi$
+	
+	Daí,\newline
+		$\dfrac{\partial \sigma}{\partial u} \wedge\dfrac{\partial \sigma}{\partial v}= 
+	\bigg|\begin{array}{ccc}
+	     \Vec{i}  &  \vec{j}  &  \Vec{k}\\
+	     \cos{\theta}         &  \sin{\theta}        &  1\\
+	     -\rho\sin\theta      &  \rho\cos\theta        &  0
+	\end{array} \bigg| 
+	=-\rho\sin\theta\vec{j}+\rho\cos^{2}\theta\vec{k} +\rho\sin^{2}\theta -\rho\cos\theta\vec{i}  $ \newline
+	
+	Logo.\newline
+	$\iint_\sigma f(x,y,z)ds=\integral_0^{2\pi} \integral_1^3 \sqrt{\rho\cos^{2}\theta +\rho\sin^{2}\theta +\rho^{2}} d\rho d\theta $
+	
+	$=\integral_0^{2\pi} \integral_1^3 (\rho\cos\theta \sqrt{2\rho^{2}}) d\rho d\theta$
+	
+	$=\integral_0^{2\pi} \integral_1^3 (\rho\cos\theta \rho\sqrt{2}) d\rho d\theta$
+	
+	$=\integral_0^{2\pi} \integral_1^3 (\rho^{2}\cos\theta \sqrt{2}) d\rho d\theta$
+	
+	$\sqrt{2}\integral_0^{2\pi} \frac{\rho^{3}}{3}|_1^3 \cos \theta d\theta $
+	
+	$\frac{\sqrt{2}}{3} \sin\theta|_1^{2\pi} =0.$\newline
+	
+	
+	\item f(x,y,z)=$\dfrac{z}{\sqrt{1+4x^{2}+4y^{2}}}$ e $\sigma$ é a  parte do parabulóide $z=1-x^{2}-y^{2}$ que se encontra dentro do cilindro $x^{2}+y^{2}\leq 2y$\newline  
+	A superfície é dada por:\newline
+	$\sigma(x,y)=(x,y,1-x^{2}-y^{2})$\newline
+	
+	Dai: \newline
+	$\dfrac{\partial \sigma}{\partial u} \wedge\dfrac{\partial \sigma}{\partial v}= 
+	\bigg|\begin{array}{crl}
+	     \Vec{i}  &  \vec{j}  &  \Vec{k}\\
+	     1        &  0        &  -2x\\
+	     0        &  1        &  -2y
+	\end{array} \bigg| 
+	=(\vec{k}+2x\vec{i}+2y\vec{j})=(2x,2y,1) $ \newline
+	
+	Logo: \newline
+	$\iint_\sigma f(x,y,z)ds=\iint 
+	\bigg|\dfrac{\partial \sigma}{\partial u} \wedge\dfrac{\partial \sigma}{\partial v}\bigg| dudv$ 
+	
+	$\hspace{80}=\integral\integral_k \dfrac{1-x^{2}-y^{2}}{\sqrt{1+4x^{2}+4y^{2}}}.\sqrt{1+4x^{2}+4y^{2}} dxdy$
+	
+	$\hspace{80}=\integral\integral_k (1-x^{2}-y^{2})dxdy$\newline
+	
+	onde k é o conjunto: \newline
+	$x^{2}+y^{2}\leq2y \biggarrow x^{2}-2y+y^{2}\leq0$ 
+	
+	$\biggarrow x^{2}+(y-1)^{2}\leq 1$\newline	
+	
+	Fazendo: $x=\rho\cos\theta$ e $\rho\sin\theta +1$
+	
+	$\iint_\sigma f(x,y,z)ds=\integral_0^{2\pi} \integral_0^1 (1-\rho^{2}\cos^{2}\theta-( \rho\sin\theta +1))\rho d\rho d\theta $
+	
+	$\hspace{80}=\integral_0^{2\pi} \integral_0^1 (1-\rho^{2}\cos^{2}\theta-( \rho^{2}\cos^{2} 2\rho\sin\theta +1))\rho d\rho d\theta $
+	
+	$\hspace{80}=\integral_0^{2\pi} \integral_0^1 (1-\rho^{2}-2\rho\sin\theta-1)\rho d\rho d\theta $
+	
+	$\hspace{80}=\integral_0^{2\pi} \integral_0^1 (-\rho^{2}-2\rho\sin\theta)\rho d\rho d\theta $
+	
+	$\hspace{80}=\integral_0^{2\pi} \integral_0^1 (-\rho^{3}-2\rho^{2}\sin\theta) d\rho d\theta $
+	
+	$\hspace{80}=\integral_0^{2\pi} -\frac{\rho^{4}}{4} -2\frac{\rho^3}{3}\sin\theta|_{\rho=0}^{\rho =1} d\theta$
+	
+	$\hspace{80}=\integral_0^{2\pi} -\frac{1}{4} -\frac{2}{3}\sin\theta d\theta$
+	
+	$\hspace{80}=-\frac{2\pi}{4} -\frac{2}{3} \cos{\theta|_{\theta=0}^{\theta=2\pi}} $
+	
+	$\hspace{80}= \frac{\pi}{2}.$\newline\\
+	
+	
+	\item $\sigma(u,v)=(u,v,u^{2}+ v^{2}),u^{2}+v^{2}\leq1$
+	
+	Logo, o centro de massa e  dado por:
+	$\bigg[ 0, 0, \dfrac{25 \sqrt{5}-1}{4(5\sqrt{5}-1)}\bigg]$\newline\\
+    
+	
+	\item \calcule o momento de inércia da superfície esférica de raio R, homogênea, de massa M, em torno de qualquer diâmetro. \newline
+	
+	temos que:\newline
+	$M= K4\pi R^{2} \Rightarrow K=\frac{M}{4\pi R^{2}}$\newline\\
+	
+	Portanto\newline
+	$I=\frac{8\pi R^{4}K}{3}. \frac{M}{4\pi R^{2}}$
+	
+	$=\frac{2R^{2}M}{3}$\newline\\
+	
+	
+	
+	\item calcule o momento de inércia da superfície homogênea, de massa M, de equação $z=x^{2}+y^{2},x^{2}+y^{2}\leq R^{2}(R>0)$ em torno do eixo Oz.
+	
+    $I=\frac{\pi}{8}.\dfrac{M}{\frac{\pi}{6}.((1+4R^{2})\sqrt{1+4R^{2}}-1)}.\bigg[ \bigg( \dfrac{(1+4R^{2})^{2}\sqrt{(1+4R^{2})}}{5}}-\dfrac{(1+4R^{2})^{2} \sqrt{(1+4R^{2})}}{3}+\frac{2}{15})] $
+    
+    $=\frac{3M}{2}.\dfrac{1}{\frac{\pi}{6}.((1+4R^{2})\sqrt{1+4R^{2}}-1)}.\bigg[ \bigg( \dfrac{(1+4R^{2})^{2}\sqrt{(1+4R^{2})}}{5}}-\dfrac{(1+4R^{2})^{2} \sqrt{(1+4R^{2})}}{3}+\frac{2}{15})]$\newline\\
+    
+    \item Calcule o momento de ínercia da superfície homogênea, de massa M, de equação
+    $x^{2} + y^{2} = R^{2} (R > 0)$, com $0\leq z \leq 1$, em torno do eixo 0z.\newline
+    
+    Parametrizando:
+    
+    $\sigma(\theta,z)=(R\cos{\theta},R\sin{\theta},z)$, com $0 \leq \theta \leq 2\pi$ e  $0\leq z\leq1$
+    
+    $\dfrac{\partial \sigma}{\partial u} \wedge\dfrac{\partial \sigma}{\partial v}= 
+	\bigg|\begin{array}{ccc}
+	     \Vec{i}              &  \vec{j}        &  \Vec{k}\\
+	     -R\sin{\theta}       &  R\cos{\theta}  &  0\\
+	     -0                   &  0              &  1
+	\end{array} \bigg| 
+	=R\cos{\theta}\vec{i}+R\sin{\theta}\vec{j} = (R\cos{\theta}, R\sin{\theta}, 0)$\newline\\
+    
+    Assim:
+    
+    $\Bigg|\Bigg| \dfrac{\partial \sigma}{\partial u} \wedge\dfrac{\partial \sigma}{\partial v} \Bigg|\Bigg|
+    =\sqrt{R^{2} \cos^{2}\theta +R^{2}\sin^{2}\theta} = R$\newline\\
+    
+    Note que:
+    
+    $M=\integral\integral_\sigma K dS$
+    
+    $=k \integral\integral_\sigma dS$
+    
+    $=k\integral\integral_\sigma \Bigg|\Bigg| \dfrac{\partial \sigma}{\partial u} \wedge\dfrac{\partial \sigma}{\partial v} \Bigg|\Bigg| d\theta dz$
+    
+    $=k\integral_0^{2\pi} \integral_0^1 Rdzd\theta $
+    
+    $=2K\pi R$
+    \newline\\
+    
+    Daí:
+    
+    $K=\frac{M}{2\pi R}$\newline\\
+    
+    Portanto:
+    $I=2\pi R^{3}.\frac{M}{2\pi R}$
+    
+    $=MR^{2}$
+%Jonas FIM%
+
+
+
+
+    %ADAN INICI
+    %FIM ADAN%
+
+	%JUNIOR CAPITULO 11%
+	\begin{center}
+	\large Capítulo 11(Guidorizzi)- Teorema de Stokes no Espaço\newline
+	\large 11.1 Teorema de Stokes no Espaço 
+	\end{center}
+	
+		        \item $\gamma(t)=(\cos t,\sin t),0\leq t \leq 2 \pi \\\\
+		                \Gamma (t) = \sigma(\gamma (t))=\sigma(\cos t,\sin t)=(\cos t, \sin t,1)\\\\$
+		                Pelo teorema de Stokes, temos: \\\\
+		                $\int\int (rot \vec{F})\cdot \vec{n}dS = \int \vec{F} d\vec{r} \int_{0}^{2\pi} F(\Gamma (t))\cdot F'(t)dt \\\\
+		                \int_{0}^{2\pi} (0,0,\sin t) \cdot (-\sen t, \cos t,0)dt \\\\
+		                \int_{0}^{2\pi} 0dt $\\\\
+                        $0$\\\\
+                        Portanto: \\\\
+                        $\int\int (rot \vec{F})\cdot \vec{n}dS = 0$
+		                \\\\
+		        \item  $\Gamma = \Gamma_{1} \cup \Gamma_{2} \cup \Gamma_{3}$, onde           $\Gamma_{i}=\sigma(\gamma_{i}(t))$, com $i=1,2,3$\\\\
+		               $\Gamma_{1}(t) = \sigma(\gamma_{1}(t))
+		               =\sigma(0,1-t)
+		               =(1-t,1-(1-t)^2)
+		               =(1-t,t,2t - t^2)$
+		               \\\\
+		               $\Gamma_{2}(t) = \sigma(\gamma_{2}(t))
+		               =\gamma(0,1-t)
+		               =(0,1-t,1)$
+		               \\\\
+		               $\Gamma_{3}(t) = \sigma(\gamma_{3}(t))
+		               =\gamma(t,0)
+		               =(t,0,1-t^2)$ \\\\
+		               Como definido no inicio, sabemos também que:\\\\
+		               $\int_{\Gamma} \vec{F} \cdot d\vec{r} = \int_{\Gamma_{1}} \vec{F} \cdot d\vec{r} + \int_{\Gamma_{2}} \vec{F} \cdot d\vec{r} + \int_{\Gamma_{3}} \vec{F} \cdot d\vec{r}$\\\\
+		               Para $\Gamma_{1}$: \\\\
+		               $\int_{\Gamma_{1}} \vec{F} \cdot d\vec{r} = \int_{0}^{1} F(\Gamma_{1}(t)) \cod \Gamma_{1}'(t) dt\\\\
+		               =\int_{0}^{1} (t,-(1-t)^2,5) \cdot (-1,1,2-2t)dt\\\\
+		               =\int_{0}^{1} -t-(1-2t+t^2)+10-10t dt\\\\
+		               =\int_{0}^{1} -t^2-9t+9 dt \\\\
+		               =-\frac{t^3}{3}-\frac{9t^2}{2}+9t \bigg|_0^1 \\\\
+		               =\frac{25}{6}$\\\\
+		               Para $\Gamma_{2}$: \\\\
+		               $\int_{\Gamma_{2}} \vec{F} \cdot d\vec{r} = \int_{0}^{1} F(\Gamma_{1}(t)) \cod \Gamma_{2}'(t) dt\\\\
+		               =\int_{0}^{1} (1-t,0,5) \cdot (0,-1,0)dt\\\\
+		               =\int_{0}^{1} 0 dt\\\\
+		               =0$\\\\
+		               Para $\Gamma_{3}$: \\\\
+		               $\int_{\Gamma_{3}} \vec{F} \cdot d\vec{r} = \int_{0}^{1} F(\Gamma_{3}(t)) \cod \Gamma_{3}'(t) dt\\\\
+		               =\int_{0}^{1} (0,-t^2,5) \cdot (1,0,-2t)dt\\\\
+		               =\int_{0}^{1} -10t dt\\\\
+		               =-5t^2 \bigg|_0^1 \\\\
+		               =-5$\\\\
+                      Logo:\\\\
+                      $\int_{\Gamma} \vec{F} \cdot d\vec{r} = \frac{25}{6} + 0 - 5 = -\frac{5}{6}$
+                      \\\\
+                    \item A fronteira $\Gamma(\gamma)$ é dada por $\Gamma = \Gamma_{1} \cup \Gamma_{2} \cup \Gamma_{3}$, onde           $\Gamma_{i}=\sigma(\gamma_{i}(t))$, com $i=1,2,3$\\\\
+                    $\Gamma_{1}(t) = \sigma(\gamma_{1}(t))
+		               =\sigma(2-t,t)
+		               =(2-t,t,2(2-t)+t+1)
+		               =(2-t,t,5t-t)$
+		               \\\\
+		            $\Gamma_{2}(t) = \sigma(\gamma_{2}(t))
+		               =\gamma(0,2-t)
+		               =(0,2-t,3-t)$
+		               \\\\
+		            $\Gamma_{3}(t) = \sigma(\gamma_{3}(t))
+		               =\gamma(t,0)
+		               =(t,0,2t+1)$ \\\\
+		            Sabemos que:\\\\
+		            $\int_{\Gamma} \vec{F} \cdot d\vec{r} = \int_{\Gamma_{1}} \vec{F} \cdot d\vec{r} + \int_{\Gamma_{2}} \vec{F} \cdot d\vec{r} + \int_{\Gamma_{3}} \vec{F} \cdot d\vec{r}$\\\\   
+		          Então temos:
+		          Para $\Gamma_{1}$: \\\\
+		               $\int_{\Gamma_{1}} \vec{F} \cdot d\vec{r} = \int_{0}^{2} F(\Gamma_{1}(t)) \cod \Gamma_{1}^{}'(t) dt\\\\
+		               =\int_{0}^{2} (t,(2-t)^2,5-t) \cdot (-1,1,-1)dt\\\\
+		               =\int_{0}^{2} -t+(2-t)^2-(5-t) dt\\\\
+		               =\int_{0}^{2} t^2+4-4t+t^2-5+t dt \\\\
+		               =\int_{0}^{2} t^2-4t-1dt\\\\
+		               =\frac{t^3}{3}-2t^2-t \bigg|_0^2\\\\
+		               =\frac{8}{3}-8-2\\\\
+		               =-\frac{22}{3}$\\\\
+		               Para $\Gamma_{2}$: \\\\
+		               $\int_{\Gamma_{2}} \vec{F} \cdot d\vec{r} = \int_{0}^{2} F(\Gamma_{1}(t)) \cod \Gamma_{2}^{}'(t) dt\\\\
+		               =\int_{0}^{2} (2-t,0,3-t) \cdot (0,-1,-1)dt\\\\
+		               =\int_{0}^{2} t-3 dt\\\\
+		               =\frac{t^2}{2}-3t \bigg |_0^2\\\\
+		               =\frac{4}{2}-6\\\\
+		               =-4$\\\\
+		               Para $\Gamma_{3}$: \\\\
+		               $\int_{\Gamma_{3}} \vec{F} \cdot d\vec{r} = \int_{0}^{2} F(\Gamma_{3}(t)) \cod \Gamma_{3}^{}'(t) dt\\\\
+		               =\int_{0}^{2} (0,t^2,2t+1) \cdot (1,0,2)dt\\\\
+		               =\int_{0}^{2} 4t+2 dt\\\\
+		               =2t^2 + 2t \bigg|_0^2 \\\\
+		               =12$\\\\
+		               
+		               Logo pelo teorema de Stokes:\\\\
+		               $\int\int_{\sigma}(rot\vec{F})\cdot\vec{n_{1}}dS = \int vec{F}\cdot d\vec{r}\\\\
+		               =-\frac{22}{3}-4+12\\\\
+		               =\frac{2}{3}$\\\\
+		               Onde $\vec{n_{1}}$ é a normal apontando para cima, como descreve o teorema de Stokes, como queremos calcular a normal para baixo, temos que fazer -$\vec{n_{1}}$, logo:\\\\
+		               $\int\int_{\sigma}(rot\vec{F})\cdot(-\vec{n_{1}})dS\\\\
+		               =-\int\int_{\sigma}(rot\vec{F})\cdot\vec{n_{1}}dS\\\\
+		               =-\frac{2}{3}$
+		               \\\\
+		               \item A fronteira do compacto: $K : 0 \leq u \lec \pi$ e $0 \leq v \leq 1$ é dada por: $\Gamma = \Gamma_{1}\cup\Gamma_{2}\cup\Gamma_{3}\cup\Gamma_{4}$, cujas parametrizações são:\\\\
+		               $\gamma_{1}=(t,0),0 \leq t \leq \pi\\\\
+		                \gamma_{2}=(\pi,t),0 \leq t \leq 1\\\\
+		                \gamma_{3}=(\pi-t,1),0 \leq t \leq \pi\\\\
+		                \gamma_{4}=(0,1-t),0 \leq t \leq 1\\\\$
+		                Assim a fronteira $\Gamma$ de $\sigma$ é dada por $\Gamma = \bigcup_{i=1}^{4}\Gamma_{i}$, onde $\Gamma_{i}(t) = \sigma(\gamma_{i}(t))$,  $i = 1,2,3,4$.\\\\
+		                $\Gamma_{1}(t)=\sigma(\gamma_{1}(t)) \qquad \Gamma_{2}(t)=\sigma(\gamma_{2}(t))\\\\
+		                =\sigma(t,0) \qquad\qquad\quad  =\sigma(\pi,t)\\\\
+		                =(\cos(t),\sin(t),0) \qquad\qquad\quad =(-1,0,t)\\\\$
+		                \\\\
+		                $\Gamma_{3}(t)=\sigma(\gamma_{3}(t)) \qquad \Gamma_{4}(t)=\sigma(\gamma_{4}(t))\\\\
+		                =\sigma(\pi-t,1) \qquad\qquad\quad  =\sigma(0,1-t)\\\\
+		                =(\cos(\pi-t),\sin(\pi-t),1) \qquad\qquad\quad =(\cos(0),\sen(0),1-t)\\\\
+		                =(-\cos(t),\sin(t),1) \qquad\qquad\quad =(1,0,1-t)\\\\$
+		                
+		                $_{E} \int_{r} \vec{F} \cdot d\vec{r} = \sun_{i=1}_{4} \int_{\Gamma_{i}} \vec{F} \cdot d\vec{r}$\\\\
+		                Logo: \\\\
+		                $\int_{\Gamma_{1}\vec{F} \cdot d\vec{r} = \int_{0}^{\pi} F(\Gamma_{1}(t)) \cdot \Gamma_{1}^{}'(t)dt\\\\
+		                =\int_{0}^{\pi} (\sin(t),\cos^2(t),0)\cdot(-\sin(t),\cos(t),0) dt \\\\$
+		                $=\int_{0}^{\pi} -\sin^2(t)+\cos^2(t) dt$ \\\\
+		                Como $\sen^2(t)=\frac{1}{2}-\frac{\cos(2t)}{2}$, então:
+		                $-\int_{0}^{\pi}\sin^2(t) = \int_{0}^{\pi} - \frac{1}{2} + \frac{\cos(2t)}{2} \\\\
+		                =-\frac{t}{2} + \frac{\sen(2t)}{4} \Big|_{0}{\pi}\\\\
+		                =- \frac{\pi}{2} $
+		                \\\\
+		                E,\\\\
+		                $\int_{0}^{\pi} \cos^3(t) dt = \int_ {0}^{\pi} \cos^2(t)\cos(t) dt = \int_{0}^{\pi} (1-\sin^2(t))\cos(t) dt\\\\
+		                u = \sin(t) du=\cos(t) dt 
+		                \left\{
+                        \begin{array}{ll}
+                        t = 0 \rightarrow u = 0\\
+                        t = \pi \rightarrow u =0\\
+                        \end{array}
+                        \right.
+                        \int_{0}^{\pi} \cos^3(t)dt = 0$\\\\
+                        Logo:\\\\
+                        $\int_{\Gamma_{1}} \vec{F}\cdot d\vec{r} = -\frac{\pi}{2}\\\\
+                        \int_{\Gamma_{2}} \vec{F}\cdot d\vec{r} = \int_{0}^{1} F(\Gamma_{2}(t))\cdot \Gamma_{2}^{}'(t) dt\\\\
+                        = \int_{0}^{1}t dt\\\\
+                        =\frac{t^2}{2} \Big|_{0}^{1}\\\\
+                        =\frac{1}{2}\\\\
+                        \int_{\Gamma_{3}} \vec{F}\cdot d\vec{r} = \int_{0}^{\pi} F(\Gamma_{3}(t))\cdot \Gamma_{3}^{}'(t) dt\\\\
+                        =\int_{0}^{\pi}(\sint(t),\cos^2(t),1) \cdot (\sin(t),\cos(t),0) dt\\\\
+                        =\int_{0}^{\pi} \sin^2(t)+\cos(3t) dt\\\\
+                        =\frac{\pi}{2}$, analogo a $\Gamma_{1}$\\\\
+                        $\int_{\Gamma_{4}} \vec{F}\cdot d\vec{r} = \int_{0}^{1} F(\Gamma_{2}(t))\cdot \Gamma_{4}^{}'(t) dt\\\\
+                        =\int_{0}^{1} (0,1,1-t) \cdot (0,0,-1)dt\\\\
+                        =\int_{0}^{1} t-1 dt\\\\
+                        =\frac{t^2}{2} - t \Big|_{0}^{1}\\\\
+                        =\frac{1}{2}-1\\\\
+                        =-\frac{1}{2}$\\\\
+                        Logo, pelo teorema de Stokes:\\\\
+                        $\iint_{\Gamma} (rot\vec{F})\cdot\vec{n}dS = \int_{\Gamma} \vec{F}\cdot d\vec{r} = $ $\sum_{i=1}^{4}$ $ \int_{\Gamma_{i}} \vec{F} \cdot d\vec{r}\\\\
+                        =-\frac{\pi}{2}+\frac{1}{2}+\frac{\pi}{2}+\frac{-1}{2}\\\\
+                        =0$
+                        \\\\
+		                \item A fronteira do compacto $K: 0\leq u\leq\frac{\pi}{2}$ e $0\leq v \leq 1$  é dada por $\delta K = \gamma_{1} \cup \gamma_{2} \cup \gamma_{3}$ cujas parametrizações são: \\\\
+		                $\gamma_{1}(t) = (t,0)$, $0 \leq t \leq \frac{\pi}{2}$\\\\
+		                $\gamma_{2}(t) = (\frac{\pi}{2},t)$, $0 \leq t \leq 1$\\\\
+		                $\gamma_{3}(t) = (\frac{\pi}{2}-t,1)$, $0 \leq t \leq \frac{\pi}{2}$\\\\
+		                $\gamma_{4}(t) = (0,1-t)$, $0 \leq t \leq 1$\\\\
+		                Assim a fronteira $\Gamma$ de $\sigma$ é dada por $\Gamma = \bigcup_{i=1}^{4}\Gamma_{i}$, onde $\gamma_{i} = \sigma(\gamma_{i}(t))$, $i = 1,2,3,4$\\\\
+		                
+		                $\Gamma_{1} =  \sigma(\gamma_{1}(t))\\\\
+		                =\sigma(t,0)\\\\
+		                =(\cos(t),\sin(t),0)\\\\
+		                \\\\
+		                \Gamma_{2} =  \sigma(\gamma_{2}(t))\\\\
+		                =\sigma(\frac{\pi}{2},t)\\\\
+		                =(0,1,t)\\\\
+		                \\\\
+		                \Gamma_{3} =  \sigma(\gamma_{3}(t))\\\\
+		                =\sigma(\frac{\pi}{2}-t,1)\\\\
+		                =(\cos(\frac{\pi}{2}-t),\sin(\frac{\pi}{2}-t),1)\\\\
+		                \\\\
+		                \Gamma_{4} =  \sigma(\gamma_{4}(t))\\\\
+		                =\sigma(0,1-t)\\\\
+		                =(1,0,1-t)\\\\$
+		                E, 
+		                $$\int_{\Gamma} = \sum_{i=1}^{4} \int_{\Gamma_{i}} \vec{F}\cdot d\vec{r}\\\\$$
+		                Assim:\\\\
+		                $\int_{\Gamma_{1}} \vec{F}\cdot d\vec{r} = \int_{0}^{\frac{\pi}{2}} F(\Gamma{1}(t))\cdot\Gamma_{1}^{}'(t) dt\\\\
+		                =\int_{0}^{\frac{\pi}{2}} (0,\cos(t),0)\cdot(-\sin(t),\cos(t),0) dt\\\\
+		                =\int_{0}^{\frac{\pi}{2}} \cos^2(t) dt\\\\$
+		                Como $\cos^2(t) = \frac{1}{2} + \frac{\cos(2t)}{2}$, então:\\\\
+		                $\int_{\Gamma_{1}} \vec{F}\cdot d\vec{r} =\int_{0}^{\frac{\pi}{2}} \frac{1}{2} + \frac{\cos(2t)}{2} dt\\\\
+		                = \frac{t}{2} + \frac{\sin(2t)}{4} \Big|_{0}^{\frac{\pi}{2}}\\\\
+		                = \frac{\pi}{4}\\\\$
+		                
+		                $\int_{\Gamma_{2}} \vec{F}\cdot d\vec{r} = \int_{0}^{1} F(\Gamma{2}(t))\cdot\Gamma_{2}^{}'(t) dt\\\\
+		                =\int_{0}^{1} (0,0,0) \cdot (0,0,1) dt\\\\
+		                = \int_{0}^{1} 0 dt\\\\
+		                = 0\\\\$
+		                
+		                $\int_{\Gamma_{3}} \vec{F}\cdot d\vec{r} = \int_{0}^{\frac{\pi}{2}} F(\Gamma{3}(t))\cdot\Gamma_{3}^{}'(t) dt\\\\
+		                =\int_{0}^{\frac{\pi}{2}} (0,\sin(t),0) \cdot (\cos(t),-\sin(t),0) dt\\\\
+		                =\int_{0}^{\frac{\pi}{2}} -\sin^2(t) dt\\\\$
+		                
+		                Como $\sin^2(t) = \frac{1}{2} + \frac{\cos{2t}{2}}$, temos:\\\\
+		                
+		                $\int_{\Gamma_{3}} \vec{F}\cdot d\vec{r} = \int_{0}^{\frac{\pi}{2}} F(\Gamma{3}(t))\cdot\Gamma_{3}^{}'(t) dt\\\\
+		                =-\frac{1}{2} + \frac{\cos{2t}{2}} dt\\\\
+		                =-\frac{t}{2} + \frac{\sin(2t)}{4} \Big|_{0}^{\frac{\pi}{2}}\\\\
+		                =-\frac{\pi}{4}\\\\$
+		                
+                         $\int_{\Gamma_{4}} \vec{F}\cdot d\vec{r} = \int_{0}^{1} F(\Gamma{4}(t))\cdot\Gamma_{4}^{}'(t) dt\\\\
+		                =\int_{0}^{1} (0,1,0)\cdot(0,0,-1) dt\\\\
+		                =0\\\\$
+		                
+		                Logo, pelo teorema de Stokes:
+		                $$\iint_{\Gamma} (rot\vec{F})\cdot\vec{n}dS = \int_{\Gamma} \vec{F}\cdot d\vec{r} = \sum_{i=1}^{4} \int_{\Gamma_{i}} \vec{F}\cdot d\vec{r}$$\\\\
+		                $$= -\frac{\pi}{4} + 0 -\frac{\pi}{4} + 0$$\\\\
+		                $$=0$$
+		                \item Uma parametrização da superfície $\sigma$ é dada por:\\\\
+		                $\sigma(u,v) = (u,v,u^{2} + v^{2})$, com $u^2 + v^2 \leq 1$\\\\
+		                Dado o compacto $K: u^2 + v^2 \leq 1$, uma parametrização para sua fronteira pode ser: \\\\
+		                $\gamma(t) = (\cos t, \sin t)$, $0 \leq t \leq 2\pi$\\\\
+		                A fronteira $\Gamma$ de $\sigma$ é dada por:\\\\
+		                $\Gamma(t) = \sigma(\gamma(t))\\\\
+		                =\sigma(\cos t, \sin t)\\\\
+		                =(\cos t, \sin t, 1)$\\\\
+		                Logo,
+		                $\integral_{\Gamma} \vec{F} \cdot d\vec{r} = \integral_{0}^{2\pi} F(\Gamma(t))\cdot \Gamma'(t) dt\\\\
+		                =\integral_{0}^{2\pi} (\sin t ,0,0)\cdot(-\sin t,\cos t,0) dt\\\\
+		                =\integral_{0}^{2\pi} -\sin^2 t \  dt\\\\
+		                =\integral_{0}^{2\pi} \frac{1}{2} + \frac{\cos 2t}{2} \ dt\\\\
+		                =-\frac{t}{2} + \frac{\sin 2t}{4} \Big|_{0}^{2\pi}\\\\
+		                =-\pi$\\\\
+		                Portanto, pelo teorema de Stokes:\\\\
+		                $$\iint_{\Gamma} (rot \vec{F})\codt \vec{n} \cdot dS = \integral_{\Gamma} \vec{F} \cdot d\vec{r} = -\pi$$
+		                \item Dado o composto $K: u^2 + v^2 \leq 1$, uma parametrização possivél para sua fronteira é:  \\\\
+		                $\gamma(y) = (\cos t, \sin t)$, $0 \leq t \leq 2\pi$\\\\
+		                A fronteira $\Gamma$ de $\sigma$ é dada por:    
+		                $\Gamma(t) = \sigma(\gamma(t))\\\\
+		                =\sigma(\cos t, \sin t)\\\\
+		                =(\cos t,\sin t,\sqrt{2-x^2-y^2}$\\\\
+		                Logo,\\\\
+		                $\int_{\Gamma} \vec{F} \cdot d\vec{r} = \int_{0}^{2\pi} F(\Gamma(t))\cdot \Gamma'(t) dt\\\\
+		                =\int_{0}^{2\pi} (\sin t,0,0)\cdot(-\sin t,\cos t,0)\ dt\\\\
+		                =-\sin^2 t \  dt\\\\
+		                =\int{0}^{2\pi} \frac{1}{2} + \frac{\cos 2t}{2} \ dt\\\\
+		                =-\frac{t}{2} + \frac{\sin 2t}{4} \Big|_{0}^{2\pi}\\\\
+		                =-\pi$\\\\
+		                Portanto, pelo teorema de Stokes:\\\\
+		                $$\iint_{\Gamma} (rot \vec{F})\codt \vec{n} \cdot dS = \integral_{\Gamma} \vec{F} \cdot d\vec{r} = -\pi$$\\\\
+		                \item Onde,\\\\
+		                $\sqrt{2} \leq \sqrt{4-u^2 - v^2} \leq \sqrt{3}$ e $v \geq 0$\\\\
+		                Assim, \\\\
+		                $2 \leq 4 - u^2 - v^2 \leq 3 \rightarrow -2\leq -u^2 -v^2 \leq -1 \rightarrow 1 \leq u^2 + v^2 \leq 2$\\\\
+		                Como a orientação deve ser sempre positiva e de fora pra dentro, as seguintes parametrizações para $\gamma_{1}$ e $\gamma_{2}$ são:\\\\
+		                $\gamma_{1}(t) = (\sin t,\cos t)\\\\
+		                \gamma_{2}(t) = (\sqrt{2}\cos t,\sqrt{2}\sin t)$\\\\
+		                Logo,\\\\
+		                $\Gamma_{1}(t) = \sigma(\gamma_{1}(t))\\\\
+		                =(\sigma(\sin t,\cos t)\\\\
+		                =(\sin t,\cos t,\sqrt{2})$\\\\
+		                Como,\\\\
+		                $v = \cos t \geq 0$, devemos ter: $-\frac{\pi}{2} \leq t \leq \frac{\pi}{2}\\\\$
+		                $\Gamma_{2}(t) = \sigma(\gamma_{2}(t))\\\\
+		                =(\sigma(\sqrt{2}\cos t,\sqrt{2}\sin t)\\\\
+		                =(\sqrt{2}\cos t,\sqrt{2}\sin t,\sqrt{2})$\\\\
+		                Como,\\\\
+		                $v = \sqrt{2}\sin t \geq 0 \rightarrow 0 \leq t \leq \pi\\\\$
+		                Logo,\\\\
+		                $\integral_{\Gamma_{1}} \vec{F}\cdot d\vec{r} = \integral_{-\frac{\pi}{2}}^{\frac{\pi}{2}} F(\Gamma_{1}(t))\codt\Gamma_{1}^{}'(t)\ dt\\\\
+		                =\integral_{-\frac{\pi}{2}}^{\frac{\pi}{2}}(-\cos t,\sen t,\sen^2 t)\cdot(\cos t,\sin t,0)\ dt\\\\
+		                =\integral_{-\frac{\pi}{2}}^{\frac{\pi}{2}} -\cos^2 t - \sin^2 t\ dt\\\\
+		                =\integral_{-\frac{\pi}{2}}^{\frac{\pi}{2}} -1 \ dt\\\\
+		                = -\pi$\\\\
+		                $\integral_{\Gamma_{2}} \vec{F}\cdot d\vec{r} = \integral_{0}^{\pi} F(\Gamma_{2}(t))\codt\Gamma_{2}^{}'(t)\ dt\\\\
+		                =\integral_{0}^{\pi} (\sqrt{2}\cos t,\sqrt{2}\sin t,2\cos^2 t)\cdot (-\sqrt{2}\sin t,\sqrt{2}\cos t,0)\ dt\\\\
+		                =\integral_{0}^{\pi} 2\sin^2 t + 2\cos^2 t\ dt\\\\
+		                =\integral_{0}^{\pi} 2\ dt\\\\
+		                =2\pi\\\\$
+		                Portanto, segundo o teorema de Stokes:\\\\
+		                $$\iint_{\Gamma} (rot \vec{F})\codt \vec{n} \cdot dS = \integral_{\Gamma} \vec{F} \cdot d\vec{r}\\\\
+		                =\sum_{i=1}^{2} \integral_{\Gamma_{i}} \vec{F} \cdot d\vec{r}\\\
+		                = - \pi + 2\pi \\\\
+		                = \pi$$\\\\
+		                \item Uma parametrização da superficie $\sigma$ é:\\\\
+		                $\sigma (u,v) = (u,v,\sqrt{2-u^2 - \frac{v^2}{4}} \ )\\\\
+		                z^2 = 2 - x^2 - \frac{y^2}{4} \rightarrow z = \sqrt{2-x^2 -\frac{y^2}{4}}$, $z \geq 1\\\\
+		                \rightarrow  \sqrt{2 - u^2 - \frac{v^2}{4}} \geq 1\\\\
+		                \rightarrow 2 - u^2 -\frac{v^2}{4} \geq 1\\\\
+		                \rightarrow -u^2- \frac{v^2}{4} \geq -1\\\\
+		                \rightarrow u^2 + \frac{v^2}{4} \leq 1\\\\$
+                        Logo, \\\\
+                        $\sigma(u,v) = (u,v,\sqrt{2-u^2 - \frac{v^2}{4}} \ ) $, com $u^2 + \frac{v^2}{4} \leq 1\\\\$
+                        Uma parametrização para a curva $u^2 + \frac{v^2}{4} \leq 1\\\\$ é:
+                        $\gamma(t) = (\cos t,2\sin t)$, $0\leq t \leq 2\pi\\\\$
+                        Logo, \\\\
+                        $\Gamma(t) = \sigma(\gamma(t))\\\\
+                        =\sigma(\cos t,2\sin t)\\\\
+                        =(\cos t,\sin t,\sqrt{2-u^2 - \frac{v^2}{4}} )\\\\
+                        =(\cos t,\sin t, 1)\\\\$
+                        Assim:\\\\
+                        $\integral_{\Gamma}  \vec{F} \cdot d\vec{r} = =\integral_{0}^{2\pi} F(\Gamma(t))\codt\Gamma'(t)\ dt\\\\
+                        =\integral_{0}^{2\pi} (-\sin^2 t,\cos^2 t,1)\cdot(-\sin,\cos,0)\ dt\\\\
+                        =\integral_{0}^{2\pi} (\sin^3 t,\cos^3 t)\ dt\\\\
+                        =0\\\\$
+                        Logo pelo teorema de Stokes:\\\\
+                        $$\iint_{\Gamma} (rot \vec{F})\codt \vec{n} \cdot dS = \integral_{\Gamma} \vec{F} \cdot d\vec{r} = 0\\\\$$
+                        \item Uma parametrização para a curva $u^2 + \frac{v^2}{4} = 1$ é dada por:\\\\
+                        $\gamma(t) = (\cos t,\sin 2t)$, $0 \leq t \leq 2\pi\\\\$
+                        Assim:\\\\
+                        $\Gamma(t) = \sigma(\gamma(t))\\\\
+                        = \sigma(\cos t,\sin 2t)\\\\
+                        = (\cos t,\sin t, \cos t + 2\sin t + 2) \\\\$
+                        Logo:\\\\
+                        $\integral_{\Gamma} \vec{F}\codt d\vec{r} = \integral_{0}^{2\pi} F(\Gamma(t))\codt\Gamma'(t)\ dt\\\\
+                        =\integral_{0}^{2\pi} (\sin t,\cos t,\cos t (\cos t + 2\sin t + 2))\cdot(-\sin t,\cos t,-\sin t + 2\cos t)\ dt\\\\
+                        = \integral_{0}^{2\pi} (-\sin^2 t + \cos^2 t - \sin t\cos^2 t + 2\cos^3 t - 2\sin^2 t\cos t + 4\sin t\cos^2 t - 2\sin t\cos t + 4\cos^2 t)\ dt\\\\$
+                        Agora:\\\\
+                        1) $\sin^2 t = \frac{1}{2} + \frac{\cos 2t}{2}\\\\$
+                        Assim:\\\\
+                        $\integral_{0}^{2\pi} - \sin^2 t\ dt = \integral_{0}^{2\pi} \frac{1}{2} + \frac{\cos 2t}{2} \ dt\\\\
+                        = -\frac{t}{2} + \frac{\sin 2t}{4} \Big|_{0}^{2\pi}\\\\
+                        =-\pi\\\\$
+                        2) $\cos^2 t = \frac{1}{2} + \frac{\cos 2t}{2}\\\\$
+		                Assim:\\\\
+                        $\integral_{0}^{2\pi} 5\cos^2 t\ dt = 5\integral_{0}^{2\pi} \frac{1}{2} + \frac{\cos 2t}{2} \ dt\\\\
+                        = 5(-\frac{t}{2} + \frac{\sin 2t}{4})\Big|_{0}^{2\pi}\\\\
+                        =5\pi\\\\$
+                        3) $\integral_{0}^{2\pi} 3\sin t\cos^2 t \ dt\\\\$
+                        Fazendo a mudança de variaveis $u=\cos t, du = -\sin t \ dt\\\\$
+                        $\left\{
+                        \begin{array}{ll}
+                        t = 0 \rightarrow u = 1\\
+                        t = 2\pi \rightarrow u =1\\
+                        \end{array}
+                        \right.\\\\$
+                        Assim:\\\\
+                        $\integral_{0}^{2\pi} 3\sin t\cos^2 t\ dt =0\\\\$
+                        Analogamente:\\\\
+                        $\integral_{0}^{2\pi} -2\sin^2 t\cos t\ dt =0\\\\$
+                        Logo:\\\\
+                        $\integral_{\Gamma} \vec{F}\cdot d\vec{r} = -\pi + 5\pi  = 4\pi\\\\$
+                        Logo pelo teorema de Stokes:\\\\
+                        $$\iint_{\Gamma} (rot \vec{F})\codt\vec{n} \cdot dS = \iint{\Gamma} (rot \vec{F})\codt (-\vec{n}) \cdot dS\\\\ = -\iint{\Gamma} (rot \vec{F})\codt\vec{n} \cdot dS = -4\pi\\\\$$
+		        \\\\
+		        \item $$\iint_{\Gamma_{1}} (rot \vec{F})\codt\vec{n_{1}} \cdot dS = \iint{\Gamma_{2}} (rot \vec{F})\codt \vec{n_{2}} \cdot dS\\\\$$
+		        Portanto, este resultado nós diz que independente da escolha da parametrização, que não é unica, o fluxo $\iint_{\Gamma} (rot \vec{F})\codt\vec{n} \cdot dS$ é sempre o mesmo.
+		        \\\\
+		        \item Onde:\\\\
+		        $\gamma_1 = \gamma_1 ' \cup \gamma_1 *$, $\gamma_2 = \gamma_2 ' \cup \gamma_2 *$, $\gamma_3 = -\bar{\gamma_3}$ e $\gamma_4 = -\bar{\gamma_4}$.\\\\
+		        Assim, tais seguimentos são transportados por $\sigma$\\\\
+		        Seja $K_1$ o compacto delimitado pelas curvas $\gamma_1 ',\gamma_2 ',\gamma_3$ e $\gamma_4$ e $K_2$ o compacto delimitado pelas curvas $\gamma_1 *, \gamma_2 *, \bar{\gamma_3}$ e $\bar{\gamma_4}$
+		        \\\\ Como $K = K_1 \cup K_2$\\\\
+		        $$\iint_{\Gamma(k)} (rot \vec{F}) \cdot\vec{n} dS = \iint_{\Gamma(K_1)} (rot \vec{F}) \cdot\vec{n} dS + \iint_{\Gamma(K_2)}(rot \vec{F}) \cdot\vec{n} dS$$\\\\
+		        Assim podemos apllicar o teorema de Stokes nos compactos $K_1$ e $K_2$\\\\
+		        $\iint_{\Gamma(K_1)} (rot \vec{F}) \cdot\vec{n} dS = \int_{\Gamma_{1}'} \vec{F}\cdot d\vec{r} + \int_{\Gamma_{2}'} \vec{F}\cdot d\vec{r} + \int_{\Gamma_{3}} \vec{F}\cdot d\vec{r} + \int_{\Gamma_{4}} \vec{F}\cdot d\vec{r}$\\\\
+		        E \\\\
+		        $\iint_{\Gamma(K_2)} (rot \vec{F}) \cdot\vec{n} dS = \int_{\Gamma_{1}*} \vec{F}\cdot d\vec{r} + \int_{\Gamma_{2}*} \vec{F}\cdot d\vec{r} + \int_{\bar{\Gamma_{3}}} \vec{F}\cdot d\vec{r} + \int_{\bar{\Gamma_{4}}} \vec{F}\cdot d\vec{r}$\\\\
+		        Como:\\\\
+		        $\int_{\bar{\Gamma_{4}}} \vec{F}\cdot d\vec{r} = - \int_{\Gamma_4} \vec{F}\cdot d\vec{r}$\\\\
+		        E\\\\
+		        $\int_{\bar{\Gamma_{3}}} \vec{F}\cdot d\vec{r} = - \int_{\Gamma_3} \vec{F}\cdot d\vec{r}$\\\\
+		        Portanto:\\\\
+		        $$\iint_{\Gamma} (rot \vec{F}) \cdot\vec{n} dS = \int_{\Gamma_{1}'} \vec{F}\cdot d\vec{r} + \int_{\Gamma_{2}'} \vec{F}\cdot d\vec{r} + \int_{\Gamma_{1}*} \vec{F}\cdot d\vec{r} + \int_{\Gamma_{2}*} \vec{F}\cdot d\vec{r} = \int_{\Gamma_{1}} \vec{F}\cdot d\vec{r} + \int_{\Gamma_{2}} \vec{F}\cdot d\vec{r}$$\\\\
+		        Já que:\\\\
+		        $\Gamma_1 = \Gamma_1 ' \cup \Gamma_1 * $ e $\Gamma_2 = \Gamma_2 ' \cup \Gamma_2 *$\\\\
+		        \item $\sigma(u,v) = (u,v,\sqrt{4-u^2-v^2}$\\\\
+		        Com, \\\\
+		        $\sqrt{2} \leq \sqrt{4-u^2 - v^2} \leq \sqrt{3}\\\\$
+		        Ou seja:\\\\
+		        $2 \leq 4 - u^2 - v^2 \leq 3 \rightarrow -2 \leq -u^2 - v^2 \leq -1 \rightarrow 1 \leq u^2 + v^2 \leq 2\\\\$
+		        Temos então as seguintes curvas:\\\\
+		        $\gamma_1 (t) = (\sin t,\cos t), 0\leq t\leq 2\pi \\\\
+		        \gamma_2 (t) = (\sqrt{2}\cos t,\sqrt{2}\sin t),0\leq t\leq 2\pi\\\\$
+		        Assim:\\\\
+		        $\Gamma_1 (t) = \sigma(\gamma_1 (t))\\\
+		        =\sigma(\sin t,\cos t)\\\\
+		        =(\sin t,\cos t,\sqrt{3})\\\\
+		        \Gamma_2 (t) = \sigma(\gamma_2 (t))\\\\
+		        =\sigma(\sqrt{2}\cos t,\sqrt{2}\sin t)\\\\
+		        =(\sqrt{2}\cos t,\sqrt{2}\sin t,\sqrt{2})\\\\$
+		        Pelo exercicio 3:\\\\
+		        $\iint_{\Gamma} (rot \vec{F} \cdot \vec{n} \cdot dS = \int_{\Gamma_1} \vec{F}\cdot d\vec{r} + \int_{\Gamma_2} \vec{F}\cdot d\vec{r}\\\\$
+		        $\integral_{\Gamma_1} vec{F}\cdot d\vec{r} = \integral_{\Gamma_1} F(\Gamma_1 (t)) \cdot \Gamma_{1}^{}'(t)\ dt\\\\
+		        =\integral_{0}^{2\pi} (3\sin t,9,\sqrt{3}\cos t)\cdot(\cos t,-\sen t,0)\ dt\\\\
+		        = \integral_{0}^{2\pi} (3\sin t\cos t - 9\sin t) dt\\\\
+		        = \integral_{0}^{2\pi} \frac{3}{2}\sin(2t) - 9\sin t\ dt\\\\
+		        =-\frac{3}{2}\cos(2t) + 9\cos t \Big|_{0}^{2\pi}\\\\
+		        =0\\\\$
+		         $\integral_{\Gamma_2} vec{F}\cdot d\vec{r} = \integral_{\Gamma_2} F(\Gamma_1 (t)) \cdot \Gamma_{2}^{}'(t)\ dt\\\\
+		         = \integral_{0}^{2\pi} (2\sqrt{2}\cos t,4,2\sin t)\cdot(-\sqrt{2}\sin t,\sqrt{2}\cos t,0)\ dt\\\\
+		         =\integral_{0}^{2\pi} (-4\sin t\cos t +  4\sqrt{2}\cos t) dt\\\\
+		         =\integral_{0}^{2\pi} (-2\sin (2t) + 4\sqrt{2}\cos t\ dt\\\\
+		         =\cos(2t) - 4\sqrt{2}\sin t \Big|_{0}^{2\pi}\\\\
+		         = 0\\\\$
+		         Portanto:\\\\
+		         $$\iint_{\Gamma} (rot \vec{F})\codt\vec{n}\cdot dS = 0$$\\\\
+		         \item Com $1 \leq u^2 + v^2 \leq 4 $\\\\
+		         $$(rot \vec{F}) =\left\|
+                        \begin{array}{ll}
+                        \vec{i} \quad\quad  \vec{j}\quad\quad  \vec{k}\\
+                        \frac{\partial}{\partial x}\quad  \frac{\partial}{\partial y}\quad\   \frac{\partial}{\partial z}\\
+                        0\quad\quad   0\quad\quad x^3
+                        \end{array}
+                        \right\|$$\\\\
+                        E\\\\
+                        $$\frac{\partial \sigma}{\partial u}  \wedge \frac{\partial \sigma}{\partial v} = \left\|
+                        \begin{array}{ll}
+                        \vec{i} \quad\quad  \vec{j}\quad\quad  \vec{k}\\
+                        1\quad\quad  0 \quad\quad 0 \\
+                        0\quad\quad   1\quad\quad 1
+                        \end{array}
+                        \right\| = \vec{k} - \vec{j} = (0,-1,1)\\\\$$
+                        $$\left\| \frac{\partial \sigma}{\partial u}  \wedge \frac{\partial \sigma}{\partial v} \right\| = \sqrt{2}\\\\$$
+                        Logo:\\\\
+                        $\vec{n} = (0,\frac{-1}{\sqrt{2}},\frac{1}{\sqrt{2}})\\\\$
+                        Assim, \\\\
+                        $$\iint_\sigma (rot \vec{F})\cdot(\vec{n})\cdot dS = \iint_\sigma (0,-3x^2,0)\cdot(0,frac{-1}{\sqrt{2}},\frac{1}{\sqrt{2}}) dxdy = \iint_\sigma \frac{3x^2}{\sqrt{2}} dxdy\\\\$$
+                        Em coodernadas polares, os dominios de intregração ficam assim: $1 \leq \rho \leq 2$ e $0 \leq \theta \leq 2\pi$.\\\\
+                        Assim:\\\\
+                        $\iint_\sigma (rot \vec{F})\cdot(\vec{n})\cdot dS = \frac{3}{\sqrt{2}} \int_{0}^{2\pi}\int_{1}^{2} \rho^2\cos^2\theta\rho d\rho d\theta\\\\  =\frac{3}{\sqrt{2}}\int_{0}^{2\pi}\frac{\rho^4}{4}\Big|_{1}^{2}\cos^2 \theta d\theta\\\\
+                        = \frac{3}{\sqrt{2}}(4 - \frac{1}{4})\int_{0}^{2\pi} cos^2 \theta d\theta\\\\
+                        = \frac{3}{\sqrt{2}} \frac{15}{4}\int_{0}^{2\pi} \frac{1}{2} + \frac{\cos(2t)}{2} d\theta\\\\
+                        =\frac{45}{4\sqrt{2}(\frac{\theta}{2}} + \frac{\sin(2\theta)}{4}})\Big|_{0}^{2\pi}\\\\
+                        =\frac{45\pi}{4\sqrt{2}}\\\\
+                        =\frac{45\sqrt{2}\pi}{8}\\\\$
+                        \item Oberseve que $K = K_1 \cup K_2$, onde: \\\\
+                        $K_1 = \{(x,y,z) = IR^3 ,x^2 + y^2 -1 \leq z \leq 0\}\\\\$
+                        E:\\\\
+                        $K_2 = \{(x,y,z) = IR^3 ,0 \leq z \leq 1 - x^2 - y^2 \}$\\\\
+                        Seja $\sigma_1$ a superficie $z = x^2 + y^2 - 1$, com $ z \leq 0$ e $\sigma_2$ a superficie $z = 1- x^2 - y^2$, com $z \geq 0$.\\\\
+                        Sejam $\Gamma_1$ e $\Gamma_2$ as fronteiras das superficies $\sigma_1$ e $\sigma_2$, respectivamente.\\\\
+                        Como a normal $\vec{n_1}$ de $\sigma_1$ é oposta a $\vec{n_2}$ de $\sigma_2$ e a fronteira de $\sigma_2$ é a mesma porem com orientação oposta. Logo $\Gamma_1 = \bar{\Gamma_2}$\\\\
+                        Pelo teorema de Stokes:\\\\
+                        $\iint_{\sigma} rot\vec{F}\cdot\vec{n}dS = \iint_{\sigma_1} rot\vec{F}\cdot\vec{n_1}dS + \iint_{\sigma_2} rot\vec{F}\cdot\vec{n_2}dS\\\\
+                        =\int_{\Gamma_1} vec{F}\cdot d\vec{r} + \int_{\Gamma_2} vec{F}\cdot d\vec{r}\\\\
+                        =\int_{\Gamma_2} vec{F}\cdot d\vec{r} + (-\int_{\Gamma_2} vec{F}\cdot d\vec{r})\\\\
+                        =0$\\\\
+                        \item A superficie $\sigma$ é uma cilindro sobre o plano $xy$ que tem altura de $1$ unidade e de raio $1$ unidade. Observe que podemos separar $\sigma$ em duas superficies $\sigma_1$ e $\sigma_2 $, onde: 
+                        $\sigma_1 (u,v) = (\cos u,\sin u ,v)$, $0 \leq u \leq \pi$ e $0 \leq v \leq 1$\\\\
+                        $\sigma_2 (u,v) = (\cos u,\sin u ,v)$, $\pi \leq u \leq 2\pi$ e $0 \leq v \leq 1$\\\\
+                        onde $\sigma_1$ é a parte direita do cilindro e $\sigma_2$ é a parte esquerda do cilindro.\\\\
+                        Agora vamos parametrizar as fronteiras de cada uma dessas superficies. Especificamente as parametrizações destas fronteiras para $\sigma_1$ é:\\\\
+                        $\gamma_2 (t) = (\pi,t)\ 0 \leq t \leq 1 \\\\
+                        \\\\
+                        \gama_1 (t) = (t,0)\ 0 \leq t \leq \pi \\\\
+                        \gamma_3 (t) = (\pi -t,1)\ 0 \leq t \leq \pi \\\\
+                        \\\\
+                        \gamma_4 (t) = (0,1-t)\ 0\leq t \leq 1\\\\$
+                        E para $\sigma_2$ temos:\\\\
+                        $\gamma_2 (t) = (2\pi,t)\ 0 \leq t \leq 1 \\\\
+                        \\\\
+                        \gama_1 (t) = (t,0)\ \pi \leq t \leq 2\pi \\\\
+                        \gamma_3 (t) = (2\pi -t,1)\ \pi \leq t \leq 2\pi \\\\
+                        \\\\
+                        \gamma_4 (t) = (\pi,1-t)\ 0\leq t \leq 1\\\\$
+                        Como $\sigma$ é a união de $\sigma_1$ e $\sigma_2$ então: \\\\
+                        $\iint_{\sigma} rot \vec{F} \cdot \vec{n} \cdot dS = \iint_{\sigma_1} rot \vec{F} \cdot \vec{n_1} \cdot dS + \iint_{\sigma_2} rot \vec{F} \cdot \vec{n_2} \cdot dS$\\\\
+                        Aplicando o teorema de Stokes a $\sigma_1$ e $\sigma_2$  temos que cada uma das interais duplas acima é a integral simples do campo da fronteira  de cada superficie $\sigma_1$ e $\sigma_2$. Como a fronteira de cada uma destas superficies pode ser parametrizada como 4 funções, então cada uma dessas integrais simples pode ser escritas como a soma das seguintes 4 integrais:\\\\
+                        $\iint_{\sigma_1} rot \vec{F} \cdot \vec{n_1} \cdot dS = \int_{\Gamma_{1}(\gamma_1)} \vec{F} \cdot d\vec{r} + \int_{\Gamma_{1}(\gamma_2)} \vec{F} \cdot d\vec{r} + \int_{\Gamma_{1}(\gamma_3)} \vec{F} \cdot d\vec{r} + \int_{\Gamma_{1}(\gamma_4)} \vec{F} \cdot d\vec{r}                       \\\\ \iint_{\sigma_2} rot \vec{F} \cdot \vec{n_2} \cdot dS = \int_{\Gamma_{2}(\gamma_1)} \vec{F} \cdot d\vec{r} +\int_{\Gamma_{2}(\gamma_2)} \vec{F} \cdot d\vec{r} +\int_{\Gamma_{2}(\gamma_3)} \vec{F} \cdot d\vec{r} +\int_{\Gamma_{2}(\gamma_4)} \vec{F} \cdot d\vec{r}$\\\\
+                        Agora note que $\sigma_1 (\gamma_1) \cup \sigma_2 (\gamma_1) = \Gamma_1$, isto é, o circulo superior do cilindro, cuja parametrização é:\\\\
+                        $\Gamma_1 (t) = (\cos t,\sin t,0)\ 0 \leq t \leq 2\pi$ \\\\
+                        e $\sigma_1 (\gamma_3) \cup \sigma_2 (\gamma_3) = \Gamma_2$, isto é o circulo inferior do cilindro, cuja parametrização é: \\\\
+                        $\Gamma_1 (t) = (\cos t,-\sin t,1)\ 0 \leq t \leq 2\pi$ \\\\
+                        Além disso, a integral sobre $\sigma_1 (\gamma_2)$  é anulada sobre $\sigma_2 (\gamma_4)$ e a integral sobre $\sigma_1 (\gamma_4)$ é anulada pela integral sobre $\sigma_2 (\gamma_2)$\\\\
+                        Logo:\\\\
+                        $\iint_{\Gamma} rot\vec{F}\cdot\vec{n}dS = \int_{\Gamma_1} \vec{F} \cdot d\vec{r} + \int_{\Gamma_2} \vec{F} \cdot d\vec{r}$\\\\
+                        \item Seja $\Gamma_1$ a fronteira de $\sgima_i$ com $i = 1,2,3,4$\\\\
+                        Observe que: \\\\
+                        $\Gamma_2 = \Gamma_{2}^{1} \cup \Gamma_{2}^{2} \cup \Gamma_{2}^{3} \cup \Gamma_{2}^{4}$ e $\Gamma_{3} = \Gamma_{3}^{1}\cup \Gamma_{3}^{2} \cup \Gamma_{3}^{3} \cup \Gamma_{3}^{4}$\\\\
+                        Aplicando o teorema de Stokes a cada superficie regular $\sigma_1 , \sigma_2  e \sigma_3$ temos:\\\\
+                        $\\iint_{\sigma_1} rot \vec{F} \cdot \vec{n_1} \cdot dS = \int_{\Gamma_1} \vec{F]}\cdot d\vec{r}\\\\
+                        \iint_{\sigma_2} rot \vec{F} \cdot \vec{n_1} \cdot dS = \int_{\Gamma_2} \vec{F]}\cdot d\vec{r} = \sum_{i=1}^{4} \int_{\Gamma_{2}}^{i} \vec{F}\cdot d\vec{r}$\\\\
+                        e\\\\
+                        $\iint_{\sigma_3} rot \vec{F} \cdot \vec{n_1} \cdot dS = \int_{\Gamma_3} \vec{F]}\cdot d\vec{r} = \sum_{i=1}^{4} \int_{\Gamma_{3}}^{i} \vec{F}\cdot d\vec{r}$\\\\
+                        Agora como $\Gamma_{2}^{4} = \bar{\Gamma_{3}^{2}}$, $\Gamma_{2}^{2} = \bar{\Gamma_{3}^{4}}$ e $\Gamma_{1} = \bar{\Gamma_{2}^{2} \cup \Gamma_{3}^{3} }$ temos: \\\\
+                        $\iint_{\Gamma} rot\vec{F}\cdot\vec{n}dS = \sum_{i=1}^{3} \iint_{\sigma_i} rot\vec{F}\cdot\vec{n_i}dS = \int_{\Gamma_{2}^{1}} \vec{F} \cdot d\vec{r} + \int_{\Gamma_{3}^{1}} \vec{F} \cdot d\vec{r}$\\\\
+                        E \\\\
+                        $\Gamma_{2}^{1} \cup \Gamma_{3}^{1} = \Gamma$\\\\
+                        Logo: \\\\
+                        $\iint_{\sigma} rot \vec{F} \cdot \vec{n_1} \cdot dS= \int_{\Gamma} \vec{F} \cdot d\vec{r}$\\\\
+                        \item Assim: \\\\
+                        $\int_{\Gamma} \vec{F}d\vec{r} = \int_{0}^{2\pi} F(\Gamma (t)) \cdot \Gamma '(t)\ dt \\\\
+                        =\int_{0}^{2\pi} (-\sin t,\cos t,0)\cdot(-\sin t,\cos t,0)\ dt\\\\
+                        =\int_{0}^{2\pi} \sin^2 t + \cos^2 t\ dt\\\\
+                        =2\pi$\\\\
+                        Portanto:\\\\
+                        $$\iint_\sigma rot\vec{F}\cdot\vec{n}\cdot dS = 2\pi$$\\\\
+                        \item Observe que a fronteira de $\sigma_1$ é a mesma de $\sigma_2$ porem o vetor normal de $\sigma_1$ é oposto ao de $\sigma_2$, isto é $\vec{n_1} = -\vec{n_2}$, onde $\vec{n_1}$ e $\vec{n_2}$ são vetores normais de $\sigma_1$ e $\sigma_2$ respectivamente.\\\\
+                        $\iint_\sigma_1 (rot\vec{F})\cdot\vec{n_1}\cdot dS = \iint_\sigma_1 (rot\vec{F})\cdot\vec{n_1}\cdot dS - \iint_\sigma_2 (rot\vec{F})\cdot\vec{n_2}\cdot dS$\\\\
+                        Logo pelo teorema de Stokes:\\\\
+                        $\iint_\sigma_1 (rot\vec{F})\cdot\vec{n_1}\cdot dS - \iint_\sigma_2 (rot\vec{F})\cdot\vec{n_2}\cdot dS = \int_\Gamma_1 \vec{F}\cdot d\vec{r} - \int_\Gamma_2 \vec{F}\cdot d\vec{r} = 0$\\\\
+                        Portanto:\\\\
+                        $$\iint_\sigma (rot\vec{F})\cdot\vec{n}\cdot dS = 0$$\\\\
+                        \item Parametrizações:\\\\
+                        $\gamma_1 (t) = (t,1-t)\ 0 \leq t \leq 1\\\\
+                        \gamma_2 (t) = (0,1-t)\ 0 \leq t \leq 1 \\\\
+                        \gamma_3 (t) = (t,0)\ 0 \leq t \leq 1\\\\$
+                        E a face OMJ é dada por:\\\\
+                        $\Tilde{\sigma} = (u,v,0), \ u + v \leq 1, u \geq 0 \ v \geq 0\\\\$
+                        $OM = \Tilde{\sigma}(\gamma_3 (t)) = (t,0,0)\\\\
+                        MJ = \Tilde{\sigma}(\gamma_1 (t)) = (t,1-t,0)\\\\
+                        JO = \Tilde{\sigma}(\gamma_3 (t)) = (0,1-t,0)\\\\$
+                        Assim:\\\\
+                        $\int_{OM} \vec{F}\cdot d\vec{r} = \int_{0}^{1} (0,t,0)\cdot(1,0,0)\ dt\\\\
+                        = \int_{0}^{1} 0 \ dt\\\\
+                        =0\\\\
+                        \int_{JO} \vec{F}\cdot d\vec{r} = \int_{0}^{1} (t-1,0,0)\cdot(0,-1,0)\ dt\\\\
+                        = \int_{0}^{1} 0 \ dt\\\\
+                        =0\\\\
+                        \int_{MJ} \vec{F}\cdot d\vec{r} = \int_{0}^{1} (t-1,t,0)\cdot(1,-10,0)\ dt\\\\
+                        = \int_{0}^{1} t - 1 - t \ dt\\\\
+                        =-1\\\\$
+                        Ṕortanto:
+                        $$\iint_\sigma rot\vec{F}\cdot\vec{n} dS = -1\\\\$$
+                        \item A faixa de Möbius é uma superficie não-orientável e como não temos orientação na superficie, não é possivél aplicar o temorema de Stokes\\\\
+                        \item Para cada face, pelo teorema de Stokes temos: \\\\
+                        $\iint_{OABC} rot\vec{F}\cdot\vec{n} dS  = \int_{OA} \vec{F}d\vec{r} + \int_{AB} \vec{F}d\vec{r} + \int_{BC} \vec{F}d\vec{r} + \int_{CO} \vec{F}d\vec{r} \\\\
+                        \iint_{OGFA} rot\vec{F}\cdot\vec{n} dS = \int_{OG} \vec{F}d\vec{r} + \int_{GF} \vec{F}d\vec{r} + \int_{FA} \vec{F}d\vec{r} + \int_{AO} \vec{F}d\vec{r} \\\\
+                        \iint_{OCDG} rot\vec{F}\cdot\vec{n} dS = \int_{OC} \vec{F}d\vec{r} + \int_{CD} \vec{F}d\vec{r} + \int_{DG} \vec{F}d\vec{r} + \int_{GO} \vec{F}d\vec{r} \\\\
+                        \iint_{CBED} rot\vec{F}\cdot\vec{n} dS = \int_{CB} \vec{F}d\vec{r} + \int_{BE} \vec{F}d\vec{r} + \int_{ED} \vec{F}d\vec{r} + \int_{DC} \vec{F}d\vec{r}  \\\\
+                        \iint_{AFEB} rot\vec{F}\cdot\vec{n} dS = \int_{AF} \vec{F}d\vec{r} + \int_{FE} \vec{F}d\vec{r} + \int_{EB} \vec{F}d\vec{r} + \int_{BA} \vec{F}d\vec{r} \\\\
+                        \iint_{GDEF} rot\vec{F}\cdot\vec{n} dS =  \int_{GD} \vec{F}d\vec{r} + \int_{DE} \vec{F}d\vec{r} + \int_{EF} \vec{F}d\vec{r} + \int_{FG} \vec{F}d\vec{r} \\\\$
+                        Agora, observando que $\int_{AB} \vec{F}\cdot d\vec{r} =  - \int_{BA} \vec{F}\cdot d\vec{r} $, pois $A\vec{B}$ e $B\vec{A}$ são segmentos reversos, concluimos que:\\\\
+                        $$\iint_\sigma rot\vec{F}\cdot\vec{n}dS = 0$$\\\\
+
+                        \item Imagem:
+                            \begin{figure}[!htb]
+                            \includegraphics[scale=0.1]{14a.jpeg}
+                            \end{figure}\\\\
+                            \item Pelo teorema de Stokes,\\\\
+                            $\iint_\sigma rot\vec{F}\cdot\vec{n}dS = \int_\Gamma_1 \vec{F}d\vec{r}\\\\$
+                            e pelo item (a) \\\\
+                            $\int_\Gamma \vec{F}d\vec{r} = \int_{\Gamma_1 (\gamma_1)} \vec{F}d\vec{r} + \int_{\Gamma_1 (\gamma_2)} \vec{F}d\vec{r} + \int_{\Gamma_1 (\gamma_1)} \vec{F}d\vec{r}\\\\$
+                            E como $\Gamma_1 (\gamma_1) = \Gamma_1 (\bar{\gamma_3})$, temos:\\\\
+                            $\int_{\Gamma (\gamma_1)} \vec{F}d\vec{r} = \int_{\Gamma_1 (\gamma_2)} \vec{F}d\vec{r}\\\\$
+                            E \\\\
+                            $\gamma_2 (t) = (\frac{\pi}{2},t), 0 \leq t \leq 2\pi\\\\$
+                            Assim:\\\\
+                            $\Gamma_1  (t) = \sigma(\gamma_2(t)) = (r\cos t,r\sin t,0), 0 \leq t \leq 2\pi\\\\$
+                            Portanto:\\\\
+                            $\Gamma_1 (t) = \Gamma(t)$\\\\
+                            \item Como $\Gamma_1$ é a fronteira da superficie $\sigma$, pelo teorema de Stokes:\\\\
+                            $\iint_\sigma rot\vec{F}\cdot\vec{n}\cdot dS = \int_{\Gamma_1} \vec{F}d\vec{r}\\\\$
+                            \item Pelo item (b) temos:\\\\
+                            $\int_{\Gamma_1} \vec{F}d\vec{r} = \int_{\Gamma} \vec{F}d\vec{r}\\\\$
+                            Pelo item (c) temos:\\\\
+                            $\iint_\sigma rot\vec{F}\cdot\vec{n}\cdot dS = \int_{\Gamma_1} \vec{F}d\vec{r}\\\\$
+                            Logo:
+                            $\iint_\sigma rot\vec{F}\cdot\vec{n}\cdot dS = \int_{\Gamma} \vec{F}d\vec{r}\\\\$
+
+			%Fim JUNIOR%
+			
+    \begin{center}
+        \begin{large}
+	        Capítulo 16(Stewart)- Cálculo Vetorial\\16.3 O Teorema Fundamental das Integrais de Linha
+	   \end{large}
+	\end{center}
+	
+
+\item $C$ parece ser uma curva suave e, como $\nabla f$ é contínuo, sabemos que $f$ é diferenciável. Então o Teorema 2 diz que o valor
+de $\int_c \nabla f · dr$ é simplesmente a diferença dos valores desligados no terminal e pontos iniciais de $ C$. Do gráfico, isto é
+$50-10 = 40$.
+\item $\partial(2x - 3y)\/ \partial y = -3 = \partial(-3x + 4y - 8)\/ \partial x$ e o dominio de $F$ é $\mathbb{R}^2$ que é aberto e simplesmente conectado, então pelo Teorema 6 $F$ é conservativo. Assim, existe uma função $f$ tal que $\nabla f =  F$, isto é $f_x (x,y) = 2x - 3y$ e $f_y (x,y) = -3x + 4y - 8$ mas $f_x (x,y) = 2x - 3y$ implica em $f_x (x,y) = x^2 - 3xy + g(y)$ e diferenciando ambos os lados desta equação em relação a $y$ dá $f_y (x,y) = -3x + g'(y)$, Portanto $- 3x + 4y - 8 = -3x + g'(y)$ então $g'(y)= 4y - 8$ e
+$g(y) = 2y^2 - 8y + K $ onde K é uma constante. Consequentemente $f(x, y) = x^2 - 3xy + 2y^2- 8y +K$ é uma função potencial para $F$
+\item $\frac{\partial(e^x \cos y)}{\partial y} = -e^x \sin y$, e $\frac{\partial(e^x \sin y)}{\parital x} = e^x\sin y $ Como estes não são iguais, F não é conservativo.
+\item $\frac{\partial (ye^y + \sin y)}{\partial y} =  e^x + \cos y = \frac{\partial (e^x + x\cos y)}{\partial x}$ e o dominio de $F$ é $\mathbb{R}^2$. Consequentemente $F$ é conservativa, então existe uma função $f$ tal que $\nabla f = F$, logo $f_x (x,y) = ye^x + \sin y$ implica em $f(x,y) = ye^x + x\sin y + g(y)$ e $f_y (x,y) = e^x + x\cos y + g'(y)$. Mas $f_y (x,y) = e^x + x\cos y$ então $g(y) = K$ e $f(x,y) = ye + x\sin y + K$ é uma função potencial para $F$.
+\item $\frac{\partial (ln y + 2xy^3) }{\partial y} = \frac{1}{y} + 6xy^2 = \frac{\partial (3xy^2 + \frac{x}{y}}{\partial x}$ e o dominio de $F$ é $\{(x,y) | y > 0 \}$ que é aberto e simplesmente
+conectado. Consequentemente $F$ é conservativo, então existe uma uma função $f$ tal que $\nabla f = F$, então $f_x (x,y) = ln  y + 2xy^3$ implica em $f(x,y) = xln y + x^2 y^3 + g(y)$ e $f_y (x,y) = \frac{x}{y} + 3x^2 y^2 + g'(y)$ mas $f_y (x,y) =  3x^2 y^2 + \frac{x}{y} $ então $g(y) = 0 \rightarrow g(y) = K$ e $f(x,y) = x ln y + x^2 y^2 + K$ é uma função pontecial para $F$.
+\item $P = -\frac{y}{x^2 + y^2},\ \frac{\parital P}{\parital y} = \frac{y^2 - x^2}{(x^2 + y^2)^2}$ e $Q  = \frac{x}{x^2 + y^2}, \ \frac{\parital Q}{\parital x} = \frac{y^2 - x^2}{(x^2 + y^2)^2}$. Logo $\frac{\parital P}{\parital y} = \frac{\parital Q}{\parital x}$
+	
+	\begin{center}
+	    \begin{large}Capítulo 16(Stewart) - Cálculo Vetorial\\16.4 O Teorema de Stoke
+	    \end{large}
+	\end{center}
+	
+	    \item Ambos $H$ e $P$ são planos orientados que tem fronteiras definidas pela curva $x^2 + y^2 = 4, z=0$ que podemos adimitir ser positivo para os dois planos. Então H e P satisfazem a hipotese do teorema, logo nós sabemos que $\iint_H \vec{F}dS = \int_C \vec{F}d\vec{r} = \iint_P \vec{F}dS $, onde $C$ é a curva da fronteira.
+	    \item [25] $\iint_S \vec{a} \cdot \vec{n} dS = \iiint_E div\vec{a} dV = 0$, uma vez que $div\vec{a} = 0$
+
+	
+	
+		
+		%###############################################################################################################################################
+		% Capítulo 16 - Cálculo Vetorial - Exercícios 16.4 - Questão 01
+		\item Cálcule a integral de linha utilizando o teorema de Green: $\displaystyle\oint_C\ (x - y)\ dx + (x + y)dy$, onde $C$ é o circulo com centro na origem e raio 2
+		
+		$\Rightarrow F$ é uma curva fechada suave, orientada positivamente, logo pelo teorema de Green
+		
+		$\Rightarrow \displaystyle\oint_C\ (x - y)\ dx + (x + y)dy = \displaystyle\iint_D\ \Bigg[\dfrac{\partial}{\partial x}(x + y) - \dfrac{\partial}{\partial y}(x - y) \Bigg]\ dA$ 
+		
+		$\Rightarrow \displaystyle\iint_D\ \Bigg[\dfrac{\partial}{\partial x}(x + y) - \dfrac{\partial}{\partial y}(x - y) \Bigg]\ dA = \displaystyle\iint_D\ [1 - (-1)]\ dA = 2\displaystyle\iint_D\ dA $
+		
+		$\Rightarrow 2\displaystyle\iint_D\ dA = 2A(D) = 2\pi(2)^2 = 8\pi$
+		
+		$\Rightarrow$ Logo, $\displaystyle\oint_C\ (x - y)\ dx + (x + y)dy = 8\pi$
+		
+		%###############################################################################################################################################
+		% Capítulo 16 - Cálculo Vetorial - Exercícios 16.4 - Questão 02
+		\item Calcule a integral de linha utilizando teorema de Green: $\displaystyle\oint_C\ xy\ dx + x^2\ dy $, onde $C$ é o retângulo com vértices $(0,0),(3,0),(3,1),(0,1)$
+		
+		$\Rightarrow \displaystyle\oint_C\ xy\ dx + x^2\ dy = \displaystyle\iint_D\ \Bigg[\dfrac{\partial}{\partial x}(x^2) - \dfrac{\partial}{y}(xy)\Bigg]\ dA$
+		
+		$\Rightarrow \displaystyle\iint_D\ \Bigg[\dfrac{\partial}{\partial x}(x^2) - \dfrac{\partial}{\partial y}(xy)\Bigg]\ dA = \displaystyle\int_{0}^{3}\displaystyle\int_{0}^{1}\ (2x - x)\ dy \ dx$
+		
+		$\Rightarrow \displaystyle\int_{0}^{3}\displaystyle\int_{0}^{1}\ (2x - x)\ dy \ dx = \displaystyle\int_{0}^{3}\ x\ dx \displaystyle\int_{0}^{1}\ dy$
+		
+		$\Rightarrow \displaystyle\int_{0}^{3}\ x\ dx \displaystyle\int_{0}^{1}\ dy = \Bigg[\dfrac{x^2}{2}\Bigg]_0^3 \cdot 1 = \dfrac{9}{2}$
+		
+		$\Rightarrow$ Logo, $\displaystyle\oint_C\ xy\ dx + x^2\ dy = \dfrac{9}{2}$
+		
+		
+		%###############################################################################################################################################
+		% Capítulo 16 - Cálculo Vetorial - Exercícios 16.4 - Questão 03
+		\item Calcule a integral de linha utilizando o teorema de Green: $\displaystyle\oint_C\ xy\ dx + x^2y^3\ dy$, onde $C$ é o triângulo com vértices $(0,0),(1,0),(1,2)$
+		
+		$\Rightarrow \displaystyle\oint_C\ xy\ dx + x^2y^3\ dy = \displaystyle\iint_D\ \Bigg[\dfrac{\partial}{\partial x}(x^2y^3) - \dfrac{\partial}{\partial y}(xy)\Bigg]\ dA $
+		
+		$\Rightarrow \displaystyle\iint_D\ \Bigg[\dfrac{\partial}{\partial x}(x^2y^3) - \dfrac{\partial}{\partial y}(xy)\Bigg]\ dA = \displaystyle\int_{0}^{1}\displaystyle\int_{0}^{2x}\ (2xy^3 - x)\ dy\ dx$
+		
+		$\Rightarrow \displaystyle\int_{0}^{1}\displaystyle\int_{0}^{2x}\ (2xy^3 - x)\ dy\ dx = \displaystyle\int_{0}^{1}\ \Bigg[\dfrac{xy^4}{2} - xy\Bigg]_0^{2x}\ dx$
+		
+		$\Rightarrow \displaystyle\int_{0}^{1}\ \Bigg[\dfrac{xy^4}{2} - xy\Bigg]_0^{2x}\ dx = \displaystyle\int_{0}^{1}\ (8x^5 - 2x^2)\ dx $
+		
+		$\Rightarrow \displaystyle\int_{0}^{1}\ (8x^5 - 2x^2)\ dx  = \dfrac{4}{3} - \dfrac{2}{3}$
+		
+		$\Rightarrow$ Logo, $\displaystyle\oint_C\ xy\ dx + x^2y^3\ dy = \dfrac{2}{3}$
+		%###############################################################################################################################################
+		% Capítulo 16 - Cálculo Vetorial - Exercícios 16.4 - Questão 04
+		\item Calcule a integral de linha utilizando o teorema de Green: $\displaystyle\oint_C\ x^2y^2\ dx + xy\ dy$, onde $C$ consiste no arco da parábola $y = x^2$ de $(0,0)$ a $(1,1)$ e os segmentos de reta de $(1,1)$ a $(0,1)$ e de $(0,1)$ a $(0,0)$
+		
+		$\Rightarrow \displaystyle\oint_C\ x^2y^2\ dx + xy\ dy = \displaystyle\iint_D\ \Bigg[\dfrac{\partial}{\partial x}(xy) - \dfrac{\partial}{\partial y}(x^2y^2)\Bigg]\ dA $
+		
+		$\Rightarrow \displaystyle\iint_D\ \Bigg[\dfrac{\partial}{\partial x}(xy) - \dfrac{\partial}{\partial y}(x^2y^2)\Bigg]\ dA = \displaystyle\int_{0}^{1}\ \displaystyle\int_{x^2}^{1}\ (y - 2x^2y)\ dy\ dx$
+		
+		$\Rightarrow \displaystyle\int_{0}^{1}\ \displaystyle\int_{x^2}^{1}\ (y - 2x^2y)\ dy\ dx = \displaystyle\int_{0}^{1}\Bigg[\dfrac{y^2}{2} - x^2y^2\Bigg]_{x^2}^1\ dx$
+		
+		$\Rightarrow \displaystyle\int_{0}^{1}\Bigg[\dfrac{y^2}{2} - x^2y^2\Bigg]_{x^2}^1\ dx = \displaystyle\int_{0}^{1}\ (\dfrac{1}{2} - x^2 - \dfrac{x^4}{2} + x^6)\ dx$
+		
+		$\Rightarrow \displaystyle\int_{0}^{1}\ (\dfrac{1}{2} - x^2 - \dfrac{x^4}{2} + x^6)\ dx = \Bigg[\dfrac{x}{2} - \dfrac{x^3}{3} - \dfrac{x^5}{10} + \dfrac{x^7}{7}\Bigg]_0^1 = \dfrac{1}{2} - \dfrac{1}{3} - \dfrac{1}{10} + \dfrac{1}{7} = \dfrac{22}{105}$
+		
+		$\Rightarrow$ Logo, $\displaystyle\oint_C\ x^2y^2\ dx + xy\ dy = \dfrac{22}{105}$
+		%###############################################################################################################################################
+		% Capítulo 16 - Cálculo Vetorial - Exercícios 16.4 - Questão 05
+		\item Use o teorema de Green para calcular a integral de linha ao longo da curva dada com orientação positiva: $\displaystyle\oint_C\ xy^2\ dx + 2x^2y\ dy$, onde $C$ é o triângulo de vértices $(0,0),(2,2),(2,4)$
+		
+		$\Rightarrow \displaystyle\oint_C\ xy^2\ dx + 2x^2y\ dy = \displaystyle\iint_D\ \Bigg[\dfrac{\partial}{\partial x}(2x^2y) - \dfrac{\partial}{\partial y}(xy^2)\Bigg]\ dA $
+		
+		$\Rightarrow \displaystyle\iint_D\ \Bigg[\dfrac{\partial}{\partial x}(2x^2y) - \dfrac{\partial}{\partial y}(xy^2)\Bigg]\ dA = \displaystyle\int_{0}^{2}\ \displaystyle\int_{x}^{2x}\ (4xy - 2xy)\ dy\ dx$
+		
+		$\Rightarrow \displaystyle\int_{0}^{2}\ \displaystyle\int_{x}^{2x}\ (4xy - 2xy)\ dy\ dx = \displaystyle\int_{0}^{2}\ \Big[xy^2\Big]_x^{2x}\ dx$
+		
+		$\Rightarrow \displaystyle\int_{0}^{2}\ \Big[xy^2\Big]_x^{2x}\ dx = \displaystyle\int_{0}^{2}\ (3x^3\ dx)$
+		
+		$\Rightarrow \displaystyle\int_{0}^{2}\ (3x^3\ dx) = \Big[\dfrac{3x^4}{4}\Big]_0^2 = 12$
+		
+		$\Rightarrow$ Logo, $\displaystyle\oint_C\ xy^2\ dx + 2x^2y\ dy = 12$
+		
+		%###############################################################################################################################################
+		% Capítulo 16 - Cálculo Vetorial - Exercícios 16.4 - Questão 06
+		\item Use o teorema de Green para calcular a integral de linha ao longo da curva dada com orientação positiva: $\displaystyle\oint_C\ \cos y\ dx + x^2 \sin y\ dy$, onde $C$ é o retângulo com vértices $(0,0),(5,0),(5,2),(0,2)$
+		
+		$\Rightarrow \displaystyle\oint_C\ \cos y\ dx + x^2 \sin y\ dy = \displaystyle\iint_D\ \Bigg[\dfrac{\partial}{\partial x}(x^2\sin y) - \dfrac{\partial}{\partial y}(\cos y)\Bigg]\ dA $
+		
+		$\Rightarrow \displaystyle\iint_D\ \Bigg[\dfrac{\partial}{\partial x}(x^2\sin y) - \dfrac{\partial}{\partial y}(\cos y)\Bigg]\ dA = \displaystyle\int_{0}^{5}\ \displaystyle\int_{0}^{2}\ [2x\sin y - (-\sin y)]\ dy\ dx$
+		
+		$\Rightarrow \displaystyle\int_{0}^{5}\ \displaystyle\int_{0}^{2}\ [2x\sin y - (-\sin y)]\ dy\ dx = \displaystyle\int_{0}^{5}\ (2x + 1)\ dx + \displaystyle\int_{0}^{2}\ \sin y\ dy  $
+		
+		$\Rightarrow \displaystyle\int_{0}^{5}\ (2x + 1)\ dx + \displaystyle\int_{0}^{2}\ \sin y\ dy = \Big[x^2 + x\Big]_0^5 \Big[ - \cos y\Big]_0^2 = 30(1 - \cos 2)$
+		
+		$\Rightarrow$ Logo, $\displaystyle\oint_C\ \cos y\ dx + x^2 \sin y\ dy = 30(1 - \cos 2)$
+		
+		%###############################################################################################################################################
+		% Capítulo 16 - Cálculo Vetorial - Exercícios 16.4 - Questão 07
+		\item Use o teorema de Green para calcular a integral de linha ao longo da curva dada com orientação positiva: $\displaystyle\oint_C\ (y + e^{\sqrt{x}})\ dx + (2x \cos y^2)\ dy$ onde $C$ é o limite da região englobada pelas parábolas $y = x^2$ e $x = y^2$
+		
+		$\Rightarrow \displaystyle\oint_C\ (y + e^{\sqrt{x}})\ dx + (2x \cos y^2)\ dy = \displaystyle\iint_D\ \Bigg[\dfrac{\partial}{\partial x}(2x \cos y^2) - \dfrac{\partial}{\partial y}(y + e^{\sqrt{x}})\Bigg]\ dA $
+		
+		$\Rightarrow \displaystyle\iint_D\ \Bigg[\dfrac{\partial}{\partial x}(2x \cos y^2) - \dfrac{\partial}{\partial y}(y + e^{\sqrt{x}})\Bigg]\ dA = \displaystyle\int_{0}^{1}\ \displaystyle\int_{y^2}^{\sqrt{y}}\ (2 - 1)\ dx\ dy $
+		
+		$\Rightarrow \displaystyle\int_{0}^{1}\ \displaystyle\int_{y^2}^{\sqrt{y}}\ (2 - 1)\ dx\ dy = \displaystyle\int_{0}^{1}\ (y^{\frac{1}{2}} - y^2)\ dy$
+		
+		$\Rightarrow \displaystyle\int_{0}^{1}\ (y^{\frac{1}{2}} - y^2)\ dy = \Bigg[\dfrac{2y^{\frac{3}{2}}}{3} - \dfrac{y^3}{3}\Bigg]_0^1 = \dfrac{1}{3}$
+		
+		$\Rightarrow$ Logo, $\displaystyle\oint_C\ (y + e^{\sqrt{x}})\ dx + (2x \cos y^2)\ dy = \dfrac{1}{3}$
+		
+		%###############################################################################################################################################
+		% Capítulo 16 - Cálculo Vetorial - Exercícios 16.4 - Questão 08
+		\item Use o teorema de Green para calcular a integral de linha ao longo da curva dada com orientação positiva: $\displaystyle\oint_C\ xe^{-2x}\ dx + (x^4 + 2x^2y^2)\ dy$ onde $C$ é o limite da região ente os círculos $x^2 + y^2 = 1$ e $x^2 + y^2 = 4$
+		
+		$\Rightarrow \displaystyle\oint_C\ xe^{-2x}\ dx + (x^4 + 2x^2y^2)\ dy = \displaystyle\iint_D\ \Bigg[\dfrac{\partial}{\partial x}(2xy^3) - \dfrac{\partial}{\partial y}(y^4)\Bigg]\ dA = \displaystyle\iint_D\ (2y^3 - 4y^3)\ dA$
+		
+		$\Rightarrow \displaystyle\iint_D\ (2y^3 - 4y^3)\ dA = -2\displaystyle\iint_D\ y^3\ dA$
+		
+		$\Rightarrow -2\displaystyle\iint_D\ y^3\ dA = 0$
+		
+		$\Rightarrow$ Logo, $\displaystyle\oint_C\ xe^{-2x}\ dx + (x^4 + 2x^2y^2)\ dy = 0$
+		
+		%###############################################################################################################################################
+		% Capítulo 16 - Cálculo Vetorial - Exercícios 16.4 - Questão 09
+		\item Use o teorema de Green para calcular a integral de linha ao longo da curva dada com orientação positiva: $\displaystyle\oint_C\ y^3\ dx - x^3\ dy $ onde $C$ é o círculo $x^2 + y^2 = 4$
+		
+		$\Rightarrow \displaystyle\oint_C\ y^3\ dx - x^3\ dy = \displaystyle\iint_D\ \Bigg[\dfrac{\partial}{\partial x}(-x^3) - \dfrac{\partial}{\partial y}(y^3)\Bigg]\ dA = \displaystyle\iint_D\ (-3x^2 - 3y^2)\ dA$
+		
+		$\Rightarrow \displaystyle\iint_D\ (-3x^2 - 3y^2)\ dA = \displaystyle\int_{0}^{2\pi}\ \displaystyle\int_{0}^{2\pi}\ (-3r^2)r\ dr\ d\theta$
+		
+		$\Rightarrow \displaystyle\int_{0}^{2\pi}\ \displaystyle\int_{0}^{2\pi}\ (-3r^2)r\ dr\ d\theta = -3\displaystyle\int_{0}^{2\pi}\ d\theta\ displaystyle\int_{0}^{2\pi}\ dr$
+		
+		$\Rightarrow -3\displaystyle\int_{0}^{2\pi}\ d\theta\ displaystyle\int_{0}^{2\pi}\ dr = -3\Big[\theta\Big]_0^{2\pi}\Big[\dfrac{r^4}{4}\Big]_0^{2\pi} = -3(2\pi)(4) = -24\pi$
+		
+		$\Rightarrow$ Logo, $\displaystyle\oint_C\ y^3\ dx - x^3\ dy = -24\pi $
+		
+		%###############################################################################################################################################
+		% Capítulo 16 - Cálculo Vetorial - Exercícios 16.4 - Questão 10
+		\item Use o teorema de Green para calcular a integral de linha ao longo da curva dada com orientação positiva: $\displaystyle\oint_C\ (1 - y^3)\ dx + (x^3 + e^{y^2})\ dy$, onde $C$ é o limite da região entre os círculos $x^2 + y^2 = 4$ e $x^2 + y^2 = 9$
+		
+		$\Rightarrow \displaystyle\oint_C\ (1 - y^3)\ dx + (x^3 + e^{})\ dy = \displaystyle\iint_D\ \Bigg[\dfrac{\partial}{\partial x}() - \dfrac{\partial}{\partial y}(y^3)\Bigg]\ dA $ 
+		
+		$\Rightarrow \displaystyle\iint_D\ \Bigg[\dfrac{\partial}{\partial x}(x^3 + e^{y^2}) - \dfrac{\partial}{\partial y}(1 - y^3)\Bigg]\ dA = \displaystyle\iint_D\ (3x^2 + 3y^2)\ dA$
+		
+		$\Rightarrow \displaystyle\iint_D\ (3x^2 + 3y^2)\ dA =  \displaystyle\int_{0}^{2\pi}\ \displaystyle\int_{2}^{3}\ (3r^2)r\ dr\ d\theta$
+		
+		$\Rightarrow \displaystyle\int_{0}^{2\pi}\ \displaystyle\int_{2}^{3}\ (3r^2)r\ dr\ d\theta = 3\displaystyle\int_{0}^{2\pi}\ d\theta\ displaystyle\int_{2}^{3}\ r^3\ dr$
+		
+		$\Rightarrow 3\displaystyle\int_{0}^{2\pi}\ d\theta\ displaystyle\int_{2}^{3}\ r^3\ dr = 3\Big[\theta\Big]_0^{2\pi} \Bigg[\dfrac{r^4}{4}\Bigg]_2^3 = 3(2\pi) \dfrac{(81 - 16)}{4} = \dfrac{195\pi}{2}$
+		
+		$\Rightarrow$ Logo, $\displaystyle\oint_C\ (1 - y^3)\ dx + (x^3 + e^{y^2})\ dy = \dfrac{195\pi}{2}$
+		
+		%###############################################################################################################################################
+		% Capítulo 16 - Cálculo Vetorial - Exercícios 16.4 - Questão 11
+		\item Use o teorema de Green para calcular $\displaystyle\oint_C\ F \cdot dr$, onde: $F(x,y) = \langle\ y\cos x - xy\sin x, xy + x\cos x\rangle$ e $C$ é o triângulo de $(0,0)$ a $(0,4)$ a $(2,0)$ a $(0,0)$
+		
+		$\Rightarrow \displaystyle\oint_C\ F \cdot dr = \displaystyle\int_{-C}\ (y \cos x - xy\sin x)\ dx + (xy + x \cos x)\ dy$
+		
+		$\Rightarrow \displaystyle\int_{-C}\ (y \cos x - xy\sin x)\ dx + (xy + x \cos x)\ dy = \displaystyle\iint_D\ \Bigg[\dfrac{\partial}{\partial x}(xy + x\cos x) - \dfrac{\partial}{\partial y}(y \cos x - xy\sin x)\Bigg]\ dA$
+		
+		$\Rightarrow \displaystyle\iint_D\ \Bigg[\dfrac{\partial}{\partial x}(xy + x\cos x) - \dfrac{\partial}{\partial y}(y \cos x - xy\sin x)\Bigg]\ dA = -\displaystyle\iint_D\ (y - \sin x + \cos x - \cos x + x\sin x)\ dA$
+		
+		$\Rightarrow -\displaystyle\iint_D\ (y - \sin x + \cos x - \cos x + x\sin x)\ dA = -\displaystyle\int_{0}^{2}\ \displaystyle\int_{0}^{4 - 2x}\ y\ dy\ dx$
+		
+		$\Rightarrow -\displaystyle\int_{0}^{2}\ \displaystyle\int_{0}^{4 - 2x}\ y\ dy\ dx = -\displaystyle\int_{0}^{2}\ \Bigg[\dfrac{y^2}{2}\Bigg]_0^{4 - 2x}\ dx$
+		
+		$\Rightarrow  -\displaystyle\int_{0}^{2}\ \Bigg[\dfrac{y^2}{2}\Bigg]_0^{4 - 2x}\ dx = -\displaystyle\int_{0}^{2}\ \dfrac{(4 - 2x^2)^2}{2}\ dx$
+		
+		$\Rightarrow -\displaystyle\int_{0}^{2}\ \dfrac{(4 - 2x^2)^2}{2}\ dx = -\displaystyle\int_{0}^{2}\ (8 - 8x + 2x^2)\ dx$
+		
+		$\Rightarrow -\displaystyle\int_{0}^{2}\ (8 - 8x + 2x^2)\ dx = - \Bigg[8x - 4x^2 + \dfrac{2x^3}{3}\Bigg]_0^2 = - (16 - 16 + \dfrac{16}{3} - 0) = \dfrac{-16}{3}$
+		
+		$\Rightarrow$ Logo, $\displaystyle\oint_C\ F \cdot dr = \dfrac{-16}{3}$
+		
+		%###############################################################################################################################################
+		% Capítulo 16 - Cálculo Vetorial - Exercícios 16.4 - Questão 12
+		\item Use o teorema de Green para calcular $\displaystyle\oint_C\ F \cdot dr$, onde: $F(x,y) = \langle\ e^{-x} + y^2, e^{-y} + x^2\rangle$ e $C$ consiste no arco da curva $y = \cos x$ de $(\dfrac{\pi}{2},0)$ a $(\dfrac{\pi}{2},0)$
+		
+		$\Rightarrow \displaystyle\oint_C\ F \cdot dr = \displaystyle\int_{-C}\ (e^{-x} + y^2)\ dx + (e^{-y} + x^2)\ dy$
+		
+		$\Rightarrow \displaystyle\int_{-C}\ (e^{-x} + y^2)\ dx + (e^{-y} + x^2)\ dy = \displaystyle\iint_D\ \Bigg[\dfrac{\partial}{\partial x}(e^{-y} + x^2) - \dfrac{\partial}{\partial y}(e^{-x} + y^2)\Bigg]\ dA$
+		
+		$\Rightarrow \displaystyle\iint_D\ \Bigg[\dfrac{\partial}{\partial x}(e^{-y} + x^2) - \dfrac{\partial}{\partial y}(e^{-x} + y^2)\Bigg]\ dA = -\displaystyle\int_{\frac{-\pi}{2}}^{\frac{\pi}{2}}\ \displaystyle\int_{0}^{\cos x}\ (2x - 2y)\ dy\ dx$
+		
+		$\Rightarrow -\displaystyle\int_{\frac{-\pi}{2}}^{\frac{\pi}{2}}\ \displaystyle\int_{0}^{\cos x}\ (2x - 2y)\ dy\ dx = -\displaystyle\int_{\frac{-\pi}{2}}^{\frac{\pi}{2}}\ \Big[2xy - y^2\Big]_0^{\cos x}\ dx $
+		
+		$\Rightarrow -\displaystyle\int_{\frac{-\pi}{2}}^{\frac{\pi}{2}}\ \Big[2xy - y^2\Big]_0^{\cos x}\ dx = -\displaystyle\int_{\frac{-\pi}{2}}^{\frac{\pi}{2}}\ (2x \cos x - \cos^2x)\ dx $
+		
+		$\Rightarrow -\displaystyle\int_{\frac{-\pi}{2}}^{\frac{\pi}{2}}\ (2x \cos x - \cos^2x)\ dx = \displaystyle\int_{\frac{-\pi}{2}}^{\frac{\pi}{2}}\ (2x\cos x - \dfrac{(1 + \cos2x)}{2})\ dx$
+		
+		$\Rightarrow \displaystyle\int_{\frac{-\pi}{2}}^{\frac{\pi}{2}}\ (2x\cos x - \dfrac{(1 + \cos2x)}{2})\ dx = - \Bigg[2x\sin x + 2\cos x - \dfrac{1}{2}(x + \dfrac{1}{2}\sin 2x)\Bigg]_{\frac{-\pi}{2}}^{\frac{\pi}{2}} = $
+		
+		$\Rightarrow - \Bigg[2x\sin x + 2\cos x - \dfrac{1}{2}(x + \dfrac{1}{2}\sin 2x)\Bigg]_{\dfrac{-\pi}{2}}^{\dfrac{\pi}{2}} = - (\pi - \dfrac{\pi}{4} - \pi - \dfrac{\pi}{4}) = \dfrac{\pi}{2}$
+		
+		$\Rightarrow$ Logo, $\displaystyle\oint_C\ F \cdot dr = \dfrac{\pi}{2}$
+		
+		%###############################################################################################################################################
+		% Capítulo 16 - Cálculo Vetorial - Exercícios 16.4 - Questão 13
+		\item Use o teorema de Green para calcular $\displaystyle\oint_C\ F \cdot dr$, onde: $F(x,y) = \langle\ y - \cos y, x \sin y\rangle $ e $C$ é o círculo $(x - 3)^2 + (y + 4)^2 = 4$, orientado no sentido horário
+		
+		$\Rightarrow \displaystyle\oint_C\ F \cdot dr = \displaystyle\int_{-C}\ (y - \cos y)\ dx + (x \sin y)\ dy $
+		
+		$\Rightarrow \displaystyle\int_{-C}\ (y - \cos y)\ dx + (x \sin y)\ dy = \displaystyle\iint_D\ \Bigg[\dfrac{\partial}{\partial x}(x \sin y) - \dfrac{\partial}{\partial y}(y - \cos y)\Bigg]\ dA$
+		
+		$\Rightarrow \displaystyle\iint_D\ \Bigg[\dfrac{\partial}{\partial x}(x \sin y) - \dfrac{\partial}{\partial y}(y - \cos y)\Bigg]\ dA = -\displaystyle\iint_D\ (\sin y -1 - \sin y)\ dA $  
+		
+		$\Rightarrow  -\displaystyle\iint_D\ (\sin y -1 - \sin y)\ dA = \displaystyle\iint_D\ dA$
+		
+		$\Rightarrow \displaystyle\iint_D\ dA = \pi(2)^2 = 4\pi$
+		
+		$\Rightarrow$ Logo, $\displaystyle\oint_C\ F \cdot dr = \pi(2)^2 = 4\pi $
+		%###############################################################################################################################################
+		% Capítulo 16 - Cálculo Vetorial - Exercícios 16.4 - Questão 14
+		\item Use o teorema de Green para calcular $\displaystyle\oint_C\ F \cdot dr$, onde: $F(x,y) = \langle\ \sqrt{x^2 +1}, \tan^{-1}\rangle$ e $C$ é o triângulo de $(0,0),(1,1),(0,1),(0,0)$
+		
+		$\Rightarrow \displaystyle\oint_C\ F \cdot dr = \displaystyle\int_{C}\ \sqrt{x^2 + 1}\ dx + \tan^{-1}x\ dy$ 
+		
+		$\Rightarrow \displaystyle\int_{C}\ \sqrt{x^2 + 1}\ dx + \tan^-1x\ dy = \displaystyle\iint_D\ \Bigg[\dfrac{\partial}{\partial x}(\tan^{-1}x) - \dfrac{\partial}{\partial y}(\sqrt{x^2 + 1})\Bigg]\ dA$
+		
+		$\Rightarrow \displaystyle\iint_D\ \Bigg[\dfrac{\partial}{\partial x}(\tan^{-1}x) - \dfrac{\partial}{\partial y}(\sqrt{x^2 + 1})\Bigg]\ dA = \displaystyle\int_{0}^{1}\ \displaystyle\int_{1}^{x}\ \Bigg(\dfrac{1}{1 + x^2} - 0\Bigg)\ dy\ dx$
+		
+		$\Rightarrow \displaystyle\int_{0}^{1}\ \displaystyle\int_{1}^{x}\ \Bigg(\dfrac{1}{1 + x^2} - 0\Bigg)\ dy\ dx = \displaystyle\int_{0}^{1}\ \dfrac{1}{1 + x^2}\Big[y\Big]_x^1\ dx$
+		
+		$\Rightarrow \displaystyle\int_{0}^{1}\ \dfrac{1}{1 + x^2}\Big[y\Big]_x^1\ dx = \displaystyle\int_{0}^{1}\ \dfrac{1}{1 + x^2}(1 - x)\ dx$
+		
+		$\Rightarrow \displaystyle\int_{0}^{1}\ \dfrac{1}{1 + x^2}(1 - x)\ dx = \displaystyle\int_{0}^{1}\ \Bigg(\dfrac{1}{1 + x^2} - \dfrac{x}{1 + x^2}\Bigg)\ dx$
+		
+		$\Rightarrow \displaystyle\int_{0}^{1}\ \Bigg(\dfrac{1}{1 + x^2} - \dfrac{x}{1 + x^2}\Bigg)\ dx = \Bigg[\tan^{-1}x - \dfrac{\ln (2 + x^2)}{2}\Bigg]_0^1 = \dfrac{\pi}{4} - \dfrac{\ln 2}{2}$
+		
+		$\Rightarrow$ Logo, $\displaystyle\oint_C\ F \cdot dr = \dfrac{\pi}{4} - \dfrac{\ln 2}{2}$
+		
+		%###############################################################################################################################################
+		% Capítulo 16 - Cálculo Vetorial - Exercícios 16.4 - Questão 17
+		\item Use o Teorema de Green para achar o trabalho realizado pela força $F(x,y) = x(x+y)\vec{i} + xy^2\vec{j}$ ao mover uma partícula da origem ao longo do eixo x para $(1,0)$, em seguida ao longo de um segmento de reta até $(0,1)$, e então de volta a origem ao longo do eixo y
+		
+		$\Rightarrow W = \displaystyle\int_{C}\ F \cdot dr = \displaystyle\int_{C}\ x(x + y)\ dx + xy^2\ dy$
+		
+		$\Rightarrow \displaystyle\int_{C}\ x(x + y)\ dx + xy^2\ dy = \displaystyle\iint_D\ \Bigg[\dfrac{\partial}{\partial x}(xy^2) - \dfrac{\partial}{\partial y}(x(x + y))\Bigg]\ dA$
+		
+		$\Rightarrow \displaystyle\iint_D\ \Bigg[\dfrac{\partial}{\partial x}(xy^2) - \dfrac{\partial}{\partial y}(x(x + y))\Bigg]\ dA = \displaystyle\iint_D\ (y^2 - x)$
+		
+		$\Rightarrow W = \displaystyle\int_{0}^{1}\ \displaystyle\int_{0}^{1 - x}\ (y^2 - x)\ dy \ dx = \displaystyle\int_{0}^{1}\ \Bigg[\dfrac{y^3}{3} - xy\Bigg]_0^{1-x}\ dx $
+		
+		$\Rightarrow \displaystyle\int_{0}^{1}\ \Bigg[\dfrac{y^3}{3} - xy\Bigg]_0^{1-x}\ dx = \displaystyle\int_{0}^{1}\ (\dfrac{(1 - x^3)^3}{3} - x(1 - x))\ dx $
+		
+		$\Rightarrow \displaystyle\int_{0}^{1}\ (\dfrac{(1 - x^3)^3}{3} - x(1 - x))\ dx = \Bigg[\dfrac{-1}{12}(1 - x)^4 - \dfrac{1}{2}(x^2) + \dfrac{x^3}{3}\Bigg]_0^1$
+		
+		$\Rightarrow \Bigg[\dfrac{-1}{12}(1 - x)^4 - \dfrac{1}{2}(x^2) + \dfrac{x^3}{3}\Bigg]_0^1 = (\dfrac{-1}{2} + \dfrac{1}{3} - \Big(\dfrac{-1}{12}\Big) = -\dfrac{1}{12}$
+		
+		$\Rightarrow$ Logo, $W = \dfrac{1}{12}$
+		
+		\item Pelo teorema de Green, $W = \int_C F dx =  \int_C x(x+y)dx + xy^2 dy = \iint_D (y^2 -x) dA$ onde $C$ é o caminho descrito na questão e $D$ e o trinalgulo percorrido por $C$. Então\\
+	    $W = \int_{0}^{1}\int_{0}^{1-x} (y^2 -x) dydx = \int_{0}^{1} [\frac{1}{3}y^3 - xy]_{y=0}^{y = 1-x} dx = \int_{0}^{1} \frac{1}{3}(1-x)^3 - x(1-x) dx = [-\frac{1}{12}(1-x)^4 - \frac{1}{2}x^2 + \frac{1}{3}x^3]_{0}^{1} = (- \frac{1}{2} + \frac{1}{3}) - (-\frac{1}{12}) = -\frac{1}{12} $
+	    \item Pelo temorema de Green: $-\frac{1}{3}\rho\oint_C y^3 dx = -\frac{1}{3}\rho\iint_D (-3y^2) dA = \iint_D  y^2 \rho dA = I_x$ e $\frac{1}{3}\rho\oint_C x^3 dy = \frac{1}{3}\rho \iint_D (3x^2)dA = \iint_D x^2 \rho dA = I_y$
+	    \item Como $C$ é um caminho fechado simples que não passa ou delimita a origem, existe uma região aberta que não contém a origem mas contém $D$. Assim $P = \frac{-y}{(x^2 + y^2)}$ e $Q = \frac{x}{(x^2 + y^2)}$ têm derivados parciais contínuas sobre esta região aberta contendo $D$ e podemos aplicar o Teorema de Green. Mas como ja sabemos $\frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x}$, então $\oint_C F dr = \iint_D O dA = 0$.
+	\end{enumerate}
+	
+\end{document}

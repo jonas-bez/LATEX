@@ -1,1 +1,1 @@
-# c-lculo-LATEX
+alguns repositórios de formatação LATEX
