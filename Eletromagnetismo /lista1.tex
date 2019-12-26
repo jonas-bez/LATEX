@@ -1,0 +1,254 @@
+\documentclass{article}
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+
+\title{Lista 1 Eletromagnetismo}
+\author{Jonas Bezerra }
+\date{March 2019}
+
+\begin{document}
+
+\maketitle
+
+\section{Griffiths}
+
+\noindent\textbf{1.1}\newline
+\noindent A) $|B+C|\sin\theta \rightarrow (|B|\cos\theta)A $
+
+$AB \cos\theta + AC\cos\theta$
+
+$|B+C|\sin\theta -(B\sin\theta + \sin\theta)A \vec I$
+
+$AB\sin\theta \vec I + AC \sin\theta \vec I$\newline\newline
+
+\noindent B)
+$(\vec V + \vec W)\vec X = \vec V \vec X + \vec W \vec X$
+
+$\vec V = \Bigg[ \begin{array}{c}
+     v1 \\
+     v2 \\
+     vn
+
+\end{array}{}\Bigg] 
+\vec W = \Bigg[ \begin{array}{c}
+     W1 \\
+     W2 \\
+     Wn
+
+\end{array}{}\Bigg] 
+\vec X = \Bigg[ \begin{array}{c}
+     x1 \\
+     x2 \\
+     xn
+
+\end{array}{}\Bigg] $
+
+
+$\vec V + \vec W = 
+\Bigg[ \begin{array}{c}
+     v1+w1 \\
+     v2+w2 \\
+     vn+wn
+\end{array}{}\Bigg]
+= (v1+w1) + (v2+w2) + (vn+wn)$
+
+
+$(\vec V \vec W)\vec X = 
+\Bigg[ \begin{array}{c}
+     v1+w1 \\
+     v2+w2 \\
+     vn+wn
+
+\end{array}{}\Bigg] 
+.\Bigg[ \begin{array}{c}
+     x1 \\
+     x2 \\
+     xn
+
+\end{array}{}\Bigg] 
+\rightarrow (v1+w1).x1 + (v2+w2).x2 + (vn+wn).xn
+$\newline\newline
+
+$\vec V \vec W + \vec W \vec X $
+
+$\vec V \vec X = (v1 x1) + (v2 + x2) + (vn + xn)$
+
+$\vec W \vec X = (w1 x1) + (w2 + x2) + (wn + xn)$
+
+$\vec V \vec W + \vec w \vec X = (x1v1 + w1x1) \rightarrow x1(v1w1)$\newline\newline
+
+escalar
+$(c. \vec V).\vec W = c(\vec V. \vec W)$
+
+$\Bigg( c.\Bigg[ \begin{array}{c}
+     v1 \\
+     v2 \\
+     vn
+\end{array}{}\Bigg]\Bigg)
+.\Bigg[ \begin{array}{c}
+     w1 \\
+     w2 \\
+     wn
+\end{array}{}\Bigg]
+\rightarrow (cv1w1) + (cv2w2) + (cvnwn)$
+
+$c.\Bigg(\Bigg[ \begin{array}{c}
+     v1 \\
+     v2 \\
+     vn
+\end{array}{}\Bigg]
+.\Bigg[ \begin{array}{c}
+     w1 \\
+     w2 \\
+     wn
+\end{array}{}\Bigg]\Bigg)
+= c.\Bigg[ \begin{array}{c}
+     v1.w1 \\
+     v2.w2 \\
+     vn.wn
+\end{array}{}\Bigg]
+\rightarrow (cv1w1)+(cv2w2)+(cvnwn)
+$\newline\newline
+
+
+\textbf{1.3}
+
+\includegraphics[width=10cm]{eletro1.jpeg}\newline
+$w^2= i^2+j^2$
+
+$w^2= 1^2+1^2$
+
+$w=\sqrt{2}$\newline
+
+$a^2 = w^2 + k^2$
+
+$ a^2 = (\sqrt{2})^2 + 1^2$
+
+$a= \sqrt{3}$ \newline
+
+$A= 1\vec x + 1\vec y - 1 \vec z \quad A=\sqrt{3}$ 
+
+$B= 1\vec x + 1\vec y + 1 \vec z \quad B=\sqrt{3}$ \newline
+
+$A.B= (1.1)+(1.1)+(1.-1) = 1+1-1 =1$
+
+$AB\cos \theta = \sqrt{3}\sqrt{3}\cos\theta$
+
+$3\cos{\theta}=1 \rightarrow \cos{\theta}=\frac{1}{3}\rightarrow \theta=\frac{1}{3\cos}$
+
+$\theta = 70,5$\newline\newline
+
+\textbf{1.5}\newline
+BAC-CBA \newline
+$Ax(BxC)=\Bigg[ \begin{array}{ccc}
+     \vec x & \vec y & \vec z \\
+     Ax & Ay & Az \\
+     (B_yC_z - B_zC_z)&(B_zC_x - B_xC_z)&(B_xC_y - B_yC_x) 
+\end{array}{}\Bigg]$\newline
+
+$= \vec X[A_y(B_xC_y - B_yC_x)-A_z(B_zC_x - B_xC_y)+\vec Y(...)+\vec Z(...) ] $
+
+$= \vec X(A_yB_xC_y - A_yB_yC_x - A_zB_zC_x + A_zB_xC_z) + \vec Y(...) +\vec Z(...)$\newline
+
+$B(A.C)- C(A.B) = [B_x(A_xC_x+A_zC_y+A_zC_z)- C_x(A_xB_x+A_yB_y+A_zB_z)\vec X +\vec Y(...) + \vec Z(...)$
+
+$\vec X= (A_zB_xC_y+A_zB_xC_z+A_yB_yC_x-A_zB_zC_x)+\vec Y(..) + \vec Z (...)$\newline\newline
+
+\textbf{1.7}
+
+$(2,8,7) \rightarrow (4,6,8)$
+
+$A = 2 \vec x + 8\vec y +7\vec z$
+
+$B = 4\vec x + 6\vec y + 8\vec z$\newline
+
+$R = B-A = (2 \vec x + 8\vec y +7\vec z)-(4\vec x + 6\vec y + 8\vec z) $
+
+$R = 2\vec x - 2\vec y + \vec z$
+
+$R=\sqrt{2^2+2^2+1^2}$
+
+$R=3$
+
+$\vec r = \frac{r}{R} \rightarrow \frac{2}{3}\vec x -\frac{2}{3}\vec y +\frac{1}{3}\vec z$ \newline\newline
+
+\textbf{1.9} \newline
+
+\includegraphics[width=4cm]{elet1.png}\newline
+quando rotacionado em 120 graus o eixo y estará onde o eixo x o eixo x vai para onde o aixo z estava assim todos os eixos trocarão de lugar 
+
+$\Bigg[ \begin{array}{c}
+1,0,0\\
+0,1,0\\
+0,0,1
+\end{array}{}\Bigg]
+\rightarrow\Bigg[ \begin{array}{c}
+0,1,0\\
+0,0,1\\
+1,0,0
+\end{array}{}\Bigg]
+$\newline\newline
+
+
+
+\textbf{1.11}\newline
+a) $f(x,y,z)=x^2+y^2+z^2$
+
+$dt=\big(\frac{\partial t}{\partial }x\big)
+dx +\big(\frac{\partial t}{\partial y}\big) dy+ \big(\frac{\partial t}{\partial z} \big)dz = 2x+2y+2z $
+
+$dt= \big(\frac{x^2+ y^2+z^2}{2x}\big)dx + \big(\frac{x^2+ y^2+z^2}{2y}\big)dy + \big(\frac{x^2+ y^2+z^2}{2z}\big)dz$
+
+$de=2x \vec x + 2y\vec y +4z^3\vec z$\newline\newline
+
+b)$f(x,y,z)=x^2.y^2.z^2$
+
+$dt=\big(\frac{\partial t}{\partial }x\big)
+dx +\big(\frac{\partial t}{\partial y}\big) dy+ \big(\frac{\partial t}{\partial z} \big)dz = 2xy^2z^2 + x^22yz^2 + x^2y^22z $
+
+$dt= \big(\frac{x^2.y^2.z^2}{2xy^2z^2}\big)dx + \big(\frac{x^2.y^2.z^2}{x^22yz^2}\big)dy + \big(\frac{x^2.y^2.z^2}{x^2y^22z}\big)dz$
+
+$dt= 2xy^3z^4 \vec x + 3x^2y^2z^4 \vec y + 4x^2y^3z^3\vex z$ \newline\newline
+
+c)\newline\newline
+
+\textbf{1.13}\newline
+$r= (x-x')\vec x +(y+ y')\vec y+ (z- z')\vec z$
+
+$|r|=\sqrt{(x-x')^2 +(y+ y')^2 + (z- z')^2}$\newline
+
+a)$\nabla(r^2) = 2r$
+
+$\nabla(r^2)=\frac{\partial}{\partial x}\bigg[\sqrt{(x-x')^2+(y-y')^2 (z-z')^2}\bigg]^2 \vec x + \frac{\partial}{\partial y}\bigg[\sqrt{...}\bigg]^2\vec y + \frac{\partial}{\partial z}\bigg[\sqrt{...}\bigg]^2 \vec z$
+
+$2(x-x')+2(y-y')+2(z-z')$
+
+$2[(x-x')+(y-y')+(z-z')]=2r$\newline\newline
+
+b)$\nabla (\frac{1}{r})=\frac{-\vec r}{r^2}$
+
+$\nabla(\frac{1}{r})=\frac{\partial}{\partial x}\frac{1}{\sqrt{(x-x')^2+(y-y')^2 (z-z')^2}}\vec x + \frac{\partial}{\partial y}\frac{1}{\sqrt{...}}\vec y + \frac{\partial}{\partial z}\frac{1}{\sqrt{...}}\vec z$
+
+
+
+
+
+\textbf{1.15}\newline
+
+
+\textbf{1.17}\newline
+
+
+\textbf{1.19}\newline
+$v = yz \vec x + xz \vec y + xy \vec Z$
+
+
+
+
+
+
+
+\end{document}
+

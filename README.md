@@ -1,1 +1,1 @@
-alguns repositórios de formatação LATEX
+alguns repositórios de questões resolvidas formatadas em LATEX
